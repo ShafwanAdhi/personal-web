@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="800" y2="520" gradientUnits="userSpaceOnUse"><stop stop-color="#647a77"/><stop offset="1" stop-color="#506762"/></linearGradient>
+    <linearGradient id="teal" x2="465" y2="200" gradientUnits="userSpaceOnUse"><stop stop-color="#064b50"/><stop offset="1" stop-color="#0b6767"/></linearGradient>
+    <linearGradient id="photo" x2="80" y2="65"><stop stop-color="#aac6b6"/><stop offset="1" stop-color="#69988d"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="5" stdDeviation="8" flood-opacity=".16"/></filter>
+    <pattern id="lines" width="100" height="10" patternUnits="userSpaceOnUse"><path d="M0 4h90" stroke="#dde2e0" stroke-width="2"/></pattern>
+    <g id="student"><path d="M5 69Q4 42 24 42h22q20 1 20 27" fill="#ddd5c9"/><ellipse cx="36" cy="29" rx="16" ry="20" fill="#c99e7d"/><path d="M19 25q-2-23 18-23 20 0 18 28l-8-16-24 7" fill="#282528"/><path d="M26 35q9 7 19 0" stroke="#755644" stroke-width="2"/><path d="M16 65h40" stroke="#fbfbf7" stroke-width="6"/></g>
+    <g id="course">
+      <rect width="102" height="139" rx="3" fill="#fff" stroke="#e2e6e2"/>
+      <rect x="7" y="7" width="88" height="61" rx="2" fill="url(#photo)"/>
+      <path d="m7 58 23-28 26 20 18-34 21 34v18H7" fill="#386c63"/>
+      <circle cx="28" cy="23" r="8" fill="#d8d9a9"/>
+      <rect x="8" y="77" width="36" height="5" rx="2" fill="#fa8d36"/>
+      <path d="M8 91h78M8 99h65" stroke="#2a4447" stroke-width="3"/>
+      <path d="M8 111h73M8 118h57" stroke="#bdc6c1" stroke-width="2"/>
+      <path d="M8 131h33" stroke="#e3ac2e" stroke-width="3"/>
+      <path d="M73 131h20" stroke="#fa8d36" stroke-width="4"/>
+    </g>
+    <g id="person-card">
+      <rect width="85" height="122" rx="2" fill="#fff" stroke="#e4e8e5"/>
+      <rect x="6" y="6" width="73" height="65" fill="#e5e4dc"/>
+      <use href="#student" transform="translate(10 7) scale(.9)"/>
+      <path d="M7 81h49M7 90h65" stroke="#3b5150" stroke-width="2"/>
+      <path d="M7 99h51" stroke="#b2bdb6" stroke-width="2"/>
+      <rect x="7" y="107" width="48" height="8" rx="1" fill="#f58c34"/>
+    </g>
+  </defs>
+  <rect width="800" height="520" fill="url(#bg)"/>
+  <!-- Two overlapping full-page design boards reproduce the reference composition. -->
+  <g transform="translate(418 -33)" filter="url(#shadow)">
+    <rect width="350" height="540" fill="#f8faf7"/>
+    <text x="24" y="41" fill="#203c3b" font-family="Arial,sans-serif" font-size="9" font-weight="700">Meet Your Professional</text>
+    <text x="24" y="53" fill="#203c3b" font-family="Arial,sans-serif" font-size="9" font-weight="700">and Passionate Mentors</text>
+    <use href="#person-card" transform="translate(24 70)"/>
+    <use href="#person-card" transform="translate(132 70)"/>
+    <use href="#person-card" transform="translate(240 70)"/>
+    <text x="24" y="220" fill="#203c3b" font-family="Arial,sans-serif" font-size="10" font-weight="700">What Our Learners Say</text>
+    <g transform="translate(24 235)">
+      <rect width="143" height="95" rx="2" fill="white" stroke="#d7ded7"/>
+      <text x="10" y="17" fill="#263c3a" font-family="Arial,sans-serif" font-size="8" font-weight="700">An inspiring learning experience!</text>
+      <rect x="10" y="29" width="123" height="40" fill="url(#lines)"/>
+      <circle cx="17" cy="80" r="6" fill="#b6c9b9"/>
+      <path d="M30 80h61" stroke="#6a7c71" stroke-width="2"/>
+    </g>
+    <g transform="translate(182 235)">
+      <rect width="143" height="95" rx="2" fill="white" stroke="#d7ded7"/>
+      <text x="10" y="17" fill="#263c3a" font-family="Arial,sans-serif" font-size="8" font-weight="700">A new way to improve my skills.</text>
+      <rect x="10" y="29" width="123" height="40" fill="url(#lines)"/>
+      <circle cx="17" cy="80" r="6" fill="#b6c9b9"/>
+      <path d="M30 80h61" stroke="#6a7c71" stroke-width="2"/>
+    </g>
+    <text x="113" y="359" fill="#263c3a" font-family="Arial,sans-serif" font-size="10" font-weight="700">Frequently Asked Questions</text>
+    <path d="M40 374h270M40 396h270M40 418h270M40 440h270" stroke="#d7dfd9"/>
+    <text x="44" y="389" fill="#65716b" font-family="Arial,sans-serif" font-size="6">How do I start learning?　　　　　　　　　　　　　　　　　　　　　+</text>
+    <text x="44" y="410" fill="#65716b" font-family="Arial,sans-serif" font-size="6">What courses can I join?　　　　　　　　　　　　　　　　　　　　+</text>
+    <text x="44" y="433" fill="#65716b" font-family="Arial,sans-serif" font-size="6">Can I learn at my own pace?　　　　　　　　　　　　　　　　　　　+</text>
+    <rect y="462" width="350" height="120" fill="#064e50"/>
+    <text x="25" y="487" fill="white" font-family="Arial,sans-serif" font-size="9" font-weight="700">skillup.</text>
+    <text x="25" y="503" fill="#bfd1cb" font-family="Arial,sans-serif" font-size="5">Learn something new. Build your future.</text>
+    <path d="M25 515h74M25 523h66M25 531h62M146 483h28M146 496h35M146 507h35M146 518h35M208 483h28M208 496h35M208 507h35M208 518h35" stroke="#91b6b0" stroke-width="2"/>
+    <rect x="274" y="487" width="50" height="10" fill="#f68b31"/>
+  </g>
+  <g transform="translate(30 40)" filter="url(#shadow)">
+    <rect width="461" height="643" fill="#fafbf8"/>
+    <rect width="461" height="217" fill="url(#teal)"/>
+    <text x="37" y="22" fill="white" font-family="Arial,sans-serif" font-size="9" font-weight="700">skillup.</text>
+    <text x="188" y="21" fill="#d2e4df" font-family="Arial,sans-serif" font-size="5">Home　　 Courses　　 Mentors　　 About Us</text>
+    <rect x="354" y="12" width="48" height="12" rx="2" fill="#f69235"/>
+    <text x="366" y="20" fill="white" font-family="Arial,sans-serif" font-size="5">Get Started</text>
+    <text x="38" y="78" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="700">The New Way to</text>
+    <text x="38" y="99" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="700">Achieve Good Skills</text>
+    <text x="38" y="116" fill="#b8d6d1" font-family="Arial,sans-serif" font-size="5.5">Learn from the best. Discover your next passion.</text>
+    <text x="38" y="127" fill="#b8d6d1" font-family="Arial,sans-serif" font-size="5.5">Build a better future, one new skill at a time.</text>
+    <rect x="38" y="144" width="77" height="17" rx="2" fill="#fa8a2e"/>
+    <text x="50" y="155" fill="white" font-family="Arial,sans-serif" font-size="6">Explore Courses →</text>
+    <rect x="286" y="73" width="90" height="99" fill="#809f97"/>
+    <use href="#student" transform="translate(294 83) scale(1.1)"/>
+    <rect x="252" y="60" width="62" height="34" rx="2" fill="#f8fbf6"/>
+    <path d="M259 69h43M259 76h32M259 83h37" stroke="#77a094" stroke-width="2"/>
+    <rect x="345" y="125" width="65" height="46" rx="2" fill="#fafcf7"/>
+    <text x="351" y="137" fill="#42594e" font-family="Arial,sans-serif" font-size="5">Find your next skill</text>
+    <path d="M352 146h50M352 153h43M352 160h31" stroke="#cfdbd1" stroke-width="2"/>
+    <circle cx="379" cy="53" r="6" fill="#f08d33"/>
+    <path d="m380 76 25-20M269 168l-23 15" stroke="#f6d082" stroke-width="2"/>
+    <text x="38" y="243" fill="#647870" font-family="Arial,sans-serif" font-size="5">LEARN FROM THE BEST</text>
+    <text x="38" y="257" fill="#243d38" font-family="Arial,sans-serif" font-size="10" font-weight="700">Upgrade Your Skills Immediately</text>
+    <text x="38" y="271" fill="#647870" font-family="Arial,sans-serif" font-size="5">Everything you need to take the next step.</text>
+    <use href="#course" transform="translate(38 284)"/>
+    <use href="#course" transform="translate(152 284)"/>
+    <use href="#course" transform="translate(266 284)"/>
+    <use href="#course" transform="translate(380 284)"/>
+    <text x="38" y="452" fill="#243d38" font-family="Arial,sans-serif" font-size="10" font-weight="700">Start Learning From</text>
+    <text x="38" y="465" fill="#243d38" font-family="Arial,sans-serif" font-size="10" font-weight="700">The Best Courses Today</text>
+    <use href="#course" transform="translate(38 480)"/>
+    <use href="#course" transform="translate(152 480)"/>
+    <use href="#course" transform="translate(266 480)"/>
+  </g>
+</svg>
