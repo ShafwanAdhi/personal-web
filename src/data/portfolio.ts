@@ -10,6 +10,7 @@ export type SocialIcon = 'gmail' | 'linkedin' | 'github'
 export interface ProjectImage { src: string; alt: string; caption: string }
 export interface Project {
   id: string
+  websiteUrl?: string
   category: string
   title: string
   description: string
@@ -217,7 +218,8 @@ export const portfolio = {
         "label": "Product API tests passed",
         "description": "I verified focused mobile-backend adapters and community-evidence handling through eleven tests using mocked upstream responses and database transactions."
       }
-    ]
+    ],
+    "websiteUrl": "https://waspadai.shafwan.digital/"
   },
   {
     "id": "numora-question-variants",
@@ -501,7 +503,8 @@ export const portfolio = {
         "label": "Organized retrieval collections",
         "description": "I organized retrieval around academic administration, campus services, university profile, finance, and graduation, giving queries a focused source collection to search."
       }
-    ]
+    ],
+    "websiteUrl": "https://ragcampus.shafwan.digital/"
   },
   {
     "id": "bonjermgu",
@@ -600,7 +603,8 @@ export const portfolio = {
         "label": "Operational access workflows",
         "description": "I separated referral, account-officer, and administrator responsibilities through routes, ownership scopes, and policies, keeping application management distinct from configuration and aggregate reporting."
       }
-    ]
+    ],
+    "websiteUrl": "https://bonjermgu.com/"
   },
   {
     "id": "sidika",
@@ -710,11 +714,13 @@ export const portfolio = {
         "label": "Authenticated password changes",
         "description": "I added explicit password-change validation and hashing in the account workflow. This is an implemented control, not a penetration-test result or security certification."
       }
-    ]
+    ],
+    "websiteUrl": ""
   }
 ] satisfies Project[],
   },
   projectDetail: {
+    websiteLabel: 'Visit Website',
     sectionNumbers: ['01', '02', '03'],
     backLabel: 'Back to projects',
     eyebrow: 'Selected work / Case study',

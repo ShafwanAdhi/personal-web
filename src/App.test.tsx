@@ -16,6 +16,24 @@ function mobileViewport() {
 }
 
 describe('portfolio visitor journeys', () => {
+  it.each([
+    ['waspadai', 'https://waspadai.shafwan.digital/'],
+    ['sisdas-rag-assistant', 'https://ragcampus.shafwan.digital/'],
+    ['bonjermgu', 'https://bonjermgu.com/'],
+    ['numora-question-variants', null],
+    ['siparih', null],
+  ])('offers the configured website only on eligible case studies: %s', (id, url) => {
+    window.history.replaceState(null, '', `/projects/${id}`)
+    render(<App />)
+    if (!url) {
+      expect(screen.queryByRole('link', { name: 'Visit Website' })).not.toBeInTheDocument()
+      return
+    }
+    const link = screen.getByRole('link', { name: 'Visit Website' })
+    expect(link).toHaveAttribute('href', url)
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
   it('introduces Shafwan and links the hero action to his work', () => {
     render(<App />)
     expect(screen.getByRole('link', { name: 'Shafwanadhi' })).toHaveAttribute('href', '/')
