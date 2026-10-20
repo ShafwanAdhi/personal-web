@@ -320,36 +320,31 @@ export const portfolio = {
     "category": "software",
     "title": "SIPARIH",
     "description": "A village document platform that connects resident submissions, neighborhood approvals, protected PDF delivery, and administrative archives in one streamlined workflow.",
-    "image": "/assets/projects/siparih/dashboard-preview.webp",
-    "imageAlt": "SIPARIH administrative dashboard showing document requests and service summaries.",
+    "image": "/assets/projects/siparih/letter-submission.webp?v=c6723338f2",
+    "imageAlt": "SIPARIH introduction-letter submission form with supporting-document upload.",
     "gallery": [
       {
-        "src": "/assets/projects/siparih/admin-dashboard.webp",
-        "alt": "SIPARIH administrative dashboard showing document requests and service summaries.",
-        "caption": "The administrative dashboard brings request status, service summaries, and recent activity together."
-      },
-      {
-        "src": "/assets/projects/siparih/resident-management.webp",
-        "alt": "SIPARIH resident-management table using demonstration records.",
-        "caption": "Resident management organizes demonstration accounts and the information supporting village services."
-      },
-      {
-        "src": "/assets/projects/siparih/letter-submission.webp",
+        "src": "/assets/projects/siparih/letter-submission.webp?v=c6723338f2",
         "alt": "SIPARIH introduction-letter submission form with supporting-document upload.",
         "caption": "Residents submit introduction-letter requests and upload the documents required for review."
       },
       {
-        "src": "/assets/projects/siparih/submission-history.webp",
+        "src": "/assets/projects/siparih/resident-management.webp?v=d5ff43a1d7",
+        "alt": "SIPARIH resident-management table using demonstration records.",
+        "caption": "Resident management organizes demonstration accounts and the information supporting village services."
+      },
+      {
+        "src": "/assets/projects/siparih/submission-history.webp?v=5a2e64953a",
         "alt": "SIPARIH resident submission history with request status and review notes.",
         "caption": "Submission history shows progress, status, and review notes for each resident request."
       },
       {
-        "src": "/assets/projects/siparih/incoming-documents.webp",
+        "src": "/assets/projects/siparih/incoming-documents.webp?v=1fab5e46dd",
         "alt": "SIPARIH incoming document requests awaiting neighborhood review.",
         "caption": "Neighborhood leaders review incoming requests through a dedicated document queue."
       },
       {
-        "src": "/assets/projects/siparih/document-review.webp",
+        "src": "/assets/projects/siparih/document-review.webp?v=0aba72c67c",
         "alt": "SIPARIH document review with a PDF preview and approval controls.",
         "caption": "Document review combines the submitted PDF, request details, and review actions in one workspace."
       }

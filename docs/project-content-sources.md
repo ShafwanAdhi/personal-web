@@ -23,3 +23,5 @@ Every project uses five contributions, four results, first-person contribution/r
 Both galleries now use six authenticated application screenshots supplied by the owner. Bonjermgu sources are `bonjermgu/screenshots/`; SIPARIH sources are the six numbered PNGs in `siparih/`. Earlier gallery assets were removed. Gallery WebP exports retain the complete screenshot; dashboard card previews crop only the bottom portion for the existing card ratio.
 
 Bonjermgu privacy masks are already present in the source captures. SIPARIH captures use a separate demonstration database with fictional records and placeholder documents. Visible statistics are not portfolio impact metrics. Project narratives and evaluation claims were preserved.
+
+SIPARIH refresh: five updated screenshots from the owner replaced the previous exports. The latest dashboard capture contains a blank content area and is excluded. The submission form is the cover and first slide. Content-version query strings prevent browsers from reusing older cached images.
