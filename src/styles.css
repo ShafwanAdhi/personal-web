@@ -318,7 +318,7 @@ h1 span { display: block; }
 .contribution-list li { position: relative; padding-left: 34px; counter-increment: contribution; }
 .contribution-list li::before { content: counter(contribution, decimal-leading-zero); position: absolute; left: 0; top: 2px; font-size: 11px; color: #878787; }
 .contribution-list h3 { font-size: 15px; font-weight: 500; line-height: 1.5; margin-bottom: 5px; }
-.achievement-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-top: 22px; }
+.achievement-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; margin-top: 22px; }
 .achievement-grid strong { font-size: 31px; font-weight: 600; color: var(--lime); line-height: 1.2; }
 .achievement-grid h3 { margin-top: 9px; font-size: 14px; font-weight: 500; line-height: 1.5; }
 .achievement-grid p { margin-top: 6px; font-size: 14px; color: #aaa; line-height: 1.75; }
@@ -399,9 +399,7 @@ h1 span { display: block; }
   .case-study-body { gap: 32px; }
   .case-study-body h2 { font-size: 23px; }
   .achievement-grid { grid-template-columns: 1fr; gap: 24px; }
-  .achievement-grid > div { display: grid; grid-template-columns: 85px 1fr; column-gap: 18px; }
-  .achievement-grid strong { grid-row: span 2; }
-  .achievement-grid h3 { margin-top: 0; }
+  .achievement-grid strong { display: block; }
   .detail-end { margin-top: 40px; }
   .more-work-heading { align-items: flex-start; flex-direction: column; gap: 6px; margin-bottom: 18px; }
   .next-project { grid-template-columns: 1fr; }

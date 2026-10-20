@@ -37,7 +37,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
       <div className="case-study-body">
         <Reveal><section aria-labelledby="overview-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[0]}</p><h2 id="overview-title">{copy.overviewTitle}</h2><p>{project.overview}</p></section></Reveal>
         <Reveal><section aria-labelledby="contributions-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[1]}</p><h2 id="contributions-title">{copy.contributionsTitle}</h2><ol className="contribution-list">{project.contributions.map(item => <li key={item.title}><h3>{item.title}</h3><p>{item.description}</p></li>)}</ol></section></Reveal>
-        <Reveal><section aria-labelledby="achievements-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[2]}</p><h2 id="achievements-title">{copy.achievementsTitle}</h2><div className="achievement-grid">{project.achievements.map(item => <div key={item.label}><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.description}</p></div>)}</div><p className="demo-note">{copy.demoNote}</p></section></Reveal>
+        <Reveal><section aria-labelledby="achievements-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[2]}</p><h2 id="achievements-title">{copy.achievementsTitle}</h2><div className="achievement-grid">{project.achievements.map(item => <div key={item.label}><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.description}</p></div>)}</div></section></Reveal>
       </div>
     </div>
     <Reveal className="detail-end">

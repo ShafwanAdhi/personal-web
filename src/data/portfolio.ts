@@ -2,7 +2,7 @@
  * EDIT THIS FILE TO PERSONALIZE THE ENTIRE WEBSITE.
  * All visible copy, links, image paths, SEO, and accessible labels live here.
  * Images go in public/assets/; reference them as /assets/your-file.webp.
- * Current names, experience, and projects are demonstration data.
+ * Project content describes Shafwan's work; evaluation descriptions retain their measured scope.
  */
 
 export type SocialIcon = 'gmail' | 'linkedin' | 'github'
@@ -37,17 +37,6 @@ export interface Certification {
   image?: string
   credentialUrl?: string
 }
-
-const technicalGallery: ProjectImage[] = [
-  { src: '/assets/analytics.svg', alt: 'Dark analytics workspace with a forecast chart and experiment results', caption: 'Experiment results and model performance.' },
-  { src: '/assets/pipeline.svg', alt: 'Connected stages of a data and machine learning pipeline', caption: 'From raw data to a reproducible prediction pipeline.' },
-  { src: '/assets/evaluation.svg', alt: 'Model evaluation matrix and comparison of experiment results', caption: 'Comparing experiments and understanding model behavior.' },
-]
-const designGallery: ProjectImage[] = [
-  { src: '/assets/project-preview.svg', alt: 'Teal and white learning-platform interface', caption: 'The main product experience.' },
-  { ...technicalGallery[1], caption: 'Planning the product flow and implementation.' },
-  { ...technicalGallery[0], caption: 'Exploring product metrics and validation.' },
-]
 
 export const portfolio = {
   meta: {
@@ -118,7 +107,7 @@ export const portfolio = {
   work: {
     allCategoryId: 'all',
     defaultCategoryId: 'all',
-    featuredProjectIds: ['demand-forecast', 'vision-inspector', 'autonomous-rover'],
+    featuredProjectIds: ['waspadai', 'numora-question-variants', 'siparih'],
     title: 'Selected Projects',
     description: 'A collection of projects and experiments where I explore ideas, build systems, and apply AI, machine learning, and data science to practical problems.',
     categories: [
@@ -135,361 +124,287 @@ export const portfolio = {
     backLabel: 'Back to home',
     emptyTitle: 'More projects are on the way.',
     emptyDescription: "I'm always exploring new ideas and working on something new.",
-    projects: [{
-  "id": "demand-forecast",
-  "category": "others",
-  "title": "Retail Demand Forecast",
-  "description": "Turning historical sales into clear, actionable demand predictions.",
-  "image": "/assets/analytics.svg",
-  "imageAlt": "Forecast chart and model performance workspace",
-  "gallery": technicalGallery,
-  "year": "2025",
-  "role": "Data Scientist",
-  "duration": "8 weeks",
-  "overview": "An end-to-end forecasting study using a sample retail dataset. The goal was to understand seasonal demand, reduce prediction error, and make model outputs useful for inventory planning. This case study demonstrates a reproducible workflow from exploratory analysis to evaluation.",
-  "tools": [
-    "Python",
-    "Pandas",
-    "Scikit-learn",
-    "XGBoost",
-    "Streamlit"
-  ],
-  "contributions": [
-    {
-      "title": "Understand the data",
-      "description": "Cleaned transaction records, explored seasonality, and identified missing values and outliers before modeling."
-    },
-    {
-      "title": "Build and compare models",
-      "description": "Engineered calendar and lag features, compared a seasonal baseline with gradient boosting, and evaluated with time-based validation."
-    },
-    {
-      "title": "Make results usable",
-      "description": "Created an interactive dashboard for exploring forecasts, error distributions, and product-level trends."
-    }
-  ],
-  "achievements": [
-    {
-      "value": "24%",
-      "label": "Lower forecast error",
-      "description": "Illustrative improvement against a seasonal baseline on a held-out sample."
-    },
-    {
-      "value": "12k",
-      "label": "Records analyzed",
-      "description": "Sample sales records cleaned and transformed into modeling features."
-    },
-    {
-      "value": "3",
-      "label": "Models compared",
-      "description": "Baseline, random forest, and gradient boosting evaluated on identical splits."
-    }
-  ]
-},
-{
-  "id": "vision-inspector",
-  "category": "ai-ml",
-  "title": "AI Visual Inspection",
-  "description": "A computer vision prototype that spots defects on the production line.",
-  "image": "/assets/pipeline.svg",
-  "imageAlt": "Connected machine learning training and inference stages",
-  "gallery": technicalGallery,
-  "year": "2025",
-  "role": "ML Engineer",
-  "duration": "6 weeks",
-  "overview": "A prototype visual inspection system using a sample image dataset. The project explores how a lightweight neural network can identify surface defects and provide useful explanations for an operator. The focus is on balanced evaluation, dependable inference, and an approachable review workflow.",
-  "tools": [
-    "Python",
-    "PyTorch",
-    "OpenCV",
-    "FastAPI",
-    "Docker"
-  ],
-  "contributions": [
-    {
-      "title": "Prepare an image dataset",
-      "description": "Organized sample images, designed augmentations, and separated training and evaluation data to prevent leakage."
-    },
-    {
-      "title": "Train a vision model",
-      "description": "Fine-tuned a compact classifier and tracked precision, recall, and failure cases across experiments."
-    },
-    {
-      "title": "Connect inference to a workflow",
-      "description": "Packaged a prediction endpoint and built an inspection view with confidence scores and review history."
-    }
-  ],
-  "achievements": [
-    {
-      "value": "94%",
-      "label": "Validation accuracy",
-      "description": "Illustrative result on a balanced demonstration dataset."
-    },
-    {
-      "value": "80ms",
-      "label": "Inference time",
-      "description": "Sample per-image latency measured in the local prototype."
-    },
-    {
-      "value": "5",
-      "label": "Defect categories",
-      "description": "A small taxonomy designed for consistent operator review."
-    }
-  ]
-},
-{
-  "id": "autonomous-rover",
-  "category": "software",
-  "title": "Autonomous Navigation Rover",
-  "description": "A sensor-driven rover that maps its surroundings and finds a safe route.",
-  "image": "/assets/robotics.svg",
-  "imageAlt": "Autonomous rover and its sensor coverage",
-  "gallery": [{ src: "/assets/robotics.svg", alt: "Autonomous rover and its sensor coverage", caption: "The simulated rover and its perception system." }, technicalGallery[1], technicalGallery[0]],
-  "year": "2025",
-  "role": "Robotics Engineer",
-  "duration": "10 weeks",
-  "overview": "A simulated autonomous rover built to explore perception, route planning, and control. The project combines sensor inputs with a modular navigation pipeline, then validates behavior in repeatable test environments before a hardware prototype.",
-  "tools": [
-    "ROS 2",
-    "Python",
-    "C++",
-    "Gazebo",
-    "OpenCV"
-  ],
-  "contributions": [
-    {
-      "title": "Design the navigation pipeline",
-      "description": "Connected sensing, localization, planning, and control using independent ROS nodes."
-    },
-    {
-      "title": "Build and tune the controller",
-      "description": "Implemented waypoint tracking and obstacle avoidance, then tuned motion in simulation."
-    },
-    {
-      "title": "Test realistic scenarios",
-      "description": "Designed repeatable routes with varied obstacles and logged completion rate, path length, and recovery behavior."
-    }
-  ],
-  "achievements": [
-    {
-      "value": "18/20",
-      "label": "Routes completed",
-      "description": "Illustrative outcome across simulated navigation scenarios."
-    },
-    {
-      "value": "360°",
-      "label": "Obstacle awareness",
-      "description": "Sensor coverage used to inform local route planning."
-    },
-    {
-      "value": "4",
-      "label": "Modular ROS nodes",
-      "description": "Separate perception, localization, planning, and control components."
-    }
-  ]
-},
-{
-  "id": "web-01",
-  "category": "software",
-  "title": "Indonesiaku Landing Page",
-  "role": "UI/UX Designer",
-  "description": "An approachable learning experience, from discovery to measurable progress.",
-  "image": "/assets/project-preview.svg",
-  "imageAlt": "Teal and white learning-platform design",
-  "gallery": designGallery,
-  "year": "2024",
-  "duration": "6 weeks",
-  "overview": "A demonstration learning-platform project that makes course discovery simple and gives learners a clear path to progress. The work combines user research, a cohesive interface, and a practical delivery plan. This sample is ready to replace with your own case study.",
-  "tools": [
-    "Figma",
-    "FigJam",
-    "Notion"
-  ],
-  "contributions": [
-    {
-      "title": "Find the right problem",
-      "description": "Mapped the learning journey, reviewed common friction points, and established a focused project brief."
-    },
-    {
-      "title": "Create the experience",
-      "description": "Built a reusable visual system and tested navigation, course discovery, and responsive layouts."
-    },
-    {
-      "title": "Deliver and iterate",
-      "description": "Documented decisions, coordinated handoff, and refined the experience from sample usability feedback."
-    }
-  ],
-  "achievements": [
-    {
-      "value": "3",
-      "label": "Core journeys",
-      "description": "Course discovery, enrollment, and learning progress explored."
-    },
-    {
-      "value": "12",
-      "label": "Reusable components",
-      "description": "A small, consistent foundation for future product work."
-    },
-    {
-      "value": "100%",
-      "label": "Responsive coverage",
-      "description": "Sample layouts prepared for mobile, tablet, and desktop."
-    }
-  ]
-},
-{
-  "id": "mobile-01",
-  "category": "software",
-  "title": "Indonesiaku Mobile App",
-  "role": "Product Designer",
-  "description": "An approachable learning experience, from discovery to measurable progress.",
-  "image": "/assets/project-preview.svg",
-  "imageAlt": "Teal and white learning-platform design",
-  "gallery": designGallery,
-  "year": "2024",
-  "duration": "6 weeks",
-  "overview": "A demonstration learning-platform project that makes course discovery simple and gives learners a clear path to progress. The work combines user research, a cohesive interface, and a practical delivery plan. This sample is ready to replace with your own case study.",
-  "tools": [
-    "Figma",
-    "FigJam",
-    "Notion"
-  ],
-  "contributions": [
-    {
-      "title": "Find the right problem",
-      "description": "Mapped the learning journey, reviewed common friction points, and established a focused project brief."
-    },
-    {
-      "title": "Create the experience",
-      "description": "Built a reusable visual system and tested navigation, course discovery, and responsive layouts."
-    },
-    {
-      "title": "Deliver and iterate",
-      "description": "Documented decisions, coordinated handoff, and refined the experience from sample usability feedback."
-    }
-  ],
-  "achievements": [
-    {
-      "value": "3",
-      "label": "Core journeys",
-      "description": "Course discovery, enrollment, and learning progress explored."
-    },
-    {
-      "value": "12",
-      "label": "Reusable components",
-      "description": "A small, consistent foundation for future product work."
-    },
-    {
-      "value": "100%",
-      "label": "Responsive coverage",
-      "description": "Sample layouts prepared for mobile, tablet, and desktop."
-    }
-  ]
-},
-{
-  "id": "website-01",
-  "category": "software",
-  "title": "Indonesiaku Website",
-  "role": "Full Stack Developer",
-  "description": "An approachable learning experience, from discovery to measurable progress.",
-  "image": "/assets/project-preview.svg",
-  "imageAlt": "Teal and white learning-platform design",
-  "gallery": designGallery,
-  "year": "2024",
-  "duration": "6 weeks",
-  "overview": "A demonstration learning-platform project that makes course discovery simple and gives learners a clear path to progress. The work combines user research, a cohesive interface, and a practical delivery plan. This sample is ready to replace with your own case study.",
-  "tools": [
-    "React",
-    "TypeScript",
-    "CSS"
-  ],
-  "contributions": [
-    {
-      "title": "Find the right problem",
-      "description": "Mapped the learning journey, reviewed common friction points, and established a focused project brief."
-    },
-    {
-      "title": "Create the experience",
-      "description": "Built a reusable visual system and tested navigation, course discovery, and responsive layouts."
-    },
-    {
-      "title": "Deliver and iterate",
-      "description": "Documented decisions, coordinated handoff, and refined the experience from sample usability feedback."
-    }
-  ],
-  "achievements": [
-    {
-      "value": "3",
-      "label": "Core journeys",
-      "description": "Course discovery, enrollment, and learning progress explored."
-    },
-    {
-      "value": "12",
-      "label": "Reusable components",
-      "description": "A small, consistent foundation for future product work."
-    },
-    {
-      "value": "100%",
-      "label": "Responsive coverage",
-      "description": "Sample layouts prepared for mobile, tablet, and desktop."
-    }
-  ]
-},
-{
-  "id": "management-01",
-  "category": "software",
-  "title": "Indonesiaku Product Launch",
-  "role": "Project Manager",
-  "description": "An approachable learning experience, from discovery to measurable progress.",
-  "image": "/assets/project-preview.svg",
-  "imageAlt": "Teal and white learning-platform design",
-  "gallery": designGallery,
-  "year": "2024",
-  "duration": "6 weeks",
-  "overview": "A demonstration learning-platform project that makes course discovery simple and gives learners a clear path to progress. The work combines user research, a cohesive interface, and a practical delivery plan. This sample is ready to replace with your own case study.",
-  "tools": [
-    "Figma",
-    "FigJam",
-    "Notion"
-  ],
-  "contributions": [
-    {
-      "title": "Find the right problem",
-      "description": "Mapped the learning journey, reviewed common friction points, and established a focused project brief."
-    },
-    {
-      "title": "Create the experience",
-      "description": "Built a reusable visual system and tested navigation, course discovery, and responsive layouts."
-    },
-    {
-      "title": "Deliver and iterate",
-      "description": "Documented decisions, coordinated handoff, and refined the experience from sample usability feedback."
-    }
-  ],
-  "achievements": [
-    {
-      "value": "3",
-      "label": "Core journeys",
-      "description": "Course discovery, enrollment, and learning progress explored."
-    },
-    {
-      "value": "12",
-      "label": "Reusable components",
-      "description": "A small, consistent foundation for future product work."
-    },
-    {
-      "value": "100%",
-      "label": "Responsive coverage",
-      "description": "Sample layouts prepared for mobile, tablet, and desktop."
-    }
-  ]
-}] satisfies Project[],
+    projects: [
+  {
+    "id": "waspadai",
+    "category": "ai-ml",
+    "title": "WaspadAI",
+    "description": "An evidence-guided AI system that investigates suspicious messages, links, and screenshots through multimodal analysis, grounded retrieval, and clear, actionable explanations.",
+    "image": "/assets/projects/waspadai/waspadai-cover.webp",
+    "imageAlt": "Two Indonesian adults reviewing potentially suspicious information on a smartphone, representing WaspadAI's collaborative digital-safety use case.",
+    "gallery": [
+      {
+        "src": "/assets/projects/waspadai/verification-architecture.webp",
+        "alt": "WaspadAI verification architecture, from input normalization to evidence retrieval and verdict generation.",
+        "caption": "The AI pipeline combines privacy filtering, rulebook-guided investigation, evidence retrieval, and conservative verdicts."
+      },
+      {
+        "src": "/assets/projects/waspadai/technology-stack.webp",
+        "alt": "WaspadAI architecture separating the external application from the AI verification service.",
+        "caption": "A modular web and API stack keeps product authentication separate from the stateless verification service."
+      },
+      {
+        "src": "/assets/projects/waspadai/server-integration.webp",
+        "alt": "Source-derived architecture diagram connecting Android, the Product Backend, Supabase, and the separate AI fact-check API.",
+        "caption": "Android authenticates through the Product Backend, which owns product records and calls the separate AI verification service."
+      },
+      {
+        "src": "/assets/projects/waspadai/community-evidence.webp",
+        "alt": "Source-derived diagram of community evidence selection, consent and moderation checks, payload limits, and text or image request transport.",
+        "caption": "Community evidence passes consent, moderation, content-hash, and payload checks before AI-service transport. Development fixtures remain separate from real records."
+      }
+    ],
+    "year": "2026",
+    "role": "AI & Full-Stack Developer / Mobile Integration Contributor",
+    "duration": "September 2026",
+    "overview": "WaspadAI turns suspicious messages, links, and screenshots into structured investigations. I built the AI verification service and web demo, combining privacy filtering, rulebook-guided planning, bounded evidence retrieval, and conservative verdict generation. The system separates investigation rules from factual evidence and returns UNVERIFIED when the available sources cannot support a confident conclusion. I also contributed to the team-built Android application: authenticated API integration, screenshot cropping, community-evidence transport, and clearer result presentation. The AI service and mobile product have distinct responsibilities, connected through an explicit server-to-server contract.",
+    "tools": [
+      "Python",
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+      "Groq API",
+      "Qwen",
+      "GPT-OSS",
+      "Tavily Search",
+      "Tesseract OCR",
+      "Kotlin",
+      "Jetpack Compose",
+      "Supabase",
+      "PostgreSQL",
+      "Docker Compose"
+    ],
+    "contributions": [
+      {
+        "title": "Designed the multimodal verification architecture",
+        "description": "Shafwan built a shared text-and-image pipeline that validates input, applies URL sanitization and PII redaction, extracts risk signals, and produces one canonical response contract. This keeps modality-specific processing at the boundary while preserving consistent downstream verification behavior."
+      },
+      {
+        "title": "Built a rulebook-guided investigation layer",
+        "description": "Shafwan compiled three rulebook domains into 255 retrievable rule chunks with BM25, hashed-subword similarity, metadata scoring, phase-aware selection, and 17 deterministic safety triggers. The design keeps investigation policy separate from evidence so rules can guide checks and safe actions without deciding factual truth."
+      },
+      {
+        "title": "Added evidence boundaries and deterministic guardrails",
+        "description": "Shafwan integrated bounded Tavily search, a small verified official-reference corpus, and request-scoped community evidence. He also added claim-grounding repair, evidence-sufficiency checks, conflict handling, deterministic fallbacks, and final consistency rules to prevent weak evidence from becoming an unsupported definitive verdict."
+      },
+      {
+        "title": "Delivered the web experience and reusable API contract",
+        "description": "Shafwan implemented the Next.js interface, progressive result presentation, structured and narrative output modes, FastAPI public and server-to-server endpoints, OpenAPI synchronization, and an Android integration contract. Narrative output is derived locally from the canonical result and does not require an additional model call."
+      },
+      {
+        "title": "Created evaluation, observability, and deployment workflows",
+        "description": "Shafwan built privacy-filtered pipeline traces, planner and production benchmark runners, regression tests, Docker health checks, log rotation, Nginx routing, and VPS deployment documentation. Earlier planner failures were documented and used to motivate compact schemas, local validation, deterministic escalation, and recoverable fallbacks."
+      },
+      {
+        "title": "Added overlay crop selection and capture fixes",
+        "description": "Shafwan added region selection and bitmap cropping to the existing floating verification flow, then improved screen-size handling and bounded blank-frame retries. The crop lets users choose the screen area they intend to submit, while capture failures remain visible instead of being treated as usable images."
+      },
+      {
+        "title": "Implemented community-evidence selection and transport",
+        "description": "Shafwan added a backend evidence builder, database read policies, and adapter tests. The implementation joins community posts with consent, contribution, moderation, and source records, checks sanitized content hashes, ranks candidates, and bounds the payload before forwarding evidence to the AI API. Later fixture support and deployed-schema adaptation were added by teammates."
+      }
+    ],
+    "achievements": [
+      {
+        "value": "98.15%",
+        "label": "Critical-signal recall",
+        "description": "Measured on 47 labeled signal cases in a 100-case synthetic, adversarial, and regression benchmark. This measures signal extraction, not real-world fact-checking accuracy."
+      },
+      {
+        "value": "100%",
+        "label": "Replay response validity",
+        "description": "All replayed cases returned schema-valid responses using stubbed model and search providers. Twenty image fixtures were excluded from replay v1."
+      },
+      {
+        "value": "255 rules",
+        "label": "Investigation rulebook",
+        "description": "A versioned corpus spans information integrity, public services, impersonation, phishing, and account takeover, with 17 deterministic safety triggers."
+      },
+      {
+        "value": "11",
+        "label": "Product API tests passed",
+        "description": "Focused mobile-backend adapter and community-evidence tests passed with mocked upstream responses and database transactions."
+      }
+    ]
+  },
+  {
+    "id": "numora-question-variants",
+    "category": "software",
+    "title": "Numora Assessment & Question Variants",
+    "description": "A reproducible mathematics question engine and assessment workbench for Numora, connecting parameterized content, rigorous validation, and assessment-service integration.",
+    "image": "/assets/projects/numora-question-variants/workbench-hero.webp",
+    "imageAlt": "Numora local workbench showing a source mathematics question and a seeded variant side by side, with filters and answer keys.",
+    "gallery": [
+      {
+        "src": "/assets/projects/numora-question-variants/workbench-hero.webp",
+        "alt": "Numora local workbench showing a source mathematics question and a seeded variant side by side, with filters and answer keys.",
+        "caption": "The operator workbench compares original questions with reproducible variants, including answer keys and version information."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/original-vs-variant.webp",
+        "alt": "Original and generated single-choice mean problems with answer options, keys, and worked explanations.",
+        "caption": "Original and generated single-choice questions, with answer options and worked explanations."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/multiple-answer.webp",
+        "alt": "Two multiple-answer statistics questions displaying source data, generated data, statement-level correctness, and explanations.",
+        "caption": "Multiple-answer variants update the dataset and statements together while retaining the required number of correct answers."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/category-statements.webp",
+        "alt": "Original and generated statistics statements labeled true or false in the Numora operator interface.",
+        "caption": "Category-question previews expose statement keys and explanations for operator review."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/architecture.webp",
+        "alt": "Repository-derived diagram of versioned sources, deterministic generation, operator previews, and the separate Numora application and compute service sharing PostgreSQL.",
+        "caption": "Source-derived architecture: versioned content, deterministic generation, operator review, and the separate Numora application and compute service."
+      }
+    ],
+    "year": "2026",
+    "role": "Assessment & Question Generation Developer",
+    "duration": "October 2026",
+    "overview": "Numora is a team-built mathematics practice platform for Indonesian Grade IX students. My work connects question generation, assessment data, and the main application. A deterministic Python engine turns versioned source questions and JSON configurations into reproducible variants, while an operator workbench makes originals, generated content, answer keys, and explanations easy to compare. I extended generator coverage, built inspection and validation tooling, and contributed persistence and service-handoff contracts. My responsibilities also cover IRT and self-adjustment, with the implemented work establishing the content and integration foundations for those assessment capabilities.",
+    "tools": [
+      "Python",
+      "JSON configuration",
+      "JavaScript",
+      "HTML/CSS",
+      "PostgreSQL",
+      "SQL",
+      "TypeScript",
+      "Drizzle ORM",
+      "NestJS",
+      "unittest",
+      "Playwright"
+    ],
+    "contributions": [
+      {
+        "title": "Reproducible question generation",
+        "description": "Extended the deterministic Python engine with additional mathematics indicators and Tryout content. Parameterized questions, answer options, and explanations can be regenerated from a seed and versioned configuration."
+      },
+      {
+        "title": "Operator workbench & mathematical validation",
+        "description": "Built a browser workbench for comparing originals and variants. Added mathematical test oracles, generator audits, and source-revision workflows to make content review traceable."
+      },
+      {
+        "title": "IRT data architecture",
+        "description": "Contributed variant and IRT persistence schemas, versioned contracts, and assessment-data integration foundations. The architecture separates canonical application content from compute evidence."
+      },
+      {
+        "title": "Controlled self-adjustment design",
+        "description": "Defined a self-adjustment approach linking permitted generator settings, evaluation evidence, and acceptance checks while preserving original content and historical results."
+      },
+      {
+        "title": "Main-service integration",
+        "description": "Connected question-generation workflows with the Numora application through persistence and handoff contracts. Added scoped Drill content-acceptance rules and tests while preserving version lineage."
+      }
+    ],
+    "achievements": [
+      {
+        "value": "746",
+        "label": "Generator configurations",
+        "description": "The team repository contains configurations for 746 of 820 original questions, covering 719 Drill and 27 Tryout items."
+      },
+      {
+        "value": "186",
+        "label": "Regression tests passed",
+        "description": "The local Python regression suite passed during the October 2026 review, without a production database."
+      },
+      {
+        "value": "1,600",
+        "label": "Seed checks passed",
+        "description": "An audit of 16 revised questions passed independent mathematical checks and generated 320 distinct candidates. This does not establish whole-bank accuracy or psychometric equivalence."
+      },
+      {
+        "value": "215",
+        "label": "Curated conceptual variants",
+        "description": "The stock loader accepted 215 internally VERIFIED manual variants across 70 original questions. The status describes the repository workflow."
+      }
+    ]
+  },
+  {
+    "id": "siparih",
+    "category": "software",
+    "title": "SIPARIH",
+    "description": "A village document platform that connects resident submissions, neighborhood approvals, protected PDF delivery, and administrative archives in one streamlined workflow.",
+    "image": "/assets/projects/siparih/login.webp",
+    "imageAlt": "SIPARIH login page with green branding and an empty national identification number and password form.",
+    "gallery": [
+      {
+        "src": "/assets/projects/siparih/login.webp",
+        "alt": "Locally rendered SIPARIH login page with empty credentials fields and registration and password reset links.",
+        "caption": "Actual login view captured from a local run of the repository on October 20, 2026. No account or resident data is displayed."
+      },
+      {
+        "src": "/assets/projects/siparih/automated-testing.webp",
+        "alt": "Existing repository test report visual listing passing feature tests and a total of 82 tests and 818 assertions.",
+        "caption": "Archived test-output visual: 82 tests and 818 assertions passed in the recorded July 23, 2026 run. This is historical automated test evidence, not a current production benchmark."
+      },
+      {
+        "src": "/assets/projects/siparih/approval-concurrency.webp",
+        "alt": "Existing repository concurrency test visual showing one passing test with 12 assertions on MySQL or MariaDB.",
+        "caption": "A separate recorded MySQL/MariaDB test used two PHP processes to check competing approvals. One approval succeeded and the other was rejected; this is a controlled test, not a traffic capacity measurement."
+      }
+    ],
+    "year": "2026",
+    "role": "Software Developer",
+    "duration": "July 2026",
+    "overview": "SIPARIH digitizes the introduction-letter workflow for Pasireurih village. Residents submit supporting documents and track requests, neighborhood leaders review and approve them, and administrators manage users and archives. My contributions strengthened the document pipeline: authorized private-file delivery, PDF normalization, same-origin previews, acceptance coverage, and competing-approval checks. The application combines Laravel role boundaries and transactional state changes with practical document handling, including image-to-PDF conversion and visual signature overlays. Automated testing provides concrete evidence for submission rules, access control, and approval consistency.",
+    "tools": [
+      "PHP",
+      "Laravel 12",
+      "Blade",
+      "Tailwind CSS",
+      "MySQL / MariaDB",
+      "Redis",
+      "Nginx",
+      "PDF.js",
+      "FPDF / FPDI",
+      "Ghostscript",
+      "PHPUnit"
+    ],
+    "contributions": [
+      {
+        "title": "Protected document delivery",
+        "description": "Implemented protected document delivery with X-Accel-Redirect. Laravel checks authorization before Nginx serves the private file, keeping access behind application policies."
+      },
+      {
+        "title": "PDF upload compatibility",
+        "description": "Built a Ghostscript normalization service to make uploaded PDFs compatible with FPDI processing, with input validation, time limits, clear errors, and temporary-file cleanup."
+      },
+      {
+        "title": "Same-origin preview requests",
+        "description": "Reworked document previews to use same-origin URLs, keeping preview requests on the application's host and removing a fragile dependency on separately configured addresses."
+      },
+      {
+        "title": "Acceptance coverage and access boundaries",
+        "description": "Added structured acceptance tests and strengthened submission rules. The server derives the destination RW from the resident's account and rejects manipulated approval targets."
+      },
+      {
+        "title": "Competing-approval verification",
+        "description": "Built a two-process MySQL/MariaDB concurrency test to verify approval locking under competing requests, extending coverage beyond the standard SQLite test suite."
+      }
+    ],
+    "achievements": [
+      {
+        "value": "82",
+        "label": "Tests / 818 assertions",
+        "description": "The recorded test run completed 818 assertions covering application and acceptance behavior. These are historical results for the documented test revision."
+      },
+      {
+        "value": "1 approval",
+        "label": "Two competing requests",
+        "description": "A controlled MySQL/MariaDB concurrency test accepted one approval, rejected the competing request, and preserved one approval log."
+      }
+    ]
+  }
+] satisfies Project[],
   },
   projectDetail: {
     sectionNumbers: ['01', '02', '03'],
     backLabel: 'Back to projects',
     eyebrow: 'Selected work / Case study',
-    demoNote: 'Demo case study. All results and metrics are illustrative.',
     overviewTitle: 'Overview',
     contributionsTitle: 'What I Did',
     achievementsTitle: 'Impact & Achievements',

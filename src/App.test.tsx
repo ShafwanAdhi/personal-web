@@ -74,9 +74,9 @@ describe('portfolio visitor journeys', () => {
     const allCount = screen.getAllByRole('link', { name: 'View Case Study' }).length
     expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['All', 'AI / ML', 'Software Engineering', 'Others'])
     await user.click(screen.getByRole('tab', { name: 'Software Engineering' }))
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(5)
-    expect(screen.queryByRole('heading', { name: 'Retail Demand Forecast' })).not.toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: 'Autonomous Navigation Rover' })).toBeInTheDocument()
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(2)
+    expect(screen.queryByRole('heading', { name: 'WaspadAI' })).not.toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: 'Numora Assessment & Question Variants' })).toBeInTheDocument()
     await user.click(screen.getByRole('tab', { name: 'All' }))
     expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(allCount)
   })
@@ -88,7 +88,7 @@ describe('portfolio visitor journeys', () => {
     expect(screen.queryByRole('link', { name: 'View Dribbble' })).not.toBeInTheDocument()
   })
   it('renders a direct case study with a controllable, wrapping gallery', async () => {
-    window.history.replaceState(null, '', '/projects/demand-forecast')
+    window.history.replaceState(null, '', '/projects/waspadai')
     const user = userEvent.setup()
     render(<App />)
     for (const name of ['Tech Stack', 'Overview', 'What I Did', 'Impact & Achievements']) {
@@ -137,12 +137,12 @@ describe('portfolio visitor journeys', () => {
     }
     expect(screen.queryByText('Sample certifications for this portfolio demo.')).not.toBeInTheDocument()
   })
-  it.each(['/projects', '/projects/demand-forecast', '/certifications'])('marks the current navigation destination on %s', path => {
+  it.each(['/projects', '/projects/waspadai', '/certifications'])('marks the current navigation destination on %s', path => {
     window.history.replaceState(null, '', path)
     render(<App />)
     const nav = within(screen.getByRole('navigation', { name: 'Main navigation' }))
     const label = path === '/certifications' ? 'Certifications' : 'Projects'
-    expect(nav.getByRole('link', { name: label })).toHaveAttribute('aria-current', path === '/projects/demand-forecast' ? 'location' : 'page')
+    expect(nav.getByRole('link', { name: label })).toHaveAttribute('aria-current', path === '/projects/waspadai' ? 'location' : 'page')
   })
   it('separates organization and location from experience descriptions', () => {
     const { container } = render(<App />)
@@ -193,10 +193,10 @@ describe('portfolio visitor journeys', () => {
   it('shows only the three featured projects without filters on desktop', () => {
     render(<App />)
     const section = screen.getByRole('region', { name: 'Selected Projects' })
-    expect(within(section).getAllByRole('heading', { level: 3 }).map(item => item.textContent)).toEqual(['Retail Demand Forecast', 'AI Visual Inspection', 'Autonomous Navigation Rover'])
+    expect(within(section).getAllByRole('heading', { level: 3 }).map(item => item.textContent)).toEqual(['WaspadAI', 'Numora Assessment & Question Variants', 'SIPARIH'])
     expect(within(section).queryByRole('tablist')).not.toBeInTheDocument()
   })
-  it.each(['/', '/projects/demand-forecast', '/certifications'])('links navbar collections correctly from %s', path => {
+  it.each(['/', '/projects/waspadai', '/certifications'])('links navbar collections correctly from %s', path => {
     window.history.replaceState(null, '', path)
     render(<App />)
     const nav = within(screen.getByRole('navigation', { name: 'Main navigation' }))
@@ -211,8 +211,8 @@ describe('portfolio visitor journeys', () => {
     render(<App />)
     expect(screen.getByRole('heading', { name: 'Projects & Experiments', level: 1 })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'Software Engineering' })).toHaveAttribute('aria-selected', 'true')
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(5)
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })[0]).toHaveAttribute('href', '/projects/autonomous-rover?from=projects&category=software')
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(2)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })[0]).toHaveAttribute('href', '/projects/numora-question-variants?from=projects&category=software')
     await user.click(screen.getByRole('tab', { name: 'AI / ML' }))
     expect(new URLSearchParams(location.search).get('category')).toBe('ai-ml')
     expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(1)
@@ -220,24 +220,24 @@ describe('portfolio visitor journeys', () => {
   it('falls back to all projects for an unknown collection category', () => {
     window.history.replaceState(null, '', '/projects?category=unknown')
     render(<App />)
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(7)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(3)
     expect(screen.getByRole('tab', { name: 'All' })).toHaveAttribute('aria-selected', 'true')
   })
   it('returns a case study to the filtered collection it came from', () => {
-    window.history.replaceState(null, '', '/projects/demand-forecast?from=projects&category=others')
+    window.history.replaceState(null, '', '/projects/waspadai?from=projects&category=ai-ml')
     render(<App />)
     for (const link of screen.getAllByRole('link', { name: 'Back to projects' })) {
-      expect(link).toHaveAttribute('href', '/projects?category=others')
+      expect(link).toHaveAttribute('href', '/projects?category=ai-ml')
     }
   })
   it('wraps the next case study within the selected collection category', () => {
-    window.history.replaceState(null, '', '/projects/management-01?from=projects&category=software')
+    window.history.replaceState(null, '', '/projects/siparih?from=projects&category=software')
     render(<App />)
-    expect(screen.getByRole('link', { name: 'Autonomous Navigation Rover' })).toHaveAttribute('href', '/projects/autonomous-rover?from=projects&category=software')
+    expect(screen.getByRole('link', { name: 'Numora Assessment & Question Variants' })).toHaveAttribute('href', '/projects/numora-question-variants?from=projects&category=software')
   })
   it('offers another category without carrying an incompatible filter when only one case exists', () => {
-    window.history.replaceState(null, '', '/projects/demand-forecast?from=projects&category=others')
+    window.history.replaceState(null, '', '/projects/waspadai?from=projects&category=ai-ml')
     render(<App />)
-    expect(screen.getByRole('link', { name: 'AI Visual Inspection' })).toHaveAttribute('href', '/projects/vision-inspector?from=projects')
+    expect(screen.getByRole('link', { name: 'Numora Assessment & Question Variants' })).toHaveAttribute('href', '/projects/numora-question-variants?from=projects')
   })
 })
