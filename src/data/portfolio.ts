@@ -400,6 +400,282 @@ export const portfolio = {
         "description": "I added policy-controlled delivery through X-Accel-Redirect, allowing Nginx to serve resident documents after Laravel authorizes access to the requested file."
       }
     ]
+  },
+  {
+    "id": "sisdas-rag-assistant",
+    "category": "ai-ml",
+    "title": "SISDAS RAG Assistant",
+    "description": "A campus information assistant connecting official university documents, hybrid retrieval, and source-linked answers through a transparent, responsive chat experience.",
+    "image": "/assets/projects/sisdas-rag-assistant/chat-home.webp",
+    "imageAlt": "SISDAS RAG Assistant chat interface with a centered question field, example prompts, and a subtle document-network background.",
+    "gallery": [
+      {
+        "src": "/assets/projects/sisdas-rag-assistant/chat-home.webp",
+        "alt": "Desktop chat interface for searching Universitas Negeri Malang documents.",
+        "caption": "The primary chat experience, captured from the live deployment."
+      },
+      {
+        "src": "/assets/projects/sisdas-rag-assistant/grounded-answer.webp",
+        "alt": "A generated answer with a process summary and two cited document contexts.",
+        "caption": "A structured-fact response showing the answer, routing summary, and source context used by the system."
+      },
+      {
+        "src": "/assets/projects/sisdas-rag-assistant/document-library.webp",
+        "alt": "The document library with the academic administration collection expanded.",
+        "caption": "The source-document browser exposes the materials used by retrieval and links to the underlying PDFs."
+      },
+      {
+        "src": "/assets/projects/sisdas-rag-assistant/document-domains.webp",
+        "alt": "Five collapsed document domains for academic administration, campus services, university profile, finance, and graduation.",
+        "caption": "The corpus is organized into five retrieval collections aligned with common campus-information needs."
+      }
+    ],
+    "year": "2026",
+    "role": "AI & Full-Stack Developer",
+    "duration": "September 2026",
+    "overview": "I built SISDAS RAG Assistant to make campus policies, schedules, procedures, and service information easier to find across university documents. My pipeline answers suitable questions from structured facts, then routes other queries through domain-specific retrieval and deterministic reranking. I combined multilingual embeddings, lexical signals, keywords, and metadata to select relevant context before generating source-linked answers. The interface streams progress and exposes the process behind each response. I also built document ingestion, backend endpoints, evaluation tooling, and containerized deployment, keeping source PDFs accessible so readers can inspect the evidence themselves with clear source attribution.",
+    "tools": [
+      "Python",
+      "FastAPI",
+      "ChromaDB",
+      "Voyage AI embeddings",
+      "Groq API",
+      "LangChain",
+      "Tesseract OCR",
+      "React",
+      "TanStack Start",
+      "TypeScript",
+      "Docker",
+      "Nginx"
+    ],
+    "contributions": [
+      {
+        "title": "Structured-fact-first query routing",
+        "description": "I implemented query planning and domain routing, answering suitable aggregate and list questions from extracted records before sending other queries through retrieval and generation."
+      },
+      {
+        "title": "Hybrid retrieval & deterministic reranking",
+        "description": "I combined vector similarity, lexical relevance, keywords, and metadata scoring to rank context transparently and expose selected domains, intent, and source excerpts."
+      },
+      {
+        "title": "Reproducible document ingestion",
+        "description": "I built metadata validation, PDF extraction, OCR fallback, overlapping chunking, multilingual embeddings, and structured-fact rebuilding to keep the document pipeline reproducible."
+      },
+      {
+        "title": "Streaming API & source-focused interface",
+        "description": "I built streaming chat endpoints and a responsive React interface with model fallbacks, process summaries, clickable context cards, and direct source-document access."
+      },
+      {
+        "title": "Full-stack deployment & resilience",
+        "description": "I containerized the backend and web application, configured reverse proxying and health checks, and added security, caching, and resilience checks for deployment."
+      }
+    ],
+    "achievements": [
+      {
+        "value": "1,165",
+        "label": "Indexed document chunks",
+        "description": "I inspected the local Chroma index and counted 1,165 chunks across five collections. This measures retrieval inventory rather than answer quality."
+      },
+      {
+        "value": "48",
+        "label": "Backend tests passed",
+        "description": "I verified 48 local backend tests covering generation, security, embeddings, fallbacks, resilience, domain behavior, and structured facts, without claiming end-to-end evaluation."
+      },
+      {
+        "value": "39 PDFs",
+        "label": "Validated metadata entries",
+        "description": "I validated registry entries against 39 PDF files: 38 campus sources and one developer profile hidden from public document and context views."
+      },
+      {
+        "value": "5 domains",
+        "label": "Organized retrieval collections",
+        "description": "I organized retrieval around academic administration, campus services, university profile, finance, and graduation, giving queries a focused source collection to search."
+      }
+    ]
+  },
+  {
+    "id": "bonjermgu",
+    "category": "software",
+    "title": "Bonjermgu Financing Portal",
+    "description": "A financing portal connecting vehicle estimates, application tracking, configurable pricing, and lending reports across referral partners, account officers, and administrators.",
+    "image": "/assets/projects/bonjermgu/hero.webp",
+    "imageAlt": "Original local Bonjermgu landing page with referral registration buttons, partner categories, and a coral financing-products section.",
+    "gallery": [
+      {
+        "src": "/assets/projects/bonjermgu/landing.webp",
+        "alt": "Desktop landing page introducing the Kebon Jeruk Multiguna referral program and partner categories.",
+        "caption": "Original application UI captured from a local run of the repository; the interface is in Indonesian."
+      },
+      {
+        "src": "/assets/projects/bonjermgu/sprint-sheet.webp",
+        "alt": "Historical 36-month financing estimate sheet with instalment, down payment, insurance, and application-entry fields; the customer name and product identifiers are blank.",
+        "caption": "Historical development output showing a 36-month financing estimate with customer details left blank."
+      },
+      {
+        "src": "/assets/projects/bonjermgu/architecture.webp",
+        "alt": "Code-derived architecture diagram connecting Blade and Livewire screens, the PHP simulation domain, configuration repositories, PostgreSQL, and lending aggregation.",
+        "caption": "Portfolio diagram derived from the implementation: financial calculations run in a shared PHP domain layer, with role-specific interfaces and database-backed configuration."
+      },
+      {
+        "src": "/assets/projects/bonjermgu/workflow.webp",
+        "alt": "Workflow diagram showing referral simulation, external handoff, officer-managed applications, and role-specific monitoring and lending reports.",
+        "caption": "Documentation-derived workflow. Staff perform credit review and document handling outside the system; the application records their progress."
+      },
+      {
+        "src": "/assets/projects/bonjermgu/login.webp",
+        "alt": "Original Bonjermgu login page with empty username and password fields, a remember-me checkbox, and password reset and registration links.",
+        "caption": "Original local login screen with empty credentials. No account was used to capture this image."
+      }
+    ],
+    "year": "2026",
+    "role": "Full-Stack Developer",
+    "duration": "August 2026",
+    "overview": "I built Bonjermgu to connect vehicle financing estimates with tracking and reports. Referral partners prepare simulations and monitor their applications, account officers maintain application progress, and administrators manage pricing rules and aggregate reports. My domain keeps calculations on the server, separating insurance, fees, refunds, and rounding from database access. I built role-specific interfaces, master data, PDF estimate export, and reference-based tests. The portal records operational progress while credit decisions, document verification, and external handoffs remain with the staff responsible for those activities.",
+    "tools": [
+      "PHP",
+      "Laravel 11",
+      "Livewire 3",
+      "Blade",
+      "Alpine.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Pest",
+      "Vite"
+    ],
+    "contributions": [
+      {
+        "title": "Shared financing simulation engine",
+        "description": "I built a shared PHP calculation domain for cash and used-car financing, separating insurance, fees, refunds, and rounding from database access and interface concerns."
+      },
+      {
+        "title": "Role-specific application workflows",
+        "description": "I implemented referral monitoring, officer-managed applications, document-status tracking, and ownership policies, while giving administrators configuration access and aggregate lending reports instead of application management."
+      },
+      {
+        "title": "Configurable pricing & vehicle data",
+        "description": "I built configuration loaders for product rates, insurance, fees, and vehicle prices, with transactional master-data imports and versioned caching for reusable business rules."
+      },
+      {
+        "title": "Reference-based financial regression tests",
+        "description": "I wrote simulation tests for reference scenarios and edge cases, including unavailable rates, rounding behavior, insurance rules, refund separation, and eligibility failures."
+      },
+      {
+        "title": "Interface delivery & operational handoff",
+        "description": "I built Blade and Livewire interfaces, estimate PDF export, and the officer simulation sheet, then documented business decisions, architecture, deployment, and backup procedures."
+      }
+    ],
+    "achievements": [
+      {
+        "value": "50",
+        "label": "Simulation unit tests passed",
+        "description": "I reran the simulation unit suite and recorded 50 passing tests. These results cover defined calculation cases, not database-backed workflows or production behavior."
+      },
+      {
+        "value": "386",
+        "label": "Simulation assertions completed",
+        "description": "I checked 386 assertions in the same local simulation run, exercising domain calculations and edge cases without claiming financial certification or business impact."
+      },
+      {
+        "value": "26,791",
+        "label": "Vehicle-price source records",
+        "description": "I prepared an import pipeline for 26,791 vehicle-price source records. This inventory describes CSV rows, not production usage or distinct vehicle counts."
+      },
+      {
+        "value": "3 roles",
+        "label": "Operational access workflows",
+        "description": "I separated referral, account-officer, and administrator responsibilities through routes, ownership scopes, and policies, keeping application management distinct from configuration and aggregate reporting."
+      }
+    ]
+  },
+  {
+    "id": "sidika",
+    "category": "software",
+    "title": "SiDiKa Camera Retail Management",
+    "description": "A camera retail platform connecting a public product catalog with inventory, quality control, sales, and reporting through team-built operational workflows.",
+    "image": "/assets/projects/sidika/cover.webp",
+    "imageAlt": "Source-derived SiDiKa diagram connecting the public camera catalog and staff workspace through Laravel, with my backend contribution areas identified.",
+    "gallery": [
+      {
+        "src": "/assets/projects/sidika/architecture.webp",
+        "alt": "Diagram of the Laravel application, Blade pages, relational database, media processing, mail, and reporting integrations.",
+        "caption": "Architecture reconstructed from repository code. Storage and mail connections describe implementation support; active hosting is unverified."
+      },
+      {
+        "src": "/assets/projects/sidika/account-workflow.webp",
+        "alt": "Four-step diagram showing employee selection, user creation, activation preparation, and an email success or warning response.",
+        "caption": "Employee-linked account provisioning. I contributed to this backend subsystem within the team-built application."
+      },
+      {
+        "src": "/assets/projects/sidika/stock-heuristic.webp",
+        "alt": "Diagram explaining average daily sales and stock depletion calculations, including zero-stock and no-sales edge cases.",
+        "caption": "Team stock-estimation feature: a deterministic sales-rate heuristic, with no measured prediction accuracy available."
+      },
+      {
+        "src": "/assets/projects/sidika/catalog-product.webp",
+        "alt": "Original Dinoyo Kamera catalog asset showing a Panasonic SDR-S26 camcorder against books, with the store watermark and product label.",
+        "caption": "Original catalog product media, converted to WebP. This is a product photograph rather than an application screenshot."
+      }
+    ],
+    "year": "2025",
+    "role": "Backend Developer / Team Contributor",
+    "duration": "November - December 2025",
+    "overview": "I contributed backend features to SiDiKa, a application connecting a public camera catalog with retail administration. My work covered employee-linked user accounts, catalog settings, quality-control navigation, password-change handling, and dashboard reporting corrections. I connected records with content while improving the boundaries and consistency of staff workflows. The wider application includes inventory, purchases, sales, branch data, employees, exports, and a deterministic stock-depletion heuristic. My contribution focuses on backend modules and operational fixes within that team implementation, rather than sole ownership.",
+    "tools": [
+      "PHP",
+      "Laravel 10",
+      "MySQL",
+      "Eloquent ORM",
+      "Blade",
+      "Bootstrap 5",
+      "Vite",
+      "Cloudflare R2",
+      "Laravel Excel",
+      "Dompdf"
+    ],
+    "contributions": [
+      {
+        "title": "Employee-linked account management",
+        "description": "I implemented account-management operations linked to employee records, including migrations and seed data, giving the team a shared identity foundation for staff accounts."
+      },
+      {
+        "title": "Database-backed catalog configuration",
+        "description": "I built persistence for catalog settings, banners, and partner logos, then connected those records to public pages so content could be managed administratively."
+      },
+      {
+        "title": "Archived quality-control navigation",
+        "description": "I extended archived quality-control queries with category filters, sorting, and pagination that preserves query parameters, helping staff navigate records without resetting their search."
+      },
+      {
+        "title": "Authenticated password-change validation",
+        "description": "I added current-password verification, confirmation and minimum-length checks, unchanged-password rejection, and hashing before persistence to support authenticated password changes within the existing account workflow."
+      },
+      {
+        "title": "Dashboard selection & reporting fixes",
+        "description": "I corrected branch comparisons to use calculated net profit, hid single-branch comparisons, and removed the implicit current-month default so omitted months represent all months."
+      }
+    ],
+    "achievements": [
+      {
+        "value": "Linked",
+        "label": "Employee-based account identity",
+        "description": "I connected account creation and management to employee records. Source changes establish this capability without implying measured adoption or a completed security audit."
+      },
+      {
+        "value": "Editable",
+        "label": "Database-backed catalog content",
+        "description": "I made settings, banners, and partner logos available through persisted administrative records, connecting managed content to public pages without claiming measured usability gains."
+      },
+      {
+        "value": "Filtered",
+        "label": "Archived QC navigation",
+        "description": "I preserved category, sorting, and search parameters across archived quality-control pagination. The result describes implemented navigation behavior rather than a measured productivity improvement."
+      },
+      {
+        "value": "Validated",
+        "label": "Authenticated password changes",
+        "description": "I added explicit password-change validation and hashing in the account workflow. This is an implemented control, not a penetration-test result or security certification."
+      }
+    ]
   }
 ] satisfies Project[],
   },

@@ -74,7 +74,7 @@ describe('portfolio visitor journeys', () => {
     const allCount = screen.getAllByRole('link', { name: 'View Case Study' }).length
     expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['All', 'AI / ML', 'Software Engineering', 'Others'])
     await user.click(screen.getByRole('tab', { name: 'Software Engineering' }))
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(2)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(4)
     expect(screen.queryByRole('heading', { name: 'WaspadAI' })).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: 'Numora Assessment & Question Variants' })).toBeInTheDocument()
     await user.click(screen.getByRole('tab', { name: 'All' }))
@@ -163,7 +163,7 @@ describe('portfolio visitor journeys', () => {
       expect(screen.getByRole('tab', { name: 'All' })).toHaveAttribute('aria-selected', 'true')
       expect(screen.getByRole('tab', { name: 'All' })).toHaveFocus()
       expect(window.location.search).toBe('')
-      expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(original.length - 1)
+      expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(original.filter(item => item.category !== 'ai-ml').length)
     } finally {
       portfolio.work.projects = original
     }
@@ -211,16 +211,16 @@ describe('portfolio visitor journeys', () => {
     render(<App />)
     expect(screen.getByRole('heading', { name: 'Projects & Experiments', level: 1 })).toBeInTheDocument()
     expect(screen.getByRole('tab', { name: 'Software Engineering' })).toHaveAttribute('aria-selected', 'true')
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(2)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(4)
     expect(screen.getAllByRole('link', { name: 'View Case Study' })[0]).toHaveAttribute('href', '/projects/numora-question-variants?from=projects&category=software')
     await user.click(screen.getByRole('tab', { name: 'AI / ML' }))
     expect(new URLSearchParams(location.search).get('category')).toBe('ai-ml')
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(1)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(2)
   })
   it('falls back to all projects for an unknown collection category', () => {
     window.history.replaceState(null, '', '/projects?category=unknown')
     render(<App />)
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(3)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(6)
     expect(screen.getByRole('tab', { name: 'All' })).toHaveAttribute('aria-selected', 'true')
   })
   it('returns a case study to the filtered collection it came from', () => {
@@ -231,13 +231,19 @@ describe('portfolio visitor journeys', () => {
     }
   })
   it('wraps the next case study within the selected collection category', () => {
-    window.history.replaceState(null, '', '/projects/siparih?from=projects&category=software')
+    window.history.replaceState(null, '', '/projects/sidika?from=projects&category=software')
     render(<App />)
     expect(screen.getByRole('link', { name: 'Numora Assessment & Question Variants' })).toHaveAttribute('href', '/projects/numora-question-variants?from=projects&category=software')
   })
   it('offers another category without carrying an incompatible filter when only one case exists', () => {
-    window.history.replaceState(null, '', '/projects/waspadai?from=projects&category=ai-ml')
-    render(<App />)
-    expect(screen.getByRole('link', { name: 'Numora Assessment & Question Variants' })).toHaveAttribute('href', '/projects/numora-question-variants?from=projects')
+    const original = portfolio.work.projects
+    portfolio.work.projects = original.filter(item => item.id !== 'sisdas-rag-assistant')
+    try {
+      window.history.replaceState(null, '', '/projects/waspadai?from=projects&category=ai-ml')
+      render(<App />)
+      expect(screen.getByRole('link', { name: 'Numora Assessment & Question Variants' })).toHaveAttribute('href', '/projects/numora-question-variants?from=projects')
+    } finally {
+      portfolio.work.projects = original
+    }
   })
 })

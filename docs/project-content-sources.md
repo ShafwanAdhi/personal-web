@@ -8,4 +8,12 @@ Imported on October 20, 2026 from the owner-supplied `D:/project_context` packag
 
 Public editorial content lives in `src/data/portfolio.ts`; public assets live under `public/assets/projects/`. No raw review logs, private source files, or user records were copied into public assets. Month-level timelines summarize documented contribution activity.
 
-The project collection replaces all seven dummy entries with these three projects. Existing category order and the Others empty state are retained. Automated visitor tests cover the new routes, filters, gallery navigation, and return links.
+The project collection contains six real projects. The original three featured projects remain on the homepage. Existing category order and the Others empty state are retained. Automated visitor tests cover the new routes, filters, gallery navigation, and return links.
+
+## Additional project packages
+
+- **SISDAS RAG Assistant:** root `project.json`, `evidence.md`, and four images from `assets/projects/sisdas-rag-assistant/`. Retrieval inventory and backend tests retain their measured scope; no answer-quality benchmark is inferred.
+- **Bonjermgu:** `bonjermgu/project.json`, evidence, and six images from its public asset directory. Fifty tests and 386 assertions are one local simulation-unit run. Vehicle counts describe source CSV rows. The fourth result separates assertions from test count without implying another experiment.
+- **SiDiKa:** `sidika/project.json`, evidence, and five images from its public asset directory. My contribution remains scoped to backend team work. Four results describe implemented capabilities, without invented test or adoption metrics.
+
+Every project uses five contributions, four results, first-person contribution/result descriptions, and 308 words across its description, overview, contribution descriptions, and result descriptions. Captions, labels, and metadata are excluded from that editorial length target.
