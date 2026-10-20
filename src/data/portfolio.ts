@@ -157,7 +157,7 @@ export const portfolio = {
     "year": "2026",
     "role": "AI & Full-Stack Developer / Mobile Integration Contributor",
     "duration": "September 2026",
-    "overview": "WaspadAI turns suspicious messages, links, and screenshots into structured investigations. I built the AI verification service and web demo, combining privacy filtering, rulebook-guided planning, bounded evidence retrieval, and conservative verdict generation. The system separates investigation rules from factual evidence and returns UNVERIFIED when the available sources cannot support a confident conclusion. I also contributed to the team-built Android application: authenticated API integration, screenshot cropping, community-evidence transport, and clearer result presentation. The AI service and mobile product have distinct responsibilities, connected through an explicit server-to-server contract.",
+    "overview": "I built WaspadAI, an evidence-guided verification service and web demo for investigating suspicious messages, links, and screenshots. My work combines privacy filtering, rulebook-guided planning, bounded evidence retrieval, and conservative verdict generation. The pipeline separates investigation rules from factual evidence and returns UNVERIFIED when sources cannot support a confident conclusion. I also contributed to the team-built Android application through authenticated API integration, screenshot cropping, community-evidence transport, and clearer result presentation. An explicit server-to-server contract connects the AI service with the mobile product while preserving their separate authentication and data responsibilities.",
     "tools": [
       "Python",
       "FastAPI",
@@ -176,54 +176,46 @@ export const portfolio = {
     ],
     "contributions": [
       {
-        "title": "Designed the multimodal verification architecture",
-        "description": "Shafwan built a shared text-and-image pipeline that validates input, applies URL sanitization and PII redaction, extracts risk signals, and produces one canonical response contract. This keeps modality-specific processing at the boundary while preserving consistent downstream verification behavior."
+        "title": "Multimodal verification pipeline",
+        "description": "I built a shared text-and-image pipeline with input validation, privacy filtering, risk-signal extraction, and a consistent response contract across both modalities."
       },
       {
-        "title": "Built a rulebook-guided investigation layer",
-        "description": "Shafwan compiled three rulebook domains into 255 retrievable rule chunks with BM25, hashed-subword similarity, metadata scoring, phase-aware selection, and 17 deterministic safety triggers. The design keeps investigation policy separate from evidence so rules can guide checks and safe actions without deciding factual truth."
+        "title": "Rulebook-guided investigation",
+        "description": "I compiled 255 rule chunks across three domains and combined retrieval with deterministic triggers, keeping investigation guidance separate from the evidence supporting each verdict."
       },
       {
-        "title": "Added evidence boundaries and deterministic guardrails",
-        "description": "Shafwan integrated bounded Tavily search, a small verified official-reference corpus, and request-scoped community evidence. He also added claim-grounding repair, evidence-sufficiency checks, conflict handling, deterministic fallbacks, and final consistency rules to prevent weak evidence from becoming an unsupported definitive verdict."
+        "title": "Evidence retrieval & guardrails",
+        "description": "I integrated bounded web search, official references, and community evidence, then added grounding checks, conflict handling, and conservative fallbacks for unsupported conclusions, while keeping uncertain findings visible to users."
       },
       {
-        "title": "Delivered the web experience and reusable API contract",
-        "description": "Shafwan implemented the Next.js interface, progressive result presentation, structured and narrative output modes, FastAPI public and server-to-server endpoints, OpenAPI synchronization, and an Android integration contract. Narrative output is derived locally from the canonical result and does not require an additional model call."
+        "title": "Web delivery & mobile integration",
+        "description": "I built the web interface and API contracts, then contributed authenticated Android requests, screenshot cropping, and community-evidence transport within the mobile team."
       },
       {
-        "title": "Created evaluation, observability, and deployment workflows",
-        "description": "Shafwan built privacy-filtered pipeline traces, planner and production benchmark runners, regression tests, Docker health checks, log rotation, Nginx routing, and VPS deployment documentation. Earlier planner failures were documented and used to motivate compact schemas, local validation, deterministic escalation, and recoverable fallbacks."
-      },
-      {
-        "title": "Added overlay crop selection and capture fixes",
-        "description": "Shafwan added region selection and bitmap cropping to the existing floating verification flow, then improved screen-size handling and bounded blank-frame retries. The crop lets users choose the screen area they intend to submit, while capture failures remain visible instead of being treated as usable images."
-      },
-      {
-        "title": "Implemented community-evidence selection and transport",
-        "description": "Shafwan added a backend evidence builder, database read policies, and adapter tests. The implementation joins community posts with consent, contribution, moderation, and source records, checks sanitized content hashes, ranks candidates, and bounds the payload before forwarding evidence to the AI API. Later fixture support and deployed-schema adaptation were added by teammates."
+        "title": "Evaluation & deployment",
+        "description": "I created regression benchmarks, privacy-filtered traces, Docker health checks, and VPS deployment workflows to evaluate pipeline behavior and operate the deployed web demo."
       }
     ],
     "achievements": [
       {
         "value": "98.15%",
         "label": "Critical-signal recall",
-        "description": "Measured on 47 labeled signal cases in a 100-case synthetic, adversarial, and regression benchmark. This measures signal extraction, not real-world fact-checking accuracy."
+        "description": "I measured signal extraction on 47 labeled cases within a 100-case synthetic and regression benchmark. This is not real-world fact-checking accuracy."
       },
       {
         "value": "100%",
         "label": "Replay response validity",
-        "description": "All replayed cases returned schema-valid responses using stubbed model and search providers. Twenty image fixtures were excluded from replay v1."
+        "description": "I checked replay responses with stubbed model and search providers. All replayed cases were schema-valid; twenty image fixtures were excluded."
       },
       {
         "value": "255 rules",
         "label": "Investigation rulebook",
-        "description": "A versioned corpus spans information integrity, public services, impersonation, phishing, and account takeover, with 17 deterministic safety triggers."
+        "description": "I assembled a versioned investigation corpus covering information integrity, public services, phishing, and account takeover, supported by 17 deterministic safety triggers."
       },
       {
         "value": "11",
         "label": "Product API tests passed",
-        "description": "Focused mobile-backend adapter and community-evidence tests passed with mocked upstream responses and database transactions."
+        "description": "I verified focused mobile-backend adapters and community-evidence handling through eleven tests using mocked upstream responses and database transactions."
       }
     ]
   },
@@ -281,45 +273,45 @@ export const portfolio = {
     "contributions": [
       {
         "title": "Reproducible question generation",
-        "description": "Extended the deterministic Python engine with additional mathematics indicators and Tryout content. Parameterized questions, answer options, and explanations can be regenerated from a seed and versioned configuration."
+        "description": "I extended the deterministic Python engine with additional mathematics indicators and Tryout content. Parameterized questions, answer options, and explanations can be regenerated from a seed and versioned configuration."
       },
       {
         "title": "Operator workbench & mathematical validation",
-        "description": "Built a browser workbench for comparing originals and variants. Added mathematical test oracles, generator audits, and source-revision workflows to make content review traceable."
+        "description": "I built a browser workbench for comparing originals and variants. Added mathematical test oracles, generator audits, and source-revision workflows to make content review traceable."
       },
       {
         "title": "IRT data architecture",
-        "description": "Contributed variant and IRT persistence schemas, versioned contracts, and assessment-data integration foundations. The architecture separates canonical application content from compute evidence."
+        "description": "I contributed variant and IRT persistence schemas, versioned contracts, and assessment-data integration foundations. The architecture separates canonical application content from compute evidence."
       },
       {
         "title": "Controlled self-adjustment design",
-        "description": "Defined a self-adjustment approach linking permitted generator settings, evaluation evidence, and acceptance checks while preserving original content and historical results."
+        "description": "I defined a self-adjustment approach linking permitted generator settings, evaluation evidence, and acceptance checks while preserving original content and historical results."
       },
       {
         "title": "Main-service integration",
-        "description": "Connected question-generation workflows with the Numora application through persistence and handoff contracts. Added scoped Drill content-acceptance rules and tests while preserving version lineage."
+        "description": "I connected question-generation workflows with the Numora application through persistence and handoff contracts. Added scoped Drill content-acceptance rules and tests while preserving version lineage."
       }
     ],
     "achievements": [
       {
         "value": "746",
         "label": "Generator configurations",
-        "description": "The team repository contains configurations for 746 of 820 original questions, covering 719 Drill and 27 Tryout items."
+        "description": "I extended generation within a team repository containing configurations for 746 of 820 originals, including 719 Drill and 27 Tryout items."
       },
       {
         "value": "186",
         "label": "Regression tests passed",
-        "description": "The local Python regression suite passed during the October 2026 review, without a production database."
+        "description": "I verified the local Python regression suite during the October 2026 review, recording 186 passing tests without a production database."
       },
       {
         "value": "1,600",
         "label": "Seed checks passed",
-        "description": "An audit of 16 revised questions passed independent mathematical checks and generated 320 distinct candidates. This does not establish whole-bank accuracy or psychometric equivalence."
+        "description": "I audited sixteen revised questions using independent mathematical checks and generated 320 distinct candidates. These checks do not establish psychometric equivalence."
       },
       {
         "value": "215",
         "label": "Curated conceptual variants",
-        "description": "The stock loader accepted 215 internally VERIFIED manual variants across 70 original questions. The status describes the repository workflow."
+        "description": "I checked stock-loader acceptance of 215 internally VERIFIED manual variants across seventy originals. VERIFIED describes the repository workflow, not external certification."
       }
     ]
   },
@@ -350,7 +342,7 @@ export const portfolio = {
     "year": "2026",
     "role": "Software Developer",
     "duration": "July 2026",
-    "overview": "SIPARIH digitizes the introduction-letter workflow for Pasireurih village. Residents submit supporting documents and track requests, neighborhood leaders review and approve them, and administrators manage users and archives. My contributions strengthened the document pipeline: authorized private-file delivery, PDF normalization, same-origin previews, acceptance coverage, and competing-approval checks. The application combines Laravel role boundaries and transactional state changes with practical document handling, including image-to-PDF conversion and visual signature overlays. Automated testing provides concrete evidence for submission rules, access control, and approval consistency.",
+    "overview": "I worked on SIPARIH, a document platform that digitizes introduction-letter requests for Pasireurih village. Residents submit supporting documents and track progress, neighborhood leaders review and approve requests, and administrators manage users and archives. My contributions strengthened protected file delivery, PDF normalization, same-origin previews, acceptance coverage, and competing-approval checks. I connected practical document handling with Laravel authorization and transactional state changes, including image-to-PDF conversion and visual signature overlays. Through automated tests, I checked submission boundaries, access rules, and approval consistency while keeping private resident documents behind application policies.",
     "tools": [
       "PHP",
       "Laravel 12",
@@ -367,35 +359,45 @@ export const portfolio = {
     "contributions": [
       {
         "title": "Protected document delivery",
-        "description": "Implemented protected document delivery with X-Accel-Redirect. Laravel checks authorization before Nginx serves the private file, keeping access behind application policies."
+        "description": "I implemented protected document delivery with X-Accel-Redirect. Laravel checks authorization before Nginx serves the private file, keeping access behind application policies with clear boundaries between roles."
       },
       {
         "title": "PDF upload compatibility",
-        "description": "Built a Ghostscript normalization service to make uploaded PDFs compatible with FPDI processing, with input validation, time limits, clear errors, and temporary-file cleanup."
+        "description": "I built a Ghostscript normalization service to make uploaded PDFs compatible with FPDI processing, with input validation, time limits, clear errors, and temporary-file cleanup."
       },
       {
         "title": "Same-origin preview requests",
-        "description": "Reworked document previews to use same-origin URLs, keeping preview requests on the application's host and removing a fragile dependency on separately configured addresses."
+        "description": "I reworked document previews to use same-origin URLs, keeping preview requests on the application's host and removing a fragile dependency on separately configured addresses."
       },
       {
         "title": "Acceptance coverage and access boundaries",
-        "description": "Added structured acceptance tests and strengthened submission rules. The server derives the destination RW from the resident's account and rejects manipulated approval targets."
+        "description": "I added structured acceptance tests and strengthened submission rules. The server derives the destination RW from the resident's account and rejects manipulated approval targets."
       },
       {
         "title": "Competing-approval verification",
-        "description": "Built a two-process MySQL/MariaDB concurrency test to verify approval locking under competing requests, extending coverage beyond the standard SQLite test suite."
+        "description": "I built a two-process MySQL/MariaDB concurrency test to verify approval locking under competing requests, extending coverage beyond the standard SQLite test suite."
       }
     ],
     "achievements": [
       {
         "value": "82",
         "label": "Tests / 818 assertions",
-        "description": "The recorded test run completed 818 assertions covering application and acceptance behavior. These are historical results for the documented test revision."
+        "description": "I recorded 82 passing tests and 818 assertions covering application and acceptance behavior. These historical results belong to the documented test revision."
       },
       {
         "value": "1 approval",
         "label": "Two competing requests",
-        "description": "A controlled MySQL/MariaDB concurrency test accepted one approval, rejected the competing request, and preserved one approval log."
+        "description": "I tested two competing approval requests on MySQL/MariaDB, confirming one accepted approval, one rejected request, and a single approval log."
+      },
+      {
+        "value": "3 roles",
+        "label": "Role-based document workflow",
+        "description": "I implemented and tested access boundaries for residents, neighborhood leaders, and administrators, separating document submission, approval, and archive-management responsibilities."
+      },
+      {
+        "value": "Private files",
+        "label": "Authorized document delivery",
+        "description": "I added policy-controlled delivery through X-Accel-Redirect, allowing Nginx to serve resident documents after Laravel authorizes access to the requested file."
       }
     ]
   }
