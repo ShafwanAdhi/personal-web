@@ -132,8 +132,8 @@ export const portfolio = {
     "category": "ai-ml",
     "title": "WaspadAI",
     "description": "An evidence-guided AI system that investigates suspicious messages, links, and screenshots through multimodal analysis, grounded retrieval, and clear, actionable explanations.",
-    "image": "/assets/projects/waspadai/waspadai-cover.webp",
-    "imageAlt": "Two Indonesian adults reviewing potentially suspicious information on a smartphone, representing WaspadAI's collaborative digital-safety use case.",
+    "image": "/assets/projects/waspadai/learning-app-showcase.webp",
+    "imageAlt": "WaspadAI mobile app showcase displaying the verification chat and digital-literacy learning screens.",
     "gallery": [
       {
         "src": "/assets/projects/waspadai/verification-architecture.webp",
