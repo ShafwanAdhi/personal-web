@@ -29,7 +29,8 @@ describe('portfolio visitor journeys', () => {
       expect(screen.queryByRole('link', { name: 'Visit Website' })).not.toBeInTheDocument()
       return
     }
-    const link = screen.getByRole('link', { name: 'Visit Website' })
+    const link = screen.getByRole('link', { name: id === 'waspadai' ? 'Visit Demo' : 'Visit Website' })
+    expect(document.querySelector('.project-gallery')?.nextElementSibling).toBe(link)
     expect(link).toHaveAttribute('href', url)
     expect(link).toHaveAttribute('target', '_blank')
     expect(link).toHaveAttribute('rel', 'noopener noreferrer')

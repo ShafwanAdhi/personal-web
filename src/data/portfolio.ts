@@ -11,6 +11,7 @@ export interface ProjectImage { src: string; alt: string; caption: string }
 export interface Project {
   id: string
   websiteUrl?: string
+  websiteLabel?: string
   category: string
   title: string
   description: string
@@ -219,7 +220,8 @@ export const portfolio = {
         "description": "I verified focused mobile-backend adapters and community-evidence handling through eleven tests using mocked upstream responses and database transactions."
       }
     ],
-    "websiteUrl": "https://waspadai.shafwan.digital/"
+    "websiteUrl": "https://waspadai.shafwan.digital/",
+    "websiteLabel": "Visit Demo"
   },
   {
     "id": "numora-question-variants",

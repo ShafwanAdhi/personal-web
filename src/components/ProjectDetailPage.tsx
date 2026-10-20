@@ -27,9 +27,9 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
     <Reveal className="detail-heading"><p className="page-eyebrow">{copy.eyebrow}</p>
       <h1>{project.title}</h1><p className="detail-intro">{project.description}</p>
       <p className="detail-category">{category}<span aria-hidden="true"> / </span>{project.year}</p>
-      {project.websiteUrl && <a className="button detail-website" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">{copy.websiteLabel}<ArrowIcon /></a>}
     </Reveal>
     <ProjectGallery images={project.gallery.length ? project.gallery : [{ src: project.image, alt: project.imageAlt, caption: project.description }]} />
+    {project.websiteUrl && <a className="button detail-website" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">{project.websiteLabel ?? copy.websiteLabel}<ArrowIcon /></a>}
     <div className="case-study-layout">
       <aside className="case-study-aside">
         <dl className="case-study-facts"><div><dt>{copy.roleLabel}</dt><dd>{project.role}</dd></div><div><dt>{copy.yearLabel}</dt><dd>{project.year}</dd></div><div><dt>{copy.durationLabel}</dt><dd>{project.duration}</dd></div></dl>
