@@ -255,8 +255,8 @@ export const portfolio = {
     "category": "software",
     "title": "Numora Assessment & Question Variants",
     "description": "A reproducible mathematics question engine and assessment workbench for Numora, connecting parameterized content, rigorous validation, and assessment-service integration.",
-    "image": "/assets/projects/numora-question-variants/workbench-hero.webp",
-    "imageAlt": "Numora local workbench showing a source mathematics question and a seeded variant side by side, with filters and answer keys.",
+    "image": "/assets/projects/numora-question-variants/student-home.webp",
+    "imageAlt": "Numora student dashboard showing daily practice, learning progress, and weekly Tryout access.",
     "gallery": [
   {
     "src": "/assets/projects/numora-question-variants/student-home.webp",
@@ -287,33 +287,8 @@ export const portfolio = {
     "src": "/assets/projects/numora-question-variants/admin-irt-monitoring.webp",
     "alt": "Numora admin irt monitoring interface.",
     "caption": "The IRT monitoring view displays batch status, processing history, and item-parameter records."
-  },
-      {
-        "src": "/assets/projects/numora-question-variants/workbench-hero.webp",
-        "alt": "Numora local workbench showing a source mathematics question and a seeded variant side by side, with filters and answer keys.",
-        "caption": "The operator workbench compares original questions with reproducible variants, including answer keys and version information."
-      },
-      {
-        "src": "/assets/projects/numora-question-variants/original-vs-variant.webp",
-        "alt": "Original and generated single-choice mean problems with answer options, keys, and worked explanations.",
-        "caption": "Original and generated single-choice questions, with answer options and worked explanations."
-      },
-      {
-        "src": "/assets/projects/numora-question-variants/multiple-answer.webp",
-        "alt": "Two multiple-answer statistics questions displaying source data, generated data, statement-level correctness, and explanations.",
-        "caption": "Multiple-answer variants update the dataset and statements together while retaining the required number of correct answers."
-      },
-      {
-        "src": "/assets/projects/numora-question-variants/category-statements.webp",
-        "alt": "Original and generated statistics statements labeled true or false in the Numora operator interface.",
-        "caption": "Category-question previews expose statement keys and explanations for operator review."
-      },
-      {
-        "src": "/assets/projects/numora-question-variants/architecture.webp",
-        "alt": "Repository-derived diagram of versioned sources, deterministic generation, operator previews, and the separate Numora application and compute service sharing PostgreSQL.",
-        "caption": "Source-derived architecture: versioned content, deterministic generation, operator review, and the separate Numora application and compute service."
-      }
-    ],
+  }
+],
     "year": "2026",
     "role": "Assessment & Question Generation Developer",
     "duration": "October 2026",
