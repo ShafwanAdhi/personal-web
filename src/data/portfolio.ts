@@ -320,23 +320,38 @@ export const portfolio = {
     "category": "software",
     "title": "SIPARIH",
     "description": "A village document platform that connects resident submissions, neighborhood approvals, protected PDF delivery, and administrative archives in one streamlined workflow.",
-    "image": "/assets/projects/siparih/login.webp",
-    "imageAlt": "SIPARIH login page with green branding and an empty national identification number and password form.",
+    "image": "/assets/projects/siparih/dashboard-preview.webp",
+    "imageAlt": "SIPARIH administrative dashboard showing document requests and service summaries.",
     "gallery": [
       {
-        "src": "/assets/projects/siparih/login.webp",
-        "alt": "Locally rendered SIPARIH login page with empty credentials fields and registration and password reset links.",
-        "caption": "Actual login view captured from a local run of the repository on October 20, 2026. No account or resident data is displayed."
+        "src": "/assets/projects/siparih/admin-dashboard.webp",
+        "alt": "SIPARIH administrative dashboard showing document requests and service summaries.",
+        "caption": "The administrative dashboard brings request status, service summaries, and recent activity together."
       },
       {
-        "src": "/assets/projects/siparih/automated-testing.webp",
-        "alt": "Existing repository test report visual listing passing feature tests and a total of 82 tests and 818 assertions.",
-        "caption": "Archived test-output visual: 82 tests and 818 assertions passed in the recorded July 23, 2026 run. This is historical automated test evidence, not a current production benchmark."
+        "src": "/assets/projects/siparih/resident-management.webp",
+        "alt": "SIPARIH resident-management table using demonstration records.",
+        "caption": "Resident management organizes demonstration accounts and the information supporting village services."
       },
       {
-        "src": "/assets/projects/siparih/approval-concurrency.webp",
-        "alt": "Existing repository concurrency test visual showing one passing test with 12 assertions on MySQL or MariaDB.",
-        "caption": "A separate recorded MySQL/MariaDB test used two PHP processes to check competing approvals. One approval succeeded and the other was rejected; this is a controlled test, not a traffic capacity measurement."
+        "src": "/assets/projects/siparih/letter-submission.webp",
+        "alt": "SIPARIH introduction-letter submission form with supporting-document upload.",
+        "caption": "Residents submit introduction-letter requests and upload the documents required for review."
+      },
+      {
+        "src": "/assets/projects/siparih/submission-history.webp",
+        "alt": "SIPARIH resident submission history with request status and review notes.",
+        "caption": "Submission history shows progress, status, and review notes for each resident request."
+      },
+      {
+        "src": "/assets/projects/siparih/incoming-documents.webp",
+        "alt": "SIPARIH incoming document requests awaiting neighborhood review.",
+        "caption": "Neighborhood leaders review incoming requests through a dedicated document queue."
+      },
+      {
+        "src": "/assets/projects/siparih/document-review.webp",
+        "alt": "SIPARIH document review with a PDF preview and approval controls.",
+        "caption": "Document review combines the submitted PDF, request details, and review actions in one workspace."
       }
     ],
     "year": "2026",
@@ -498,33 +513,38 @@ export const portfolio = {
     "category": "software",
     "title": "Bonjermgu Financing Portal",
     "description": "A financing portal connecting vehicle estimates, application tracking, configurable pricing, and lending reports across referral partners, account officers, and administrators.",
-    "image": "/assets/projects/bonjermgu/hero.webp",
-    "imageAlt": "Original local Bonjermgu landing page with referral registration buttons, partner categories, and a coral financing-products section.",
+    "image": "/assets/projects/bonjermgu/dashboard-preview.webp",
+    "imageAlt": "Bonjermgu administrative dashboard with financing summaries and lending charts.",
     "gallery": [
       {
-        "src": "/assets/projects/bonjermgu/landing.webp",
-        "alt": "Desktop landing page introducing the Kebon Jeruk Multiguna referral program and partner categories.",
-        "caption": "Original application UI captured from a local run of the repository; the interface is in Indonesian."
+        "src": "/assets/projects/bonjermgu/admin-dashboard.webp",
+        "alt": "Bonjermgu administrative dashboard with financing summaries and lending charts.",
+        "caption": "Administrative overview with financing summaries, account-officer activity, and lending charts."
       },
       {
-        "src": "/assets/projects/bonjermgu/sprint-sheet.webp",
-        "alt": "Historical 36-month financing estimate sheet with instalment, down payment, insurance, and application-entry fields; the customer name and product identifiers are blank.",
-        "caption": "Historical development output showing a 36-month financing estimate with customer details left blank."
+        "src": "/assets/projects/bonjermgu/officer-simulation.webp",
+        "alt": "Bonjermgu account-officer financing simulation form.",
+        "caption": "Financing simulation brings vehicle information, product rules, insurance, and estimated payments into one workflow."
       },
       {
-        "src": "/assets/projects/bonjermgu/architecture.webp",
-        "alt": "Code-derived architecture diagram connecting Blade and Livewire screens, the PHP simulation domain, configuration repositories, PostgreSQL, and lending aggregation.",
-        "caption": "Portfolio diagram derived from the implementation: financial calculations run in a shared PHP domain layer, with role-specific interfaces and database-backed configuration."
+        "src": "/assets/projects/bonjermgu/application-tracking.webp",
+        "alt": "Bonjermgu application-tracking screen with progress stages and document status.",
+        "caption": "Application tracking records stage progress and document status across the financing workflow."
       },
       {
-        "src": "/assets/projects/bonjermgu/workflow.webp",
-        "alt": "Workflow diagram showing referral simulation, external handoff, officer-managed applications, and role-specific monitoring and lending reports.",
-        "caption": "Documentation-derived workflow. Staff perform credit review and document handling outside the system; the application records their progress."
+        "src": "/assets/projects/bonjermgu/product-configuration.webp",
+        "alt": "Bonjermgu product configuration with rates, fees, and insurance parameters.",
+        "caption": "Product configuration manages the business rules used by the financing calculations."
       },
       {
-        "src": "/assets/projects/bonjermgu/login.webp",
-        "alt": "Original Bonjermgu login page with empty username and password fields, a remember-me checkbox, and password reset and registration links.",
-        "caption": "Original local login screen with empty credentials. No account was used to capture this image."
+        "src": "/assets/projects/bonjermgu/vehicle-master.webp",
+        "alt": "Bonjermgu vehicle master-data management screen.",
+        "caption": "Vehicle master data supplies the reference values used when preparing financing estimates."
+      },
+      {
+        "src": "/assets/projects/bonjermgu/lending-report.webp",
+        "alt": "Bonjermgu lending report grouped by account officer.",
+        "caption": "Lending reports summarize account-officer activity and aggregate financing totals."
       }
     ],
     "year": "2026",

@@ -17,3 +17,9 @@ The project collection contains six real projects. The original three featured p
 - **SiDiKa:** `sidika/project.json`, evidence, and eight owner-supplied application screenshots from `sidika/img/`. These replace the original diagrams and product photograph; the dashboard is also the card preview. My contribution remains scoped to backend team work. Four results describe implemented capabilities, without invented test or adoption metrics.
 
 Every project uses five contributions, four results, first-person contribution/result descriptions, and 308 words across its description, overview, contribution descriptions, and result descriptions. Captions, labels, and metadata are excluded from that editorial length target.
+
+## Bonjermgu and SIPARIH screenshot refresh
+
+Both galleries now use six authenticated application screenshots supplied by the owner. Bonjermgu sources are `bonjermgu/screenshots/`; SIPARIH sources are the six numbered PNGs in `siparih/`. Earlier gallery assets were removed. Gallery WebP exports retain the complete screenshot; dashboard card previews crop only the bottom portion for the existing card ratio.
+
+Bonjermgu privacy masks are already present in the source captures. SIPARIH captures use a separate demonstration database with fictional records and placeholder documents. Visible statistics are not portfolio impact metrics. Project narratives and evaluation claims were preserved.
