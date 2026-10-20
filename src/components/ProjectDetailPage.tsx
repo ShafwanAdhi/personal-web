@@ -28,7 +28,7 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
       <h1>{project.title}</h1><p className="detail-intro">{project.description}</p>
       <p className="detail-category">{category}<span aria-hidden="true"> / </span>{project.year}</p>
     </Reveal>
-    <ProjectGallery images={project.gallery.length ? project.gallery : [{ src: project.image, alt: project.imageAlt, caption: project.description }]} />
+    <ProjectGallery layout={project.galleryLayout} images={project.gallery.length ? project.gallery : [{ src: project.image, alt: project.imageAlt, caption: project.description }]} />
     {project.websiteUrl && <a className="button detail-website" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">{project.websiteLabel ?? copy.websiteLabel}<ArrowIcon /></a>}
     <div className="case-study-layout">
       <aside className="case-study-aside">

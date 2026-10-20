@@ -303,6 +303,21 @@ h1 span { display: block; }
 .gallery-dots span { width: 5px; height: 5px; border-radius: 50%; background: #666; transition: background .2s, width .2s; }
 .gallery-dots button[aria-pressed='true'] span { width: 18px; border-radius: 5px; background: var(--lime); }
 .gallery-count { color: #a4a4a4; font-size: 12px; font-variant-numeric: tabular-nums; }
+.project-gallery--portrait { max-width: 620px; margin-inline: auto; }
+.project-gallery--portrait .gallery-stage { aspect-ratio: auto; height: clamp(460px, 72svh, 660px); background: radial-gradient(ellipse at top, #153c60, #0b1727); }
+.project-gallery--portrait .gallery-stage > img { padding: 18px 56px; }
+.project-gallery--portrait .gallery-arrows { inset: 50% 10px auto; justify-content: space-between; transform: translateY(-50%); pointer-events: none; }
+.project-gallery--portrait .gallery-arrow { pointer-events: auto; }
+.project-gallery--portrait .gallery-caption > p { min-height: 3.2em; }
+.project-gallery--portrait .gallery-pagination { width: 100%; justify-content: space-between; gap: 8px; }
+.project-gallery--portrait .gallery-dots { flex: 1; flex-wrap: nowrap; gap: 0; }
+.project-gallery--portrait .gallery-dots button { width: auto; flex: 1; min-width: 0; max-width: 44px; }
+.project-gallery--portrait + .detail-website { display: flex; width: fit-content; margin-inline: auto; }
+@media (max-width: 599px) {
+  .project-gallery--portrait .gallery-stage { height: auto; }
+  .project-gallery--portrait .gallery-stage > img { height: auto; padding: 12px 12px 64px; }
+  .project-gallery--portrait .gallery-arrows { inset: auto 12px 10px; transform: none; }
+}
 .case-study-layout { display: grid; grid-template-columns: 205px minmax(0, 1fr); gap: 64px; margin-top: 52px; align-items: start; }
 .case-study-aside { position: sticky; top: 30px; }
 .case-study-facts { margin: 0; display: grid; gap: 20px; }

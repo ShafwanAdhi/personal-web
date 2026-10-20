@@ -10,7 +10,7 @@ const GalleryImage = forwardRef<HTMLImageElement, HTMLMotionProps<'img'>>(functi
   return <motion.img {...props} ref={ref} aria-hidden={isPresent ? undefined : true} data-exiting={!isPresent} />
 })
 
-export default function ProjectGallery({ images }: { images: ProjectImage[] }) {
+export default function ProjectGallery({ images, layout }: { images: ProjectImage[]; layout?: 'portrait' }) {
   const [index, setIndex] = useState(0)
   const [direction, setDirection] = useState(1)
   const reduced = useMotionPreference()
@@ -21,7 +21,7 @@ export default function ProjectGallery({ images }: { images: ProjectImage[] }) {
     setDirection(travel)
     setIndex((next + images.length) % images.length)
   }
-  return <section className="project-gallery" aria-label={copy.galleryLabel}>
+  return <section className={`project-gallery${layout === 'portrait' ? ' project-gallery--portrait' : ''}`} aria-label={copy.galleryLabel}>
     <div className="gallery-stage" role="group" aria-label={copy.galleryInstructions} tabIndex={0} onKeyDown={event => {
       if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return
       event.preventDefault()
@@ -29,7 +29,7 @@ export default function ProjectGallery({ images }: { images: ProjectImage[] }) {
       goTo(index + travel, travel)
     }}>
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
-        <GalleryImage key={index} src={active.src} alt={active.alt} width="1200" height="675"
+        <GalleryImage key={index} src={active.src} alt={active.alt} width={layout === 'portrait' ? 720 : 1200} height={layout === 'portrait' ? 1600 : 675}
           custom={direction} variants={{ enter: (travel: number) => ({ opacity: 0, x: reduced ? 0 : travel * 45 }), center: { opacity: 1, x: 0 }, exit: (travel: number) => ({ opacity: 0, x: reduced ? 0 : travel * -45 }) }}
           initial="enter" animate="center" exit="exit" transition={{ duration: reduced ? 0 : 0.35, ease: smoothEase }}
           drag={images.length > 1 ? 'x' : false} dragConstraints={{ left: 0, right: 0 }} dragElastic={0.12}

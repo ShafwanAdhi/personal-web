@@ -114,6 +114,8 @@ describe('portfolio visitor journeys', () => {
       expect(screen.getByRole('heading', { name })).toBeInTheDocument()
     }
     const gallery = screen.getByRole('region', { name: 'Project gallery' })
+    expect(gallery).toHaveClass('project-gallery--portrait')
+    expect(within(gallery).getAllByRole('button', { name: /^Show image/ })).toHaveLength(9)
     const firstImage = within(gallery).getByRole('img').getAttribute('src')
     await user.click(within(gallery).getByRole('button', { name: 'Next image' }))
     expect(within(gallery).getByRole('img')).not.toHaveAttribute('src', firstImage)

@@ -17,6 +17,7 @@ export interface Project {
   description: string
   image: string
   imageAlt: string
+  galleryLayout?: 'portrait'
   gallery: ProjectImage[]
   year: string
   role: string
@@ -134,28 +135,54 @@ export const portfolio = {
     "description": "An evidence-guided AI system that investigates suspicious messages, links, and screenshots through multimodal analysis, grounded retrieval, and clear, actionable explanations.",
     "image": "/assets/projects/waspadai/learning-app-showcase.webp",
     "imageAlt": "WaspadAI mobile app showcase displaying the verification chat and digital-literacy learning screens.",
+    "galleryLayout": "portrait",
     "gallery": [
-      {
-        "src": "/assets/projects/waspadai/verification-architecture.webp",
-        "alt": "WaspadAI verification architecture, from input normalization to evidence retrieval and verdict generation.",
-        "caption": "The AI pipeline combines privacy filtering, rulebook-guided investigation, evidence retrieval, and conservative verdicts."
-      },
-      {
-        "src": "/assets/projects/waspadai/technology-stack.webp",
-        "alt": "WaspadAI architecture separating the external application from the AI verification service.",
-        "caption": "A modular web and API stack keeps product authentication separate from the stateless verification service."
-      },
-      {
-        "src": "/assets/projects/waspadai/server-integration.webp",
-        "alt": "Source-derived architecture diagram connecting Android, the Product Backend, Supabase, and the separate AI fact-check API.",
-        "caption": "Android authenticates through the Product Backend, which owns product records and calls the separate AI verification service."
-      },
-      {
-        "src": "/assets/projects/waspadai/community-evidence.webp",
-        "alt": "Source-derived diagram of community evidence selection, consent and moderation checks, payload limits, and text or image request transport.",
-        "caption": "Community evidence passes consent, moderation, content-hash, and payload checks before AI-service transport. Development fixtures remain separate from real records."
-      }
-    ],
+  {
+    "src": "/assets/projects/waspadai/verification-chat.webp",
+    "alt": "WaspadAI mobile app: verification chat.",
+    "caption": "The mobile home screen accepts messages, images, and documents for verification."
+  },
+  {
+    "src": "/assets/projects/waspadai/verification-result.webp",
+    "alt": "WaspadAI mobile app: verification result.",
+    "caption": "The investigation presents a verdict, supporting reasons, and practical safety guidance."
+  },
+  {
+    "src": "/assets/projects/waspadai/screenshot-selection.webp",
+    "alt": "WaspadAI mobile app: screenshot area selection.",
+    "caption": "Select the relevant area of a screenshot before sending it for analysis."
+  },
+  {
+    "src": "/assets/projects/waspadai/floating-assistant.webp",
+    "alt": "WaspadAI mobile app: floating verification assistant.",
+    "caption": "The floating assistant checks suspicious messages while another application remains open."
+  },
+  {
+    "src": "/assets/projects/waspadai/learning-dashboard.webp",
+    "alt": "WaspadAI mobile app: learning dashboard.",
+    "caption": "Daily missions and learning progress support digital-literacy practice."
+  },
+  {
+    "src": "/assets/projects/waspadai/learning-module.webp",
+    "alt": "WaspadAI mobile app: digital-literacy learning module.",
+    "caption": "Structured lessons explain phishing, OTP safety, and PIN protection."
+  },
+  {
+    "src": "/assets/projects/waspadai/quiz-review.webp",
+    "alt": "WaspadAI mobile app: quiz answer review.",
+    "caption": "Answer reviews explain safe responses to common digital-fraud scenarios."
+  },
+  {
+    "src": "/assets/projects/waspadai/community-feed.webp",
+    "alt": "WaspadAI mobile app: community connections feed.",
+    "caption": "Community posts share suspicious messages and experiences for discussion."
+  },
+  {
+    "src": "/assets/projects/waspadai/profile.webp",
+    "alt": "WaspadAI mobile app: profile and activity.",
+    "caption": "The profile brings verification history, community activity, and learning progress together."
+  }
+],
     "year": "2026",
     "role": "AI & Full-Stack Developer / Mobile Integration Contributor",
     "duration": "September 2026",
