@@ -258,6 +258,36 @@ export const portfolio = {
     "image": "/assets/projects/numora-question-variants/workbench-hero.webp",
     "imageAlt": "Numora local workbench showing a source mathematics question and a seeded variant side by side, with filters and answer keys.",
     "gallery": [
+  {
+    "src": "/assets/projects/numora-question-variants/student-home.webp",
+    "alt": "Numora student dashboard interface.",
+    "caption": "The student dashboard brings daily practice, learning progress, and weekly Tryout access together."
+  },
+  {
+    "src": "/assets/projects/numora-question-variants/material-catalog.webp",
+    "alt": "Numora learning material catalog interface.",
+    "caption": "The material catalog organizes mathematics topics into clear learning paths."
+  },
+  {
+    "src": "/assets/projects/numora-question-variants/drill-session.webp",
+    "alt": "Numora drill practice session interface.",
+    "caption": "The Drill workspace presents mathematics questions, answer choices, and session navigation."
+  },
+  {
+    "src": "/assets/projects/numora-question-variants/weekly-tryout.webp",
+    "alt": "Numora weekly tryout interface.",
+    "caption": "The Tryout page introduces the weekly mathematics assessment and its available package."
+  },
+  {
+    "src": "/assets/projects/numora-question-variants/admin-question-bank.webp",
+    "alt": "Numora admin question bank interface.",
+    "caption": "The admin question bank displays question versions and content-management actions."
+  },
+  {
+    "src": "/assets/projects/numora-question-variants/admin-irt-monitoring.webp",
+    "alt": "Numora admin irt monitoring interface.",
+    "caption": "The IRT monitoring view displays batch status, processing history, and item-parameter records."
+  },
       {
         "src": "/assets/projects/numora-question-variants/workbench-hero.webp",
         "alt": "Numora local workbench showing a source mathematics question and a seeded variant side by side, with filters and answer keys.",

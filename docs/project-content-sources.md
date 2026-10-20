@@ -25,3 +25,5 @@ Both galleries now use six authenticated application screenshots supplied by the
 Bonjermgu privacy masks are already present in the source captures. SIPARIH captures use a separate demonstration database with fictional records and placeholder documents. Visible statistics are not portfolio impact metrics. Project narratives and evaluation claims were preserved.
 
 SIPARIH refresh: five updated screenshots from the owner replaced the previous exports. The latest dashboard capture contains a blank content area and is excluded. The submission form is the cover and first slide. Content-version query strings prevent browsers from reusing older cached images.
+
+- **Numora gallery update (2026-10-20):** six 1600 ? 900 screenshots from `D:/project_context/numora-question-variants/screenshoot/` appear before the existing technical gallery. Converted to WebP; the thumbnail is unchanged. The supplied README identifies a local build with synthetic demo fixtures and browser request interception. These screenshots illustrate UI, not live backend behavior or benchmark results. Raw browser logs remain outside public assets.
