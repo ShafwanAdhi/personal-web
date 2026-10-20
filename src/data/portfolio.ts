@@ -592,28 +592,48 @@ export const portfolio = {
     "category": "software",
     "title": "SiDiKa Camera Retail Management",
     "description": "A camera retail platform connecting a public product catalog with inventory, quality control, sales, and reporting through team-built operational workflows.",
-    "image": "/assets/projects/sidika/cover.webp",
-    "imageAlt": "Source-derived SiDiKa diagram connecting the public camera catalog and staff workspace through Laravel, with my backend contribution areas identified.",
+    "image": "/assets/projects/sidika/dashboard.webp",
+    "imageAlt": "SiDiKa dashboard with revenue summaries, transaction charts, and best-selling products.",
     "gallery": [
       {
-        "src": "/assets/projects/sidika/architecture.webp",
-        "alt": "Diagram of the Laravel application, Blade pages, relational database, media processing, mail, and reporting integrations.",
-        "caption": "Architecture reconstructed from repository code. Storage and mail connections describe implementation support; active hosting is unverified."
+        "src": "/assets/projects/sidika/dashboard.webp",
+        "alt": "SiDiKa dashboard with revenue summaries, transaction charts, and best-selling products.",
+        "caption": "Dashboard overview with sales summaries, transaction breakdowns, and product performance."
       },
       {
-        "src": "/assets/projects/sidika/account-workflow.webp",
-        "alt": "Four-step diagram showing employee selection, user creation, activation preparation, and an email success or warning response.",
-        "caption": "Employee-linked account provisioning. I contributed to this backend subsystem within the team-built application."
+        "src": "/assets/projects/sidika/products.webp",
+        "alt": "SiDiKa product management table with categories, stock, pricing, and row actions.",
+        "caption": "Product management with searchable inventory, stock information, and administrative actions."
       },
       {
-        "src": "/assets/projects/sidika/stock-heuristic.webp",
-        "alt": "Diagram explaining average daily sales and stock depletion calculations, including zero-stock and no-sales edge cases.",
-        "caption": "Team stock-estimation feature: a deterministic sales-rate heuristic, with no measured prediction accuracy available."
+        "src": "/assets/projects/sidika/add-product.webp",
+        "alt": "SiDiKa product creation form with product details, stock, pricing, and image uploads.",
+        "caption": "Product creation brings catalog details, pricing, stock, and media into one form."
       },
       {
-        "src": "/assets/projects/sidika/catalog-product.webp",
-        "alt": "Original Dinoyo Kamera catalog asset showing a Panasonic SDR-S26 camcorder against books, with the store watermark and product label.",
-        "caption": "Original catalog product media, converted to WebP. This is a product photograph rather than an application screenshot."
+        "src": "/assets/projects/sidika/sales-catalog.webp",
+        "alt": "SiDiKa sales catalog with a product-details dialog open.",
+        "caption": "The sales catalog exposes product information before adding items to a transaction."
+      },
+      {
+        "src": "/assets/projects/sidika/sales-transaction.webp",
+        "alt": "SiDiKa sales transaction screen with selected products and an order summary.",
+        "caption": "Sales entry combines item selection, quantities, pricing, and the transaction total."
+      },
+      {
+        "src": "/assets/projects/sidika/sale-details.webp",
+        "alt": "SiDiKa sale details showing purchased items and a financial summary.",
+        "caption": "A completed transaction view brings item details and totals together for review."
+      },
+      {
+        "src": "/assets/projects/sidika/purchase.webp",
+        "alt": "SiDiKa purchase-entry dialog with supplier and product information.",
+        "caption": "Purchase entry records supplier details, product quantities, and purchase costs."
+      },
+      {
+        "src": "/assets/projects/sidika/catalog-settings.webp",
+        "alt": "SiDiKa catalog settings with identity, banners, contact details, and partner logos.",
+        "caption": "Catalog configuration manages the public identity, banners, and partner content."
       }
     ],
     "year": "2025",
