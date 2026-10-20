@@ -445,10 +445,10 @@ export const portfolio = {
   {
     "id": "sisdas-rag-assistant",
     "category": "ai-ml",
-    "title": "SISDAS RAG Assistant",
+    "title": "UM RAG Assistant",
     "description": "A campus information assistant connecting official university documents, hybrid retrieval, and source-linked answers through a transparent, responsive chat experience.",
     "image": "/assets/projects/sisdas-rag-assistant/chat-home.webp",
-    "imageAlt": "SISDAS RAG Assistant chat interface with a centered question field, example prompts, and a subtle document-network background.",
+    "imageAlt": "UM RAG Assistant chat interface with a centered question field, example prompts, and a subtle document-network background.",
     "gallery": [
       {
         "src": "/assets/projects/sisdas-rag-assistant/chat-home.webp",
@@ -474,7 +474,7 @@ export const portfolio = {
     "year": "2026",
     "role": "AI & Full-Stack Developer",
     "duration": "September 2026",
-    "overview": "I built SISDAS RAG Assistant to make campus policies, schedules, procedures, and service information easier to find across university documents. My pipeline answers suitable questions from structured facts, then routes other queries through domain-specific retrieval and deterministic reranking. I combined multilingual embeddings, lexical signals, keywords, and metadata to select relevant context before generating source-linked answers. The interface streams progress and exposes the process behind each response. I also built document ingestion, backend endpoints, evaluation tooling, and containerized deployment, keeping source PDFs accessible so readers can inspect the evidence themselves with clear source attribution.",
+    "overview": "I built UM RAG Assistant to make campus policies, schedules, procedures, and service information easier to find across university documents. My pipeline answers suitable questions from structured facts, then routes other queries through domain-specific retrieval and deterministic reranking. I combined multilingual embeddings, lexical signals, keywords, and metadata to select relevant context before generating source-linked answers. The interface streams progress and exposes the process behind each response. I also built document ingestion, backend endpoints, evaluation tooling, and containerized deployment, keeping source PDFs accessible so readers can inspect the evidence themselves with clear source attribution.",
     "tools": [
       "Python",
       "FastAPI",

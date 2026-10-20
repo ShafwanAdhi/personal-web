@@ -34,7 +34,7 @@ Edit **`src/data/portfolio.ts`**. This is the single source for all website copy
 - `cta`, `contact`: closing headline and contact copy.
 - `ui`: navigation and accessible labels.
 
-Change both `identity.email` and `contact.emailLabel` to your email. Email and social links use the supplied Shafwan Adhi details. Projects describe WaspadAI, Numora, SIPARIH, SISDAS RAG Assistant, Bonjermgu, and SiDiKa using the supplied project-context packages. Evaluation numbers retain their documented scope. Certification and course records use the supplied documents.
+Change both `identity.email` and `contact.emailLabel` to your email. Email and social links use the supplied Shafwan Adhi details. Projects describe WaspadAI, Numora, SIPARIH, UM RAG Assistant, Bonjermgu, and SiDiKa using the supplied project-context packages. Evaluation numbers retain their documented scope. Certification and course records use the supplied documents.
 
 Social links contain Gmail, LinkedIn, and GitHub only. Update their destinations under `socials`, including Gmail's `mailto:` address. Gmail opens the visitor's email app; LinkedIn and GitHub open in a new tab.
 
@@ -42,7 +42,7 @@ Put your images in **`public/assets/`**, then use `/assets/filename.webp` in the
 
 Project IDs are unique URL slugs defining `/projects/<id>`: `waspadai`, `numora-question-variants`, `siparih`, `sisdas-rag-assistant`, `bonjermgu`, and `sidika`. Edit each project's `gallery`, `tools`, `overview`, `contributions`, and `achievements` in the data file. Gallery images preserve their full aspect ratio; screenshots and architecture diagrams have explanatory captions. Dates show months of documented activity rather than estimated hours worked.
 
-Project filters remain All, AI / ML, Software Engineering, and Others, in that order. WaspadAI and SISDAS RAG Assistant belong to AI / ML; Numora, SIPARIH, Bonjermgu, and SiDiKa belong to Software Engineering. Others currently displays the configured empty state. `work.defaultCategoryId` controls the initial filter; `work.allCategoryId` identifies All.
+Project filters remain All, AI / ML, Software Engineering, and Others, in that order. WaspadAI and UM RAG Assistant belong to AI / ML; Numora, SIPARIH, Bonjermgu, and SiDiKa belong to Software Engineering. Others currently displays the configured empty state. `work.defaultCategoryId` controls the initial filter; `work.allCategoryId` identifies All.
 
 The home page shows three featured projects on every screen size, without filters, followed by Explore All Projects. Choose their IDs and order in `work.featuredProjectIds` (up to three entries are shown; IDs must match existing projects). `/projects` displays the complete collection and category filters. The selected category is preserved in its URL, through reloads, and when returning from a case study. Next-project suggestions stay in the selected category; a category with only one project explicitly offers work from the full collection instead. All collection titles, descriptions, and button labels are configurable under `work`.
 
@@ -94,4 +94,4 @@ Latest page artifacts: `pages-home-projects.png`, `pages-home-certifications.png
 
 The supplied screenshot is the visual reference. A public [portfolio exploration by Calvin Alvito](https://dribbble.com/shots/23595427-Personal-Portofolio-Landing-Page) was inspected during reference research; its laptop artwork is not used on this website. `project-preview.svg`, `analytics.svg`, `pipeline.svg`, `evaluation.svg`, and `robotics.svg` are code-authored placeholders. Certificate previews use the supplied documents; HTML/CSS provides a fallback only for records without an image. The current portrait is the user's supplied photo, edited with the built-in imagegen tool to remove its background; asset notes are in `docs/asset-notes.md`. The previous generated portrait is retained but is no longer used. Poppins is self-hosted through `@fontsource/poppins` and its package includes the font license.
 
-Case-study website buttons use each project's optional `websiteUrl` field in `src/data/portfolio.ts`. WaspadAI, SISDAS, and Bonjermgu link to their websites. SiDiKa has an empty URL ready for the owner to fill; the button appears when populated. Numora and SIPARIH have no website button. The shared label is `projectDetail.websiteLabel`. Links open in a new tab.
+Case-study website buttons use each project's optional `websiteUrl` field in `src/data/portfolio.ts`. WaspadAI, UM RAG Assistant, and Bonjermgu link to their websites. SiDiKa has an empty URL ready for the owner to fill; the button appears when populated. Numora and SIPARIH have no website button. The shared label is `projectDetail.websiteLabel`. Links open in a new tab.
