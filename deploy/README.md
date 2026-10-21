@@ -29,6 +29,23 @@ curl -I https://shafwan.digital/
 
 No host Nginx reload is needed for content updates. Other Compose projects remain running.
 
+## Content release checks and rollback
+
+Before updating, record `git rev-parse HEAD` and the running container's image ID. Keep that image until the release is verified. After the existing update commands, check:
+
+```sh
+curl -f https://shafwan.digital/projects/waspadai/
+curl -f https://shafwan.digital/reports/projects/waspadai.md
+curl -I https://ragcampus.shafwan.digital/
+curl -I https://waspadai.shafwan.digital/
+curl -I https://bonjermgu.com/
+curl -I https://siparih.shafwan.digital/
+```
+
+Compare shared-service responses with their pre-release status; do not restart their containers to update this static site. For a content rollback, use a temporary Compose override setting `services.web.image` to the saved image ID, then run this project's `docker compose -f compose.yaml -f <rollback-override> up -d --no-build --wait`. Verify `/health`, homepage, a direct case study and its report again. This restores the previous runtime image without editing source history or host Nginx. Keep any uncommitted VPS work intact.
+
+The October 22 content audit was built and smoke-tested locally; it has not been deployed. See `docs/superpowers/verification/2026-10-21-project-content-audit.md` for completed checks and open source-project findings.
+
 ## Host routing
 
 Only the existing placeholder `location /` was replaced with:

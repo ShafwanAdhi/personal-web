@@ -5,8 +5,14 @@ import { Reveal } from './MotionUI'
 import ProjectGallery from './ProjectGallery'
 import { useMotionPreference } from '../lib/useMotionPreference'
 
+function validResource(href: string) {
+  if (/^\/(assets|reports)\/[a-zA-Z0-9/_-]+\.[a-zA-Z0-9]+$/.test(href)) return true
+  try { const url = new URL(href); return href.startsWith('https://') && url.protocol === 'https:' && Boolean(url.hostname) && !url.username && !url.password && !/[\s\\]/.test(href) } catch { return false }
+}
+
 export default function ProjectDetailPage({ project }: { project: Project }) {
   const copy = portfolio.projectDetail
+  const artifacts = project.artifacts?.filter(item => validResource(item.href)) ?? []
   const params = new URLSearchParams(window.location.search)
   const fromCollection = params.get('from') === 'projects'
   const requestedCategory = params.get('category')
@@ -26,19 +32,22 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
     <a className="back-link" href={backHref}><ArrowIcon />{copy.backLabel}</a>
     <Reveal className="detail-heading"><p className="page-eyebrow">{copy.eyebrow}</p>
       <h1>{project.title}</h1><p className="detail-intro">{project.description}</p>
+      <p className="detail-role"><span>{copy.roleLabel}</span>{project.role}</p>
       <p className="detail-category">{category}<span aria-hidden="true"> / </span>{project.year}</p>
     </Reveal>
     <ProjectGallery layout={project.galleryLayout} images={project.gallery.length ? project.gallery : [{ src: project.image, alt: project.imageAlt, caption: project.description }]} />
-    {project.websiteUrl && <a className="button detail-website" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">{project.websiteLabel ?? copy.websiteLabel}<ArrowIcon /></a>}
+    {project.websiteUrl && validResource(project.websiteUrl) && <a className="button detail-website" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">{project.websiteLabel ?? copy.websiteLabel}<ArrowIcon /></a>}
     <div className="case-study-layout">
       <aside className="case-study-aside">
-        <dl className="case-study-facts"><div><dt>{copy.roleLabel}</dt><dd>{project.role}</dd></div><div><dt>{copy.yearLabel}</dt><dd>{project.year}</dd></div><div><dt>{copy.durationLabel}</dt><dd>{project.duration}</dd></div></dl>
+        <dl className="case-study-facts"><div><dt>{copy.yearLabel}</dt><dd>{project.year}</dd></div><div><dt>{copy.durationLabel}</dt><dd>{project.duration}</dd></div></dl>
         <h2>{copy.stackTitle}</h2><ul className="tech-stack">{project.tools.map(tool => <li key={tool}>{tool}</li>)}</ul>
       </aside>
       <div className="case-study-body">
         <Reveal><section aria-labelledby="overview-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[0]}</p><h2 id="overview-title">{copy.overviewTitle}</h2><p>{project.overview}</p></section></Reveal>
         <Reveal><section aria-labelledby="contributions-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[1]}</p><h2 id="contributions-title">{copy.contributionsTitle}</h2><ol className="contribution-list">{project.contributions.map(item => <li key={item.title}><h3>{item.title}</h3><p>{item.description}</p></li>)}</ol></section></Reveal>
-        <Reveal><section aria-labelledby="achievements-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[2]}</p><h2 id="achievements-title">{copy.achievementsTitle}</h2><div className="achievement-grid">{project.achievements.map(item => <div key={item.label}><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.description}</p></div>)}</div></section></Reveal>
+        {project.achievements.length > 0 && <Reveal><section aria-labelledby="achievements-title"><p className="section-number" aria-hidden="true">{copy.sectionNumbers[2]}</p><h2 id="achievements-title">{copy.achievementsTitle}</h2><div className="achievement-grid">{project.achievements.map(item => <div key={item.label}><span className="result-kind">{copy.resultKinds[item.kind]}</span><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.description}</p></div>)}</div></section></Reveal>}
+        {project.evaluation?.methodology.trim() && <Reveal><section className="evaluation-note" aria-labelledby="evaluation-title"><h2 id="evaluation-title">{copy.evaluationTitle}</h2><p>{project.evaluation.methodology}</p>{project.evaluation.limitations.length > 0 && <ul>{project.evaluation.limitations.map(item => <li key={item}>{item}</li>)}</ul>}</section></Reveal>}
+        {artifacts.length > 0 && <Reveal><section aria-labelledby="resources-title"><h2 id="resources-title">{copy.resourcesTitle}</h2><ul className="resource-links">{artifacts.map(item => <li key={item.href}><a href={item.href} {...(item.href.startsWith('https://') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{item.label}<ArrowIcon /></a></li>)}</ul></section></Reveal>}
       </div>
     </div>
     <Reveal className="detail-end">

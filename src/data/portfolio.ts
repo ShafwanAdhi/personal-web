@@ -8,6 +8,7 @@
 export type SocialIcon = 'gmail' | 'linkedin' | 'github'
 
 export interface ProjectImage { src: string; alt: string; caption: string }
+export type ProjectResultKind = 'evaluation' | 'verification' | 'scope' | 'capability'
 export interface Project {
   id: string
   websiteUrl?: string
@@ -25,7 +26,9 @@ export interface Project {
   overview: string
   tools: string[]
   contributions: { title: string; description: string }[]
-  achievements: { value: string; label: string; description: string }[]
+  achievements: { kind: ProjectResultKind; value: string; label: string; description: string }[]
+  evaluation?: { methodology: string; limitations: string[] }
+  artifacts?: { label: string; href: string }[]
 }
 
 export interface Certification {
@@ -75,7 +78,7 @@ export const portfolio = {
     { label: 'LinkedIn', icon: 'linkedin' as SocialIcon, href: 'https://www.linkedin.com/in/shafwan-adhi-dwi-nugraha-b90943321/' },
     { label: 'GitHub', icon: 'github' as SocialIcon, href: 'https://github.com/ShafwanAdhi' },
   ],
-  skills: ['Multi Agent System', 'AI Automation', 'Machine Learning', 'Data Science'],
+  skills: ['LLM Applications', 'Retrieval-Augmented Generation', 'AI Automation', 'Software Engineering'],
   about: {
     title: 'A Little About Me',
     description: "I'm an undergraduate student focused on AI, machine learning, and data science, with a particular interest in AI agents and large language models. I enjoy exploring research, building intelligent systems, and evaluating how they work and can be improved.",
@@ -110,7 +113,7 @@ export const portfolio = {
   work: {
     allCategoryId: 'all',
     defaultCategoryId: 'all',
-    featuredProjectIds: ['waspadai', 'numora-question-variants', 'siparih'],
+    featuredProjectIds: ['waspadai', 'sisdas-rag-assistant', 'numora-question-variants'],
     title: 'Selected Projects',
     description: 'A collection of projects and experiments where I explore ideas, build systems, and apply AI, machine learning, and data science to practical problems.',
     categories: [
@@ -132,61 +135,61 @@ export const portfolio = {
     "id": "waspadai",
     "category": "ai-ml",
     "title": "WaspadAI",
-    "description": "An evidence-guided AI system that investigates suspicious messages, links, and screenshots through multimodal analysis, grounded retrieval, and clear, actionable explanations.",
+    "description": "For people facing suspicious messages, I built an evidence-guided AI investigation pipeline and web demo, combining safety rules, retrieved sources, and explicit uncertainty when verification cannot be completed.",
     "image": "/assets/projects/waspadai/learning-app-showcase.webp",
     "imageAlt": "WaspadAI mobile app showcase displaying the verification chat and digital-literacy learning screens.",
     "galleryLayout": "portrait",
     "gallery": [
-  {
-    "src": "/assets/projects/waspadai/verification-chat.webp",
-    "alt": "WaspadAI mobile app: verification chat.",
-    "caption": "The mobile home screen accepts messages, images, and documents for verification."
-  },
-  {
-    "src": "/assets/projects/waspadai/verification-result.webp",
-    "alt": "WaspadAI mobile app: verification result.",
-    "caption": "The investigation presents a verdict, supporting reasons, and practical safety guidance."
-  },
-  {
-    "src": "/assets/projects/waspadai/screenshot-selection.webp",
-    "alt": "WaspadAI mobile app: screenshot area selection.",
-    "caption": "Select the relevant area of a screenshot before sending it for analysis."
-  },
-  {
-    "src": "/assets/projects/waspadai/floating-assistant.webp",
-    "alt": "WaspadAI mobile app: floating verification assistant.",
-    "caption": "The floating assistant checks suspicious messages while another application remains open."
-  },
-  {
-    "src": "/assets/projects/waspadai/learning-dashboard.webp",
-    "alt": "WaspadAI mobile app: learning dashboard.",
-    "caption": "Daily missions and learning progress support digital-literacy practice."
-  },
-  {
-    "src": "/assets/projects/waspadai/learning-module.webp",
-    "alt": "WaspadAI mobile app: digital-literacy learning module.",
-    "caption": "Structured lessons explain phishing, OTP safety, and PIN protection."
-  },
-  {
-    "src": "/assets/projects/waspadai/quiz-review.webp",
-    "alt": "WaspadAI mobile app: quiz answer review.",
-    "caption": "Answer reviews explain safe responses to common digital-fraud scenarios."
-  },
-  {
-    "src": "/assets/projects/waspadai/community-feed.webp",
-    "alt": "WaspadAI mobile app: community connections feed.",
-    "caption": "Community posts share suspicious messages and experiences for discussion."
-  },
-  {
-    "src": "/assets/projects/waspadai/profile.webp",
-    "alt": "WaspadAI mobile app: profile and activity.",
-    "caption": "The profile brings verification history, community activity, and learning progress together."
-  }
-],
+      {
+        "src": "/assets/projects/waspadai/verification-chat.webp",
+        "alt": "WaspadAI mobile app: verification chat.",
+        "caption": "The mobile home screen accepts messages, images, and documents for verification. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/verification-result.webp",
+        "alt": "WaspadAI mobile app: verification result.",
+        "caption": "The investigation presents a verdict, supporting reasons, and practical safety guidance. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/screenshot-selection.webp",
+        "alt": "WaspadAI mobile app: screenshot area selection.",
+        "caption": "Select the relevant area of a screenshot before sending it for analysis. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/floating-assistant.webp",
+        "alt": "WaspadAI mobile app: floating verification assistant.",
+        "caption": "The floating assistant checks suspicious messages while another application remains open. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/learning-dashboard.webp",
+        "alt": "WaspadAI mobile app: learning dashboard.",
+        "caption": "Daily missions and learning progress support digital-literacy practice. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/learning-module.webp",
+        "alt": "WaspadAI mobile app: digital-literacy learning module.",
+        "caption": "Structured lessons explain phishing, OTP safety, and PIN protection. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/quiz-review.webp",
+        "alt": "WaspadAI mobile app: quiz answer review.",
+        "caption": "Answer reviews explain safe responses to common digital-fraud scenarios. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/community-feed.webp",
+        "alt": "WaspadAI mobile app: community connections feed.",
+        "caption": "Community posts share suspicious messages and experiences for discussion. Team-built Android product; my scope is the AI service and selected integration work."
+      },
+      {
+        "src": "/assets/projects/waspadai/profile.webp",
+        "alt": "WaspadAI mobile app: profile and activity.",
+        "caption": "The profile brings verification history, community activity, and learning progress together. Team-built Android product; my scope is the AI service and selected integration work."
+      }
+    ],
     "year": "2026",
-    "role": "AI & Full-Stack Developer / Mobile Integration Contributor",
+    "role": "AI pipeline & web developer; mobile integration contributor",
     "duration": "September 2026",
-    "overview": "I built WaspadAI, an evidence-guided verification service and web demo for investigating suspicious messages, links, and screenshots. My work combines privacy filtering, rulebook-guided planning, bounded evidence retrieval, and conservative verdict generation. The pipeline separates investigation rules from factual evidence and returns UNVERIFIED when sources cannot support a confident conclusion. I also contributed to the team-built Android application through authenticated API integration, screenshot cropping, community-evidence transport, and clearer result presentation. An explicit server-to-server contract connects the AI service with the mobile product while preserving their separate authentication and data responsibilities.",
+    "overview": "Suspicious messages mix factual claims with urgent requests, so a single true-or-false label can miss the immediate risk. I built a pipeline that separates safety signals from factual investigation, retrieves supporting material, and returns reasons and next steps. My scope covers the AI service and web demo, with selected integration work in the team-built Android product.",
     "tools": [
       "Python",
       "FastAPI",
@@ -205,94 +208,102 @@ export const portfolio = {
     ],
     "contributions": [
       {
-        "title": "Multimodal verification pipeline",
-        "description": "I built a shared text-and-image pipeline with input validation, privacy filtering, risk-signal extraction, and a consistent response contract across both modalities."
+        "title": "Separate risk from factual certainty",
+        "description": "I combined deterministic safety triggers with rulebook-guided investigation so a request for an OTP can prompt protective advice even when the identity or factual claim remains unverified."
       },
       {
-        "title": "Rulebook-guided investigation",
-        "description": "I compiled 255 rule chunks across three domains and combined retrieval with deterministic triggers, keeping investigation guidance separate from the evidence supporting each verdict."
+        "title": "Ground explanations in retrieved evidence",
+        "description": "I connected bounded web search and a versioned investigation corpus, keeping procedural guidance separate from evidence for a verdict. I added conflict handling and conservative fallback responses for missing support."
       },
       {
-        "title": "Evidence retrieval & guardrails",
-        "description": "I integrated bounded web search, official references, and community evidence, then added grounding checks, conflict handling, and conservative fallbacks for unsupported conclusions, while keeping uncertain findings visible to users."
+        "title": "Expose failures instead of trusting valid JSON",
+        "description": "I audited offline and live behavior separately. The frozen challenge exposed request-versus-action mistakes; live traces revealed verifier errors hidden behind schema-valid fallback responses."
       },
       {
-        "title": "Web delivery & mobile integration",
-        "description": "I built the web interface and API contracts, then contributed authenticated Android requests, screenshot cropping, and community-evidence transport within the mobile team."
-      },
-      {
-        "title": "Evaluation & deployment",
-        "description": "I created regression benchmarks, privacy-filtered traces, Docker health checks, and VPS deployment workflows to evaluate pipeline behavior and operate the deployed web demo."
+        "title": "Connect the product through explicit contracts",
+        "description": "I built the web/API flow and contributed authenticated Android requests, screenshot cropping, and community-evidence transport. The Android UI shown here belongs to the team product; device end-to-end testing remains pending."
       }
     ],
     "achievements": [
       {
-        "value": "98.15%",
-        "label": "Critical-signal recall",
-        "description": "I measured signal extraction on 47 labeled cases within a 100-case synthetic and regression benchmark. This is not real-world fact-checking accuracy."
+        "kind": "evaluation",
+        "value": "76.92%",
+        "label": "Critical-signal precision & recall",
+        "description": "I measured 10 true positives, 3 false positives and 3 misses on 18 frozen synthetic cases. Six use OCR/vision fixtures; this does not measure real-world verdict accuracy."
       },
       {
-        "value": "100%",
-        "label": "Replay response validity",
-        "description": "I checked replay responses with stubbed model and search providers. All replayed cases were schema-valid; twenty image fixtures were excluded."
+        "kind": "verification",
+        "value": "92 + 32",
+        "label": "Two offline suites passed",
+        "description": "I ran 92 AI-service tests and 32 selected product-backend tests with provider or transaction fixtures. These establish bounded behavior, not live provider quality."
       },
       {
-        "value": "255 rules",
-        "label": "Investigation rulebook",
-        "description": "I assembled a versioned investigation corpus covering information integrity, public services, phishing, and account takeover, supported by 17 deterministic safety triggers."
-      },
-      {
-        "value": "11",
-        "label": "Product API tests passed",
-        "description": "I verified focused mobile-backend adapters and community-evidence handling through eleven tests using mocked upstream responses and database transactions."
+        "kind": "evaluation",
+        "value": "6 / 6",
+        "label": "Live verifier fallbacks",
+        "description": "I observed verifier HTTP 404 errors in all six live text cases. The pipeline returned fallbacks; this run is degraded, despite valid response schemas."
       }
     ],
     "websiteUrl": "https://waspadai.shafwan.digital/",
-    "websiteLabel": "Visit Demo"
+    "websiteLabel": "Visit Demo",
+    "evaluation": {
+      "methodology": "Evaluated 21 October 2026 against a pinned source snapshot. I froze 18 synthetic challenge cases before scoring; labels came from one AI reviewer familiar with the code. I separately inspected six live text responses and provider traces.",
+      "limitations": [
+        "The development recall of 53/54 (98.15%) uses 47 partially labelled cases from a different 100-case set; it is not comparable field accuracy.",
+        "The new challenge uses fixture OCR/vision output, not image-pixel extraction. Android tests were blocked during dependency resolution; mobile end-to-end behavior remains unverified.",
+        "Live factual resolution and citation support need improvement. Cost was not measured."
+      ]
+    },
+    "artifacts": [
+      {
+        "label": "Read the technical verification report",
+        "href": "/reports/projects/waspadai.md"
+      }
+    ]
   },
   {
     "id": "numora-question-variants",
     "category": "software",
     "title": "Numora Assessment & Question Variants",
-    "description": "A reproducible mathematics question engine and assessment workbench for Numora, connecting parameterized content, rigorous validation, and assessment-service integration.",
+    "description": "For assessment authors reviewing mathematics questions, I extended deterministic generators and a review workbench, making seeded variants reproducible while keeping local content coverage separate from publication and psychometric calibration.",
     "image": "/assets/projects/numora-question-variants/student-home.webp",
     "imageAlt": "Numora student dashboard showing daily practice, learning progress, and weekly Tryout access.",
     "gallery": [
-  {
-    "src": "/assets/projects/numora-question-variants/student-home.webp",
-    "alt": "Numora student dashboard interface.",
-    "caption": "The student dashboard brings daily practice, learning progress, and weekly Tryout access together."
-  },
-  {
-    "src": "/assets/projects/numora-question-variants/material-catalog.webp",
-    "alt": "Numora learning material catalog interface.",
-    "caption": "The material catalog organizes mathematics topics into clear learning paths."
-  },
-  {
-    "src": "/assets/projects/numora-question-variants/drill-session.webp",
-    "alt": "Numora drill practice session interface.",
-    "caption": "The Drill workspace presents mathematics questions, answer choices, and session navigation."
-  },
-  {
-    "src": "/assets/projects/numora-question-variants/weekly-tryout.webp",
-    "alt": "Numora weekly tryout interface.",
-    "caption": "The Tryout page introduces the weekly mathematics assessment and its available package."
-  },
-  {
-    "src": "/assets/projects/numora-question-variants/admin-question-bank.webp",
-    "alt": "Numora admin question bank interface.",
-    "caption": "The admin question bank displays question versions and content-management actions."
-  },
-  {
-    "src": "/assets/projects/numora-question-variants/admin-irt-monitoring.webp",
-    "alt": "Numora admin irt monitoring interface.",
-    "caption": "The IRT monitoring view displays batch status, processing history, and item-parameter records."
-  }
-],
+      {
+        "src": "/assets/projects/numora-question-variants/student-home.webp",
+        "alt": "Numora student dashboard interface.",
+        "caption": "The student dashboard brings daily practice, learning progress, and weekly Tryout access together. Team product UI with synthetic demo data and intercepted requests; not evidence of live backend or IRT behavior."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/material-catalog.webp",
+        "alt": "Numora learning material catalog interface.",
+        "caption": "The material catalog organizes mathematics topics into clear learning paths. Team product UI with synthetic demo data and intercepted requests; not evidence of live backend or IRT behavior."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/drill-session.webp",
+        "alt": "Numora drill practice session interface.",
+        "caption": "The Drill workspace presents mathematics questions, answer choices, and session navigation. Team product UI with synthetic demo data and intercepted requests; not evidence of live backend or IRT behavior."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/weekly-tryout.webp",
+        "alt": "Numora weekly tryout interface.",
+        "caption": "The Tryout page introduces the weekly mathematics assessment and its available package. Team product UI with synthetic demo data and intercepted requests; not evidence of live backend or IRT behavior."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/admin-question-bank.webp",
+        "alt": "Numora admin question bank interface.",
+        "caption": "The admin question bank displays question versions and content-management actions. Team product UI with synthetic demo data and intercepted requests; not evidence of live backend or IRT behavior."
+      },
+      {
+        "src": "/assets/projects/numora-question-variants/admin-irt-monitoring.webp",
+        "alt": "Numora admin irt monitoring interface.",
+        "caption": "The IRT monitoring view displays batch status, processing history, and item-parameter records. Team product UI with synthetic demo data and intercepted requests; not evidence of live backend or IRT behavior."
+      }
+    ],
     "year": "2026",
-    "role": "Assessment & Question Generation Developer",
+    "role": "Question generator & review-workbench contributor",
     "duration": "October 2026",
-    "overview": "Numora is a team-built mathematics practice platform for Indonesian Grade IX students. My work connects question generation, assessment data, and the main application. A deterministic Python engine turns versioned source questions and JSON configurations into reproducible variants, while an operator workbench makes originals, generated content, answer keys, and explanations easy to compare. I extended generator coverage, built inspection and validation tooling, and contributed persistence and service-handoff contracts. My responsibilities also cover IRT and self-adjustment, with the implemented work establishing the content and integration foundations for those assessment capabilities.",
+    "overview": "Assessment authors need variants whose answers and explanations remain consistent as parameters change. I extended a team-built deterministic generator and developed review workflows around versioned originals, configurations and seeds. My contribution covers generator content, workbench tooling and integration foundations; the student/admin application shown in the gallery is the wider team product.",
     "tools": [
       "Python",
       "JSON configuration",
@@ -308,46 +319,54 @@ export const portfolio = {
     ],
     "contributions": [
       {
-        "title": "Reproducible question generation",
-        "description": "I extended the deterministic Python engine with additional mathematics indicators and Tryout content. Parameterized questions, answer options, and explanations can be regenerated from a seed and versioned configuration."
+        "title": "Version the inputs that determine each variant",
+        "description": "I extended mathematics indicators and Tryout generators with source/configuration pins. The same seed and configuration reproduce the same question content; different seeds are not guaranteed to produce unique variants."
       },
       {
-        "title": "Operator workbench & mathematical validation",
-        "description": "I built a browser workbench for comparing originals and variants. Added mathematical test oracles, generator audits, and source-revision workflows to make content review traceable."
+        "title": "Make content review a repeatable workflow",
+        "description": "I built a browser workbench for comparing originals, generated questions and explanations, supported by mathematical checks and revision audits. I verified one rendered example independently with rational arithmetic instead of reusing the configuration formula."
       },
       {
-        "title": "IRT data architecture",
-        "description": "I contributed variant and IRT persistence schemas, versioned contracts, and assessment-data integration foundations. The architecture separates canonical application content from compute evidence."
+        "title": "Separate generated content from publication",
+        "description": "I contributed variant persistence contracts and integration foundations while preserving preview and DRAFT review boundaries. Local catalogue availability does not imply that content is imported, approved or published in the main application."
       },
       {
-        "title": "Controlled self-adjustment design",
-        "description": "I defined a self-adjustment approach linking permitted generator settings, evaluation evidence, and acceptance checks while preserving original content and historical results."
-      },
-      {
-        "title": "Main-service integration",
-        "description": "I connected question-generation workflows with the Numora application through persistence and handoff contracts. Added scoped Drill content-acceptance rules and tests while preserving version lineage."
+        "title": "Keep calibration behind its actual implementation boundary",
+        "description": "I contributed assessment-data and IRT orchestration foundations. Scientific IRT calibration and active self-adjustment were not established in the verified service; I present them as unfinished work rather than delivered adaptive learning."
       }
     ],
     "achievements": [
       {
-        "value": "746",
-        "label": "Generator configurations",
-        "description": "I extended generation within a team repository containing configurations for 746 of 820 originals, including 719 Drill and 27 Tryout items."
+        "kind": "scope",
+        "value": "1,078",
+        "label": "Generator-backed originals",
+        "description": "I recounted the team workspace: 1,180 originals, including 1,078 generator-backed, 86 conceptual and 16 HOLD. These are local catalogue counts, not questions I authored alone."
       },
       {
-        "value": "186",
-        "label": "Regression tests passed",
-        "description": "I verified the local Python regression suite during the October 2026 review, recording 186 passing tests without a production database."
+        "kind": "verification",
+        "value": "294 tests",
+        "label": "Local generator suite passed",
+        "description": "I ran the Python generator/workbench suite on a byte-pinned source copy. The main application and connected service/database workflow were not retested."
       },
       {
-        "value": "1,600",
-        "label": "Seed checks passed",
-        "description": "I audited sixteen revised questions using independent mathematical checks and generated 320 distinct candidates. These checks do not establish psychometric equivalence."
-      },
+        "kind": "verification",
+        "value": "16 / 16",
+        "label": "Revised families passed audit",
+        "description": "I checked 20 distinct candidates per family, 320 total, plus 1,600 additional seed checks using the repository oracle. This does not establish equal difficulty or learning gains."
+      }
+    ],
+    "evaluation": {
+      "methodology": "Verified 22 October 2026 against generator revision b9d25a7 and application revision 8d27bed. I recounted the actual loader/catalogue, ran the local suite and audited 16 revised families. I also checked a rendered mean-value question independently using exact rational arithmetic.",
+      "limitations": [
+        "The 248 conceptual variants marked VERIFIED are local stock, not independent academic approval. Numerical generation is deterministic, not LLM generation.",
+        "Connected application acceptance requires the specified Node/pnpm runtime and isolated database/Redis; that run remains pending.",
+        "Gallery captures use synthetic UI fixtures and request interception. IRT calibration, deployed self-adjustment and educational outcomes remain unverified."
+      ]
+    },
+    "artifacts": [
       {
-        "value": "215",
-        "label": "Curated conceptual variants",
-        "description": "I checked stock-loader acceptance of 215 internally VERIFIED manual variants across seventy originals. VERIFIED describes the repository workflow, not external certification."
+        "label": "Read the technical verification report",
+        "href": "/reports/projects/numora-question-variants.md"
       }
     ]
   },
@@ -356,7 +375,7 @@ export const portfolio = {
     "websiteUrl": "https://siparih.shafwan.digital",
     "category": "software",
     "title": "SIPARIH",
-    "description": "A village document platform that connects resident submissions, neighborhood approvals, protected PDF delivery, and administrative archives in one streamlined workflow.",
+    "description": "For neighborhood administrators handling resident documents, I implemented private file access and guarded approval decisions, then tested competing workers to check that one request produces one approval and audit record.",
     "image": "/assets/projects/siparih/letter-submission.webp?v=c6723338f2",
     "imageAlt": "SIPARIH introduction-letter submission form with supporting-document upload.",
     "gallery": [
@@ -387,9 +406,9 @@ export const portfolio = {
       }
     ],
     "year": "2026",
-    "role": "Software Developer",
+    "role": "Software developer",
     "duration": "July 2026",
-    "overview": "I worked on SIPARIH, a document platform that digitizes introduction-letter requests for Pasireurih village. Residents submit supporting documents and track progress, neighborhood leaders review and approve requests, and administrators manage users and archives. My contributions strengthened protected file delivery, PDF normalization, same-origin previews, acceptance coverage, and competing-approval checks. I connected practical document handling with Laravel authorization and transactional state changes, including image-to-PDF conversion and visual signature overlays. Through automated tests, I checked submission boundaries, access rules, and approval consistency while keeping private resident documents behind application policies.",
+    "overview": "Resident documents need controlled access and a consistent approval decision when requests overlap. I implemented ownership and RW-based access checks, private document delivery, and an approval path that rechecks authorization while holding a database row lock. The gallery uses fictional demonstration records rather than resident data.",
     "tools": [
       "PHP",
       "Laravel 12",
@@ -405,46 +424,50 @@ export const portfolio = {
     ],
     "contributions": [
       {
-        "title": "Protected document delivery",
-        "description": "I implemented protected document delivery with X-Accel-Redirect. Laravel checks authorization before Nginx serves the private file, keeping access behind application policies with clear boundaries between roles."
+        "title": "Authorize before delivering private files",
+        "description": "I kept uploads on private storage and checked ownership, role and target RW before preview or download. I connected protected delivery to Nginx internal routing; the VPS configuration itself was not exercised in the local audit."
       },
       {
-        "title": "PDF upload compatibility",
-        "description": "I built a Ghostscript normalization service to make uploaded PDFs compatible with FPDI processing, with input validation, time limits, clear errors, and temporary-file cleanup."
+        "title": "Treat approval as a state transition",
+        "description": "I guarded approval with a row lock and a second authorization check so a competing worker cannot approve a document whose state has already changed. I verified the decision and audit-log count together."
       },
       {
-        "title": "Same-origin preview requests",
-        "description": "I reworked document previews to use same-origin URLs, keeping preview requests on the application's host and removing a fragile dependency on separately configured addresses."
-      },
-      {
-        "title": "Acceptance coverage and access boundaries",
-        "description": "I added structured acceptance tests and strengthened submission rules. The server derives the destination RW from the resident's account and rejects manipulated approval targets."
-      },
-      {
-        "title": "Competing-approval verification",
-        "description": "I built a two-process MySQL/MariaDB concurrency test to verify approval locking under competing requests, extending coverage beyond the standard SQLite test suite."
+        "title": "Handle document conversion and cleanup",
+        "description": "I added PDF compatibility and failure cleanup around document processing. The signature is an image overlay, not cryptographic signing; actual Ghostscript normalization remains outside the completed local checks."
       }
     ],
     "achievements": [
       {
-        "value": "82",
-        "label": "Tests / 818 assertions",
-        "description": "I recorded 82 passing tests and 818 assertions covering application and acceptance behavior. These historical results belong to the documented test revision."
+        "kind": "verification",
+        "value": "82 tests",
+        "label": "818 assertions passed",
+        "description": "I reran the standard unit/feature suite on SQLite memory. The total includes framework examples and is not a count of independent security scenarios."
       },
       {
+        "kind": "verification",
         "value": "1 approval",
-        "label": "Two competing requests",
-        "description": "I tested two competing approval requests on MySQL/MariaDB, confirming one accepted approval, one rejected request, and a single approval log."
+        "label": "Two competing workers, one audit log",
+        "description": "I tested the existing concurrency scenario on disposable MariaDB: one worker approved, the other was forbidden. A repeat observed lock contention while preserving one approval and one log."
       },
       {
-        "value": "3 roles",
-        "label": "Role-based document workflow",
-        "description": "I implemented and tested access boundaries for residents, neighborhood leaders, and administrators, separating document submission, approval, and archive-management responsibilities."
-      },
+        "kind": "capability",
+        "value": "Private access",
+        "label": "Owner and RW boundaries",
+        "description": "I implemented access checks before preview and download. This describes a delivered control, not a penetration-test result or a guarantee about every production route."
+      }
+    ],
+    "evaluation": {
+      "methodology": "Verified 22 October 2026 against revision 2ee3eeb. The SQLite suite passed 82 tests/818 assertions. A separate MariaDB 10.4.32 test used two PHP workers invoking the controller and passed 12 assertions; a repeated run observed 7 positive lock-wait samples out of 50.",
+      "limitations": [
+        "The concurrency repeat is the same scenario, not an additional unique test. Workers called the controller with synthetic requests, not a deployed HTTP server.",
+        "Ghostscript normalization and production Nginx delivery were not tested. Image-overlay signing is not PKI or a legally certified digital signature.",
+        "Gallery records are fictional demo data; visible counts are not production usage metrics."
+      ]
+    },
+    "artifacts": [
       {
-        "value": "Private files",
-        "label": "Authorized document delivery",
-        "description": "I added policy-controlled delivery through X-Accel-Redirect, allowing Nginx to serve resident documents after Laravel authorizes access to the requested file."
+        "label": "Read the technical verification report",
+        "href": "/reports/projects/siparih.md"
       }
     ]
   },
@@ -452,7 +475,7 @@ export const portfolio = {
     "id": "sisdas-rag-assistant",
     "category": "ai-ml",
     "title": "UM RAG Assistant",
-    "description": "A campus information assistant connecting official university documents, hybrid retrieval, and source-linked answers through a transparent, responsive chat experience.",
+    "description": "For students navigating university documents, I built a source-linked campus assistant with structured facts and retrieval, then compared retrieval strategies and inspected failures rather than treating citations as proof.",
     "image": "/assets/projects/sisdas-rag-assistant/chat-home.webp",
     "imageAlt": "UM RAG Assistant chat interface with a centered question field, example prompts, and a subtle document-network background.",
     "gallery": [
@@ -478,9 +501,9 @@ export const portfolio = {
       }
     ],
     "year": "2026",
-    "role": "AI & Full-Stack Developer",
+    "role": "AI application & full-stack developer",
     "duration": "September 2026",
-    "overview": "I built UM RAG Assistant to make campus policies, schedules, procedures, and service information easier to find across university documents. My pipeline answers suitable questions from structured facts, then routes other queries through domain-specific retrieval and deterministic reranking. I combined multilingual embeddings, lexical signals, keywords, and metadata to select relevant context before generating source-linked answers. The interface streams progress and exposes the process behind each response. I also built document ingestion, backend endpoints, evaluation tooling, and containerized deployment, keeping source PDFs accessible so readers can inspect the evidence themselves with clear source attribution.",
+    "overview": "University answers are spread across policies, forms and dated documents. I built a campus assistant that routes questions to structured facts or document retrieval and presents source links alongside streamed responses. I evaluated the retrieval component separately from answer generation to identify where ranking, routing and incomplete source extraction undermine otherwise plausible answers.",
     "tools": [
       "Python",
       "FastAPI",
@@ -497,55 +520,63 @@ export const portfolio = {
     ],
     "contributions": [
       {
-        "title": "Structured-fact-first query routing",
-        "description": "I implemented query planning and domain routing, answering suitable aggregate and list questions from extracted records before sending other queries through retrieval and generation."
+        "title": "Use structured facts for bounded questions",
+        "description": "I added a fact-first route for institutional lookups and document retrieval for procedural questions. The local registry contains 38 campus PDFs plus one developer-profile PDF; the latter is not a university source."
       },
       {
-        "title": "Hybrid retrieval & deterministic reranking",
-        "description": "I combined vector similarity, lexical relevance, keywords, and metadata scoring to rank context transparently and expose selected domains, intent, and source excerpts."
+        "title": "Compare ranking against a simpler baseline",
+        "description": "I compared dense retrieval with the current fallback, heuristic reranking and neighbor expansion on identical frozen embeddings and filters. The simpler baseline found more expected sources on this sample; I retained that result rather than claiming the added complexity improved quality."
       },
       {
-        "title": "Reproducible document ingestion",
-        "description": "I built metadata validation, PDF extraction, OCR fallback, overlapping chunking, multilingual embeddings, and structured-fact rebuilding to keep the document pipeline reproducible."
+        "title": "Make evaluation failures inspectable",
+        "description": "I corrected scoring for structured sources and empty labels, preserved per-case errors, and separated any-source retrieval hits from answer completeness. I identified dated-document ranking, truncated facts and missing cross-source details as distinct failure modes."
       },
       {
-        "title": "Streaming API & source-focused interface",
-        "description": "I built streaming chat endpoints and a responsive React interface with model fallbacks, process summaries, clickable context cards, and direct source-document access."
-      },
-      {
-        "title": "Full-stack deployment & resilience",
-        "description": "I containerized the backend and web application, configured reverse proxying and health checks, and added security, caching, and resilience checks for deployment."
+        "title": "Deliver a source-focused interface",
+        "description": "I connected ingestion, a streaming API and a React interface so users can inspect supporting documents. The live audit called the answer pipeline directly; it did not verify browser streaming latency or production reliability."
       }
     ],
     "achievements": [
       {
-        "value": "1,165",
-        "label": "Indexed document chunks",
-        "description": "I inspected the local Chroma index and counted 1,165 chunks across five collections. This measures retrieval inventory rather than answer quality."
+        "kind": "evaluation",
+        "value": "12/13 vs 11/13",
+        "label": "Dense vs current source hit@1",
+        "description": "I compared the first returned chunk against expected source files on 13 answerable questions. Dense scored 12/13; the current pipeline scored 11/13. This is any-source hit rate, not passage recall."
       },
       {
-        "value": "48",
-        "label": "Backend tests passed",
-        "description": "I verified 48 local backend tests covering generation, security, embeddings, fallbacks, resilience, domain behavior, and structured facts, without claiming end-to-end evaluation."
+        "kind": "evaluation",
+        "value": "5 / 13",
+        "label": "Complete answers in manual review",
+        "description": "I found five complete answers among 13 answerable cases using a single-reviewer rubric. The full 16-case run had 13 provider-error cases and 12 extractive fallbacks."
       },
       {
-        "value": "39 PDFs",
-        "label": "Validated metadata entries",
-        "description": "I validated registry entries against 39 PDF files: 38 campus sources and one developer profile hidden from public document and context views."
-      },
-      {
-        "value": "5 domains",
-        "label": "Organized retrieval collections",
-        "description": "I organized retrieval around academic administration, campus services, university profile, finance, and graduation, giving queries a focused source collection to search."
+        "kind": "verification",
+        "value": "60 tests",
+        "label": "Evaluation and API suite passed",
+        "description": "I ran 48 existing tests plus 12 evaluation regressions offline. This verifies scorer and API behavior with fixtures, independently of the degraded live run."
       }
     ],
-    "websiteUrl": "https://ragcampus.shafwan.digital/"
+    "websiteUrl": "https://ragcampus.shafwan.digital/",
+    "evaluation": {
+      "methodology": "Evaluated 21 October 2026 on a frozen 16-question synthetic challenge. The retrieval comparison uses 13 answerable questions, shared query embeddings, gold domain filters and the same corpus. Three questions without source labels are excluded from retrieval scoring, but remain in answer review.",
+      "limitations": [
+        "Labels and answer review came from one AI reviewer familiar with the corpus; this is not a blind or field benchmark.",
+        "Current source hit@3 was 11/13 versus dense 13/13. An any-source hit does not establish that every required source or fact was retrieved.",
+        "The live run was degraded by provider errors. Cost and streaming time-to-first-token were not measured; structured facts include extraction defects."
+      ]
+    },
+    "artifacts": [
+      {
+        "label": "Read the technical verification report",
+        "href": "/reports/projects/sisdas-rag-assistant.md"
+      }
+    ]
   },
   {
     "id": "bonjermgu",
     "category": "software",
     "title": "Bonjermgu Financing Portal",
-    "description": "A financing portal connecting vehicle estimates, application tracking, configurable pricing, and lending reports across referral partners, account officers, and administrators.",
+    "description": "For financing staff and customers comparing vehicle loans, I built a shared simulation engine and role-specific workflows, with explicit pricing rules, reference calculations, and database-backed regression checks for financial edge cases.",
     "image": "/assets/projects/bonjermgu/dashboard-preview.webp",
     "imageAlt": "Bonjermgu administrative dashboard with financing summaries and lending charts.",
     "gallery": [
@@ -581,9 +612,9 @@ export const portfolio = {
       }
     ],
     "year": "2026",
-    "role": "Full-Stack Developer",
+    "role": "Full-stack developer",
     "duration": "August 2026",
-    "overview": "I built Bonjermgu to connect vehicle financing estimates with tracking and reports. Referral partners prepare simulations and monitor their applications, account officers maintain application progress, and administrators manage pricing rules and aggregate reports. My domain keeps calculations on the server, separating insurance, fees, refunds, and rounding from database access. I built role-specific interfaces, master data, PDF estimate export, and reference-based tests. The portal records operational progress while credit decisions, document verification, and external handoffs remain with the staff responsible for those activities.",
+    "overview": "A financing quote combines rates, insurance, fees and rounding rules that must agree across interfaces. I separated those calculations into a shared PHP domain and connected them to customer and staff workflows. My verification focuses on calculation rules and selected database-backed features; it does not imply lender approval or measured business impact.",
     "tools": [
       "PHP",
       "Laravel 11",
@@ -597,55 +628,63 @@ export const portfolio = {
     ],
     "contributions": [
       {
-        "title": "Shared financing simulation engine",
-        "description": "I built a shared PHP calculation domain for cash and used-car financing, separating insurance, fees, refunds, and rounding from database access and interface concerns."
+        "title": "Keep calculation rules outside the interface",
+        "description": "I built a shared simulation engine so cash and used-car financing paths can reuse explicit pricing and rounding rules instead of duplicating arithmetic in views."
       },
       {
-        "title": "Role-specific application workflows",
-        "description": "I implemented referral monitoring, officer-managed applications, document-status tracking, and ownership policies, while giving administrators configuration access and aggregate lending reports instead of application management."
+        "title": "Distinguish cash flows that look similar",
+        "description": "I kept commission refunds separate from disbursement and applied published flat rates before effective-rate fallback. I inspected missing-rate behavior rather than assuming every unavailable input fails safely."
       },
       {
-        "title": "Configurable pricing & vehicle data",
-        "description": "I built configuration loaders for product rates, insurance, fees, and vehicle prices, with transactional master-data imports and versioned caching for reusable business rules."
+        "title": "Check figures against a reference",
+        "description": "I tested calculation scenarios and compared a selected used-car example with independent high-precision decimal arithmetic. The reference checks each rounding stage, not just a final total."
       },
       {
-        "title": "Reference-based financial regression tests",
-        "description": "I wrote simulation tests for reference scenarios and edge cases, including unavailable rates, rounding behavior, insurance rules, refund separation, and eligibility failures."
-      },
-      {
-        "title": "Interface delivery & operational handoff",
-        "description": "I built Blade and Livewire interfaces, estimate PDF export, and the officer simulation sheet, then documented business decisions, architecture, deployment, and backup procedures."
+        "title": "Connect pricing and vehicle data to workflows",
+        "description": "I built role-specific interfaces and configurable data paths, then checked selected pricing, vehicle-master and scenario features on a disposable PostgreSQL database. The vehicle CSV was counted independently of historical extraction notes."
       }
     ],
     "achievements": [
       {
-        "value": "50",
-        "label": "Simulation unit tests passed",
-        "description": "I reran the simulation unit suite and recorded 50 passing tests. These results cover defined calculation cases, not database-backed workflows or production behavior."
+        "kind": "verification",
+        "value": "76 tests",
+        "label": "714 assertions across two suites",
+        "description": "I ran 50 calculation tests with 386 assertions and 26 selected feature tests with 328 assertions. Both passed on isolated fixtures; this is one combined verification summary."
       },
       {
-        "value": "386",
-        "label": "Simulation assertions completed",
-        "description": "I checked 386 assertions in the same local simulation run, exercising domain calculations and edge cases without claiming financial certification or business impact."
+        "kind": "verification",
+        "value": "Rp8,953,000",
+        "label": "Reference instalment matched",
+        "description": "I reproduced the selected S2 scenario with independent Decimal arithmetic, including Rp90,870,000 disbursement and a separate Rp438,000 refund. This is a reference scenario, not a quote guarantee."
       },
       {
+        "kind": "scope",
         "value": "26,791",
-        "label": "Vehicle-price source records",
-        "description": "I prepared an import pipeline for 26,791 vehicle-price source records. This inventory describes CSV rows, not production usage or distinct vehicle counts."
-      },
-      {
-        "value": "3 roles",
-        "label": "Operational access workflows",
-        "description": "I separated referral, account-officer, and administrator responsibilities through routes, ownership scopes, and policies, keeping application management distinct from configuration and aggregate reporting."
+        "label": "Vehicle source rows",
+        "description": "I recounted the CSV as 26,791 rows representing 4,678 models and 26,791 model-year entries. This describes source inventory, not customers or imported production records."
       }
     ],
-    "websiteUrl": "https://bonjermgu.com/"
+    "websiteUrl": "https://bonjermgu.com/",
+    "evaluation": {
+      "methodology": "Verified 22 October 2026 against revision 0ae8dbd. I ran calculation units and three selected feature files on a pinned source copy with a fresh PostgreSQL 16.11 test cluster. A separate Decimal check used precision 40 for the S2 reference calculation.",
+      "limitations": [
+        "Selected tests do not cover every workflow, lender rule or production deployment. The calculation engine uses PHP floating point with explicit rounding.",
+        "Some missing lookups default to zero; do not infer universal fail-closed pricing. The original workbook was not recounted.",
+        "No conversion, adoption, processing-time or financing-approval benefit has been measured."
+      ]
+    },
+    "artifacts": [
+      {
+        "label": "Read the technical verification report",
+        "href": "/reports/projects/bonjermgu.md"
+      }
+    ]
   },
   {
     "id": "sidika",
     "category": "software",
     "title": "SiDiKa Camera Retail Management",
-    "description": "A camera retail platform connecting a public product catalog with inventory, quality control, sales, and reporting through team-built operational workflows.",
+    "description": "For a camera retailer managing stock and sales, I contributed backend account, catalog and QC workflows, correcting reporting filters while preserving the distinction between my changes and the wider team application.",
     "image": "/assets/projects/sidika/dashboard.webp",
     "imageAlt": "SiDiKa dashboard with revenue summaries, transaction charts, and best-selling products.",
     "gallery": [
@@ -691,9 +730,9 @@ export const portfolio = {
       }
     ],
     "year": "2025",
-    "role": "Backend Developer / Team Contributor",
+    "role": "Backend developer; team contributor",
     "duration": "November - December 2025",
-    "overview": "I contributed backend features to SiDiKa, a application connecting a public camera catalog with retail administration. My work covered employee-linked user accounts, catalog settings, quality-control navigation, password-change handling, and dashboard reporting corrections. I connected records with content while improving the boundaries and consistency of staff workflows. The wider application includes inventory, purchases, sales, branch data, employees, exports, and a deterministic stock-depletion heuristic. My contribution focuses on backend modules and operational fixes within that team implementation, rather than sole ownership.",
+    "overview": "Retail staff need editable storefront content, navigable quality-control records and reports that reflect their selected filters. I contributed targeted backend changes to the team-built SiDiKa application. My scope is supported by personal commits across account management, catalog persistence, QC navigation and dashboard fixes, rather than ownership of the entire product or its prediction features.",
     "tools": [
       "PHP",
       "Laravel 10",
@@ -708,49 +747,51 @@ export const portfolio = {
     ],
     "contributions": [
       {
-        "title": "Employee-linked account management",
-        "description": "I implemented account-management operations linked to employee records, including migrations and seed data, giving the team a shared identity foundation for staff accounts."
+        "title": "Connect staff accounts to employee records",
+        "description": "I linked user accounts to employee identities and implemented management operations with supporting migrations and seed data. I later added pending activation and expiry-based tokens; delivery and revocation still require integration verification."
       },
       {
-        "title": "Database-backed catalog configuration",
-        "description": "I built persistence for catalog settings, banners, and partner logos, then connected those records to public pages so content could be managed administratively."
+        "title": "Use one persisted catalog for admin and public pages",
+        "description": "I connected catalog settings, banners and partner records to public-page consumers so edited content comes from stored data rather than duplicated page values."
       },
       {
-        "title": "Archived quality-control navigation",
-        "description": "I extended archived quality-control queries with category filters, sorting, and pagination that preserves query parameters, helping staff navigate records without resetting their search."
+        "title": "Preserve context through archived QC records",
+        "description": "I added category filtering, search and sorting while retaining the selected parameters across pagination. I also implemented profile password changes that check the current password and reject reuse."
       },
       {
-        "title": "Authenticated password-change validation",
-        "description": "I added current-password verification, confirmation and minimum-length checks, unchanged-password rejection, and hashing before persistence to support authenticated password changes within the existing account workflow."
-      },
-      {
-        "title": "Dashboard selection & reporting fixes",
-        "description": "I corrected branch comparisons to use calculated net profit, hid single-branch comparisons, and removed the implicit current-month default so omitted months represent all months."
+        "title": "Correct reporting behavior without overstating current scope",
+        "description": "I changed an earlier branch comparison from revenue to profit, hid the comparison for a selected branch, and removed the default current-month filter. The team later replaced branch ranking with revenue growth; the historical correction is not the current algorithm."
       }
     ],
     "achievements": [
       {
-        "value": "Linked",
-        "label": "Employee-based account identity",
-        "description": "I connected account creation and management to employee records. Source changes establish this capability without implying measured adoption or a completed security audit."
+        "kind": "verification",
+        "value": "33 checks",
+        "label": "Isolated controller contracts passed",
+        "description": "I checked selected password, catalog, QC and calendar behavior using actual methods with explicit framework/model doubles. Twelve PHP files also passed syntax checks; Laravel/SQL integration remains pending."
       },
       {
-        "value": "Editable",
-        "label": "Database-backed catalog content",
-        "description": "I made settings, banners, and partner logos available through persisted administrative records, connecting managed content to public pages without claiming measured usability gains."
-      },
-      {
-        "value": "Filtered",
-        "label": "Archived QC navigation",
-        "description": "I preserved category, sorting, and search parameters across archived quality-control pagination. The result describes implemented navigation behavior rather than a measured productivity improvement."
-      },
-      {
-        "value": "Validated",
-        "label": "Authenticated password changes",
-        "description": "I added explicit password-change validation and hashing in the account workflow. This is an implemented control, not a penetration-test result or security certification."
+        "kind": "capability",
+        "value": "Persistent state",
+        "label": "QC filters and public catalog",
+        "description": "I connected stored catalog fields to public pages and retained QC search/category/sort state across pagination. These are scoped backend capabilities, not measured productivity gains."
       }
     ],
-    "websiteUrl": ""
+    "websiteUrl": "",
+    "evaluation": {
+      "methodology": "Reviewed 22 October 2026 against revision 9c1890b and five personal commits from November–December 2025. I traced the before/after changes and ran 33 isolated contract assertions using real controller methods with explicit doubles.",
+      "limitations": [
+        "No Laravel vendor installation was available. SQL, validator enforcement, generated pagination URLs, middleware, uploads and email were not exercised.",
+        "Account recovery and input-validation findings remain open; the checks do not establish authentication readiness or a comprehensive security audit.",
+        "The gallery shows the team application. I do not claim authorship of the full product or its ML features."
+      ]
+    },
+    "artifacts": [
+      {
+        "label": "Read the technical verification report",
+        "href": "/reports/projects/sidika.md"
+      }
+    ]
   }
 ] satisfies Project[],
   },
@@ -759,9 +800,12 @@ export const portfolio = {
     sectionNumbers: ['01', '02', '03'],
     backLabel: 'Back to projects',
     eyebrow: 'Selected work / Case study',
-    overviewTitle: 'Overview',
-    contributionsTitle: 'What I Did',
-    achievementsTitle: 'Impact & Achievements',
+    overviewTitle: 'Problem & Approach',
+    contributionsTitle: 'Key Decisions & Contributions',
+    achievementsTitle: 'Results & Evaluation',
+    evaluationTitle: 'Methodology & Limitations',
+    resourcesTitle: 'Technical Resources',
+    resultKinds: { evaluation: 'Quality Evaluation', verification: 'Engineering Verification', scope: 'Project Scope', capability: 'Delivered Capability' },
     stackTitle: 'Tech Stack',
     roleLabel: 'Role',
     yearLabel: 'Year',

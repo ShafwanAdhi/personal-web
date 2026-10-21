@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { StrictMode } from 'react'
 import App from './App'
 import { portfolio } from './data/portfolio'
+import ProjectDetailPage from './components/ProjectDetailPage'
 
 beforeEach(() => window.history.replaceState(null, '', '/'))
 afterEach(() => vi.unstubAllGlobals())
@@ -16,6 +17,30 @@ function mobileViewport() {
 }
 
 describe('portfolio visitor journeys', () => {
+  it('shows a variable number of typed results without empty optional evidence sections', () => {
+    const project = { ...portfolio.work.projects[0], achievements: [{ kind: 'verification' as const, value: 'Checked', label: 'Fixture result', description: 'A bounded check.' }], evaluation: undefined, artifacts: [] }
+    render(<ProjectDetailPage project={project} />)
+    expect(screen.getByText('Engineering Verification')).toBeInTheDocument()
+    expect(document.querySelectorAll('.achievement-grid > div')).toHaveLength(1)
+    expect(screen.queryByRole('heading', { name: 'Methodology & Limitations' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Technical Resources' })).not.toBeInTheDocument()
+    const heading = document.querySelector('.detail-heading')!
+    expect(within(heading as HTMLElement).getByText(project.role)).toBeInTheDocument()
+    expect(document.querySelector('.case-study-aside')).not.toHaveTextContent(project.role)
+  })
+  it('publishes only HTTPS or local asset resources and describes evaluation limits', () => {
+    const project = { ...portfolio.work.projects[0], evaluation: { methodology: 'Frozen sample, fixed configuration.', limitations: ['Not a production benchmark.'] }, artifacts: [
+      { label: 'Evaluation report', href: '/reports/projects/test.md' },
+      { label: 'Public source', href: 'https://example.com/source' },
+      ...['', '//evil.test', 'javascript:alert(1)', 'http://example.com', '/projects/missing', '/reports/../private', '/reports/%2e%2e/private', '/reports/x\\evil', '/reports/x\nfile', 'https://'].map(href => ({ label: 'Invalid resource', href })),
+    ] }
+    render(<ProjectDetailPage project={project} />)
+    expect(screen.getByRole('heading', { name: 'Methodology & Limitations' })).toBeInTheDocument()
+    expect(screen.getByText('Not a production benchmark.')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Evaluation report' })).toHaveAttribute('href', '/reports/projects/test.md')
+    expect(screen.getByRole('link', { name: 'Public source' })).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(screen.queryByRole('link', { name: 'Invalid resource' })).not.toBeInTheDocument()
+  })
   it.each([
     ['waspadai', 'https://waspadai.shafwan.digital/'],
     ['sisdas-rag-assistant', 'https://ragcampus.shafwan.digital/'],
@@ -110,7 +135,7 @@ describe('portfolio visitor journeys', () => {
     window.history.replaceState(null, '', '/projects/waspadai')
     const user = userEvent.setup()
     render(<App />)
-    for (const name of ['Tech Stack', 'Overview', 'What I Did', 'Impact & Achievements']) {
+    for (const name of ['Tech Stack', 'Problem & Approach', 'Key Decisions & Contributions', 'Results & Evaluation']) {
       expect(screen.getByRole('heading', { name })).toBeInTheDocument()
     }
     const gallery = screen.getByRole('region', { name: 'Project gallery' })
@@ -214,7 +239,7 @@ describe('portfolio visitor journeys', () => {
   it('shows only the three featured projects without filters on desktop', () => {
     render(<App />)
     const section = screen.getByRole('region', { name: 'Selected Projects' })
-    expect(within(section).getAllByRole('heading', { level: 3 }).map(item => item.textContent)).toEqual(['WaspadAI', 'Numora Assessment & Question Variants', 'SIPARIH'])
+    expect(within(section).getAllByRole('heading', { level: 3 }).map(item => item.textContent)).toEqual(['WaspadAI', 'UM RAG Assistant', 'Numora Assessment & Question Variants'])
     expect(within(section).queryByRole('tablist')).not.toBeInTheDocument()
   })
   it.each(['/', '/projects/waspadai', '/certifications'])('links navbar collections correctly from %s', path => {
