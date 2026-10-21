@@ -353,6 +353,7 @@ export const portfolio = {
   },
   {
     "id": "siparih",
+    "websiteUrl": "https://siparih.shafwan.digital",
     "category": "software",
     "title": "SIPARIH",
     "description": "A village document platform that connects resident submissions, neighborhood approvals, protected PDF delivery, and administrative archives in one streamlined workflow.",

@@ -21,7 +21,7 @@ describe('portfolio visitor journeys', () => {
     ['sisdas-rag-assistant', 'https://ragcampus.shafwan.digital/'],
     ['bonjermgu', 'https://bonjermgu.com/'],
     ['numora-question-variants', null],
-    ['siparih', null],
+    ['siparih', 'https://siparih.shafwan.digital'],
   ])('offers the configured website only on eligible case studies: %s', (id, url) => {
     window.history.replaceState(null, '', `/projects/${id}`)
     render(<App />)
