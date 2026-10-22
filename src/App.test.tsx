@@ -28,15 +28,16 @@ describe('portfolio visitor journeys', () => {
     expect(within(heading as HTMLElement).getByText(project.role)).toBeInTheDocument()
     expect(document.querySelector('.case-study-aside')).not.toHaveTextContent(project.role)
   })
-  it('publishes only HTTPS or local asset resources and describes evaluation limits', () => {
+  it('publishes only HTTPS or local asset resources without internal evaluation notes', () => {
     const project = { ...portfolio.work.projects[0], evaluation: { methodology: 'Frozen sample, fixed configuration.', limitations: ['Not a production benchmark.'] }, artifacts: [
       { label: 'Evaluation report', href: '/reports/projects/test.md' },
       { label: 'Public source', href: 'https://example.com/source' },
       ...['', '//evil.test', 'javascript:alert(1)', 'http://example.com', '/projects/missing', '/reports/../private', '/reports/%2e%2e/private', '/reports/x\\evil', '/reports/x\nfile', 'https://'].map(href => ({ label: 'Invalid resource', href })),
     ] }
     render(<ProjectDetailPage project={project} />)
-    expect(screen.getByRole('heading', { name: 'Methodology & Limitations' })).toBeInTheDocument()
-    expect(screen.getByText('Not a production benchmark.')).toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'Methodology & Limitations' })).not.toBeInTheDocument()
+    expect(screen.queryByText('Frozen sample, fixed configuration.')).not.toBeInTheDocument()
+    expect(screen.queryByText('Not a production benchmark.')).not.toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Evaluation report' })).toHaveAttribute('href', '/reports/projects/test.md')
     expect(screen.getByRole('link', { name: 'Public source' })).toHaveAttribute('rel', 'noopener noreferrer')
     expect(screen.queryByRole('link', { name: 'Invalid resource' })).not.toBeInTheDocument()

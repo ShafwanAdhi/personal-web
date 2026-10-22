@@ -764,27 +764,19 @@ export const portfolio = {
     ],
     "achievements": [
       {
-        "kind": "verification",
-        "value": "33 checks",
-        "label": "Isolated controller contracts passed",
-        "description": "I checked selected password, catalog, QC and calendar behavior using actual methods with explicit framework/model doubles. Twelve PHP files also passed syntax checks; Laravel/SQL integration remains pending."
+        "kind": "capability",
+        "value": "Connected catalog",
+        "label": "From admin settings to the public storefront",
+        "description": "I connected saved catalog settings, banners and partner information to the public storefront, bringing content management and customer-facing pages into the same data flow."
       },
       {
         "kind": "capability",
-        "value": "Persistent state",
-        "label": "QC filters and public catalog",
-        "description": "I connected stored catalog fields to public pages and retained QC search/category/sort state across pagination. These are scoped backend capabilities, not measured productivity gains."
+        "value": "Continuous workflow",
+        "label": "Keep context while reviewing QC records",
+        "description": "I preserved search terms, category filters and sorting across QC pagination, so staff can move between result pages without rebuilding their selection."
       }
     ],
     "websiteUrl": "",
-    "evaluation": {
-      "methodology": "Reviewed 22 October 2026 against revision 9c1890b and five personal commits from November–December 2025. I traced the before/after changes and ran 33 isolated contract assertions using real controller methods with explicit doubles.",
-      "limitations": [
-        "No Laravel vendor installation was available. SQL, validator enforcement, generated pagination URLs, middleware, uploads and email were not exercised.",
-        "Account recovery and input-validation findings remain open; the checks do not establish authentication readiness or a comprehensive security audit.",
-        "The gallery shows the team application. I do not claim authorship of the full product or its ML features."
-      ]
-    },
     "artifacts": [
       {
         "label": "Read the technical verification report",
@@ -802,7 +794,6 @@ export const portfolio = {
     overviewTitle: 'Problem & Approach',
     contributionsTitle: 'Key Decisions & Contributions',
     achievementsTitle: 'Results & Evaluation',
-    evaluationTitle: 'Methodology & Limitations',
     resourcesTitle: 'Technical Resources',
     resultKinds: { evaluation: 'Quality Evaluation', verification: 'Engineering Verification', scope: 'Project Scope', capability: 'Delivered Capability' },
     stackTitle: 'Tech Stack',
