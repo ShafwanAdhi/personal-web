@@ -46,6 +46,7 @@ describe('portfolio visitor journeys', () => {
     ['waspadai', 'https://waspadai.shafwan.digital/'],
     ['sisdas-rag-assistant', 'https://ragcampus.shafwan.digital/'],
     ['bonjermgu', 'https://bonjermgu.com/'],
+    ['sidika', 'https://www.dinoyokamera.com/'],
     ['numora-question-variants', null],
     ['siparih', 'https://siparih.shafwan.digital'],
   ])('offers the configured website only on eligible case studies: %s', (id, url) => {

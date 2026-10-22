@@ -776,7 +776,7 @@ export const portfolio = {
         "description": "I preserved search terms, category filters and sorting across QC pagination, so staff can move between result pages without rebuilding their selection."
       }
     ],
-    "websiteUrl": "",
+    "websiteUrl": "https://www.dinoyokamera.com/",
     "artifacts": [
       {
         "label": "Read the technical verification report",
