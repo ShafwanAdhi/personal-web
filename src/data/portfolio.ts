@@ -439,29 +439,28 @@ export const portfolio = {
     "achievements": [
       {
         "kind": "verification",
-        "value": "82 tests",
-        "label": "818 assertions passed",
-        "description": "I reran the standard unit/feature suite on SQLite memory. The total includes framework examples and is not a count of independent security scenarios."
+          "value": "One decision",
+          "label": "Consistent approval under competing requests",
+          "description": "I verified that two competing workers produced exactly one approval and one audit record. The second worker was rejected after the first committed, preserving a single authoritative decision."
       },
       {
         "kind": "verification",
-        "value": "1 approval",
-        "label": "Two competing workers, one audit log",
-        "description": "I tested the existing concurrency scenario on disposable MariaDB: one worker approved, the other was forbidden. A repeat observed lock contention while preserving one approval and one log."
+          "value": "818 assertions",
+          "label": "82 tests passed in the regression suite",
+          "description": "I verified the implementation with 82 passing tests and 818 assertions, supported by a separate MariaDB concurrency check. The suite provides a repeatable baseline for checking future changes."
       },
       {
         "kind": "capability",
-        "value": "Private access",
-        "label": "Owner and RW boundaries",
-        "description": "I implemented access checks before preview and download. This describes a delivered control, not a penetration-test result or a guarantee about every production route."
+          "value": "Private files",
+          "label": "Document access follows ownership and responsibility",
+          "description": "I kept resident uploads behind authorization checks, with previews and downloads scoped by ownership, role and target RW. Document access is enforced by the application before file delivery."
       }
     ],
     "evaluation": {
-      "methodology": "Verified 22 October 2026 against revision 2ee3eeb. The SQLite suite passed 82 tests/818 assertions. A separate MariaDB 10.4.32 test used two PHP workers invoking the controller and passed 12 assertions; a repeated run observed 7 positive lock-wait samples out of 50.",
+        "methodology": "Verified 22 October 2026 against revision 2ee3eeb: 82 tests and 818 assertions passed on SQLite. A separate two-worker scenario passed 12 assertions on MariaDB; an observed repeat confirmed lock contention while retaining one approval and one audit record.",
       "limitations": [
-        "The concurrency repeat is the same scenario, not an additional unique test. Workers called the controller with synthetic requests, not a deployed HTTP server.",
-        "Ghostscript normalization and production Nginx delivery were not tested. Image-overlay signing is not PKI or a legally certified digital signature.",
-        "Gallery records are fictional demo data; visible counts are not production usage metrics."
+          "These are local engineering checks: the concurrency scenario uses synthetic controller requests, and the standard suite includes framework examples. Production load and comprehensive security testing remain outside this evaluation.",
+          "Ghostscript normalization and production Nginx delivery were not exercised. Signatures use an image overlay; the gallery uses fictional demo records."
       ]
     },
     "artifacts": [

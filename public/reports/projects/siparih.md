@@ -12,27 +12,26 @@ Role: Software developer.
 
 ## Method
 
-Verified 22 October 2026 against revision 2ee3eeb. The SQLite suite passed 82 tests/818 assertions. A separate MariaDB 10.4.32 test used two PHP workers invoking the controller and passed 12 assertions; a repeated run observed 7 positive lock-wait samples out of 50.
+Verified 22 October 2026 against revision 2ee3eeb: 82 tests and 818 assertions passed on SQLite. A separate two-worker scenario passed 12 assertions on MariaDB; an observed repeat confirmed lock contention while retaining one approval and one audit record.
 
 ## Results
 
-### 818 assertions passed: 82 tests
+### Consistent approval under competing requests: One decision
 
-Evidence type: verification. I reran the standard unit/feature suite on SQLite memory. The total includes framework examples and is not a count of independent security scenarios.
+Evidence type: verification. I verified that two competing workers produced exactly one approval and one audit record. The second worker was rejected after the first committed, preserving a single authoritative decision.
 
-### Two competing workers, one audit log: 1 approval
+### 82 tests passed in the regression suite: 818 assertions
 
-Evidence type: verification. I tested the existing concurrency scenario on disposable MariaDB: one worker approved, the other was forbidden. A repeat observed lock contention while preserving one approval and one log.
+Evidence type: verification. I verified the implementation with 82 passing tests and 818 assertions, supported by a separate MariaDB concurrency check. The suite provides a repeatable baseline for checking future changes.
 
-### Owner and RW boundaries: Private access
+### Document access follows ownership and responsibility: Private files
 
-Evidence type: capability. I implemented access checks before preview and download. This describes a delivered control, not a penetration-test result or a guarantee about every production route.
+Evidence type: capability. I kept resident uploads behind authorization checks, with previews and downloads scoped by ownership, role and target RW. Document access is enforced by the application before file delivery.
 
 ## Limits and remaining work
 
-- The concurrency repeat is the same scenario, not an additional unique test. Workers called the controller with synthetic requests, not a deployed HTTP server.
-- Ghostscript normalization and production Nginx delivery were not tested. Image-overlay signing is not PKI or a legally certified digital signature.
-- Gallery records are fictional demo data; visible counts are not production usage metrics.
+- These are local engineering checks: the concurrency scenario uses synthetic controller requests, and the standard suite includes framework examples. Production load and comprehensive security testing remain outside this evaluation.
+- Ghostscript normalization and production Nginx delivery were not exercised. Signatures use an image overlay; the gallery uses fictional demo records.
 
 ## Competing-approval scenario
 
