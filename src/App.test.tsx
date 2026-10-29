@@ -17,6 +17,50 @@ function mobileViewport() {
 }
 
 describe('portfolio visitor journeys', () => {
+  it('gives the about and experience headings equal semantic hierarchy', () => {
+    render(<App />)
+    expect(screen.getByRole('heading', { level: 2, name: 'A Little About Me' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: 'Experience & Involvement' })).toBeInTheDocument()
+  })
+  it('shows concise featured summaries, the original role, and three main tools', () => {
+    render(<App />)
+    const section = screen.getByRole('region', { name: 'Selected Projects' })
+    for (const project of portfolio.work.projects.filter(item => portfolio.work.featuredProjectIds.includes(item.id))) {
+      const card = within(section).getByRole('heading', { name: project.title }).closest('article')!
+      expect(within(card).getByText(project.role)).toBeInTheDocument()
+      expect(card.querySelector(':scope > p')!.textContent!.split(/\s+/).length).toBeLessThanOrEqual(14)
+      expect(within(card).getByRole('list', { name: 'Main stack' }).children).toHaveLength(3)
+    }
+  })
+  it.each(['/', '/certifications'])('previews a certificate image separately from its document on %s', async path => {
+    window.history.replaceState(null, '', path)
+    const user = userEvent.setup()
+    render(<App />)
+    const trigger = screen.getByRole('button', { name: 'Preview image: Machine Learning' })
+    await user.click(trigger)
+    const dialog = screen.getByRole('dialog', { name: 'Machine Learning' })
+    expect(within(dialog).queryByRole('heading')).not.toBeInTheDocument()
+    expect(within(dialog).getByRole('img', { name: 'Machine Learning' })).toHaveAttribute('src', '/assets/credentials/i9l9ohtfdrx7.webp')
+    expect(screen.getAllByRole('link', { name: 'Open Document' })[0]).toHaveAttribute('href', '/assets/credentials/i9l9ohtfdrx7.pdf')
+    expect(document.body.style.overflow).toBe('hidden')
+    const close = within(dialog).getByRole('button', { name: 'Close image preview' })
+    await user.tab()
+    expect(close).toHaveFocus()
+    await user.tab({ shift: true })
+    expect(close).toHaveFocus()
+    await user.click(within(dialog).getByRole('button', { name: 'Close image preview' }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(document.body.style.overflow).toBe('')
+    expect(trigger).toHaveFocus()
+  })
+  it('previews a course image and closes when the backdrop is clicked', async () => {
+    window.history.replaceState(null, '', '/certifications')
+    const user = userEvent.setup()
+    render(<App />)
+    await user.click(screen.getByRole('button', { name: 'Preview image: Intro to Machine Learning' }))
+    await user.click(screen.getByRole('dialog', { name: 'Intro to Machine Learning' }))
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
   it('shows a variable number of typed results without empty optional evidence sections', () => {
     const project = { ...portfolio.work.projects[0], achievements: [{ kind: 'verification' as const, value: 'Checked', label: 'Fixture result', description: 'A bounded check.' }], evaluation: undefined, artifacts: [] }
     render(<ProjectDetailPage project={project} />)
@@ -197,7 +241,7 @@ describe('portfolio visitor journeys', () => {
     expect(container.querySelector('.experience-company')).toHaveTextContent('Dewantara Research Team UM')
     expect(container.querySelector('.experience-company')).not.toHaveTextContent('Malang')
     expect(container.querySelector('.experience-location')).toHaveTextContent('Malang, Indonesia')
-    expect([...container.querySelectorAll('.experience h4')].map(item => item.textContent)).toEqual(['Head of Programming \u2014 SAR Robot Division', 'Computer Mathematics Practicum Assistant', 'Web Developer Intern'])
+    expect([...container.querySelectorAll('.experience h3')].map(item => item.textContent)).toEqual(['Head of Programming \u2014 SAR Robot Division', 'Computer Mathematics Practicum Assistant', 'Web Developer Intern'])
   })
   it('recovers from an empty category using the All filter', async () => {
     const original = portfolio.work.projects

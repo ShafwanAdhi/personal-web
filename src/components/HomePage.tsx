@@ -1,6 +1,6 @@
 import { motion } from 'motion/react'
 import { portfolio } from '../data/portfolio'
-import { StarIcon } from './Icons'
+import { ExperienceIconGraphic, StarIcon } from './Icons'
 import Hero from './Hero'
 import ClosingSection from './ClosingSection'
 import ProjectsSection from './ProjectsSection'
@@ -21,10 +21,11 @@ export default function HomePage() {
       <section className="about-section" aria-labelledby="about-title">
         <div className="container">
           <div id="about"><Reveal><h2 id="about-title">{portfolio.about.title}</h2><p className="about-description">{portfolio.about.description}</p></Reveal></div>
-          <Reveal><h3 className="experience-heading">{portfolio.about.experienceTitle}</h3></Reveal>
+          <Reveal><h2 className="experience-heading" id="experience-title">{portfolio.about.experienceTitle}</h2></Reveal>
           <div className="experience-grid">{portfolio.about.experiences.map((experience, index) => <motion.article className="experience" key={experience.id} {...revealProps(reduced, index * 0.09)}>
+            <div className="experience-topline" aria-hidden="true"><span className="experience-symbol"><ExperienceIconGraphic name={experience.icon} /></span><span className="experience-track" /><span className="experience-number">{String(index + 1).padStart(2, '0')}</span></div>
             <p className="experience-date">{experience.period}</p>
-            <div><h4>{experience.title}</h4><p className="experience-company">{experience.company}</p><p className="experience-location">{experience.location}</p><p className="experience-description">{experience.description}</p></div>
+            <div><h3>{experience.title}</h3><p className="experience-company">{experience.company}</p><p className="experience-location">{experience.location}</p><p className="experience-description">{experience.description}</p></div>
           </motion.article>)}</div>
         </div>
       </section>

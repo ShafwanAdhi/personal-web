@@ -48,7 +48,15 @@ The home page shows three featured projects on every screen size, without filter
 
 Featured home projects link the entire preview image to their case study, with a visible arrow, keyboard focus, and an accessible label. The collection page retains its View Case Study text actions.
 
+Featured titles stay on one line with an ellipsis when needed; the full title remains available to assistive technology and on hover. The role row directly follows the summary without an extra vertical margin.
+
+For each featured project, edit `preview.summary` for the short home-page sentence and `preview.tools` for its three main technologies. The role comes from the project's existing `role` field. Its label and value start on the same line, with long values wrapping in the value column. Full project descriptions and case-study content remain separate from this compact preview.
+
+About and Experience & Involvement share the same heading hierarchy. Each experience entry has a decorative pathway marker; its `icon` can be `robot`, `teaching`, or `code` in the data file.
+
 Uploaded learning records include two professional certificates and seventeen courses from `src/certificate/` and `src/course/`. Their public documents and WebP previews live in `public/assets/credentials/`. Metadata, `kind` (`certificate` or `course`), `fileUrl`, and optional verification URLs remain editable in `src/data/portfolio.ts`. The collection separates professional certificates from individual courses and shows item counts. Professional certificates and courses display full image previews directly in responsive grids. Kaggle has no credential ID or verification URL in the supplied image; its original image is available instead.
+
+Click a certificate or course image to view it in a borderless, image-only popup over a blurred backdrop. The image fills the popup without a panel, padding, or visible caption; a floating close button remains available. Close it with Escape, the close button, or a backdrop click. Keyboard focus stays in the popup and returns to the original image button on close; background scrolling is locked while viewing. Open Document remains a separate link to the supplied document. Preview accessibility labels are editable under `certifications.previewImageLabel` and `certifications.closePreviewLabel`.
 
 The home page displays only entries with `kind: 'certificate'` in `certifications.items`; `/certifications` displays every entry. Add an optional `image: '/assets/my-certificate.webp'` to use a real certificate instead of the generated document layout. Add `credentialUrl` to show a verification link. Name, issuer, date, credential ID, and skills are editable for each record.
 

@@ -25,7 +25,11 @@ const ProjectCard = forwardRef<HTMLElement, { project: Project; index: number; d
         <img src={project.image} alt={project.imageAlt} loading="lazy" width="800" height="520" />
         {imageDetail && <a className="project-preview-link" href={href} aria-label={portfolio.work.viewLabel} aria-describedby={`project-title-${project.id}`} title={portfolio.work.viewLabel}><span className="project-detail-icon" aria-hidden="true"><ArrowIcon /></span></a>}
       </motion.div>
-      <h3 id={`project-title-${project.id}`}>{project.title}</h3><p>{project.description}</p>
+      <h3 id={`project-title-${project.id}`} title={imageDetail ? project.title : undefined}>{project.title}</h3><p>{imageDetail ? project.preview?.summary ?? project.description : project.description}</p>
+      {imageDetail && <div className="featured-project-meta">
+        <dl className="featured-project-role"><dt>{portfolio.work.roleLabel}</dt><dd>{project.role}</dd></dl>
+        <ul className="featured-project-stack" aria-label={portfolio.work.mainStackLabel}>{(project.preview?.tools ?? project.tools).slice(0, 3).map(tool => <li key={tool}>{tool}</li>)}</ul>
+      </div>}
       {!imageDetail && <div className="project-actions">
         <MagneticLink className="button" href={href}>{portfolio.work.viewLabel}<ArrowIcon /></MagneticLink>
       </div>}

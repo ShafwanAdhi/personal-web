@@ -6,6 +6,7 @@
  */
 
 export type SocialIcon = 'gmail' | 'linkedin' | 'github'
+export type ExperienceIconName = 'robot' | 'teaching' | 'code'
 
 export interface ProjectImage { src: string; alt: string; caption: string }
 export type ProjectResultKind = 'evaluation' | 'verification' | 'scope' | 'capability'
@@ -16,6 +17,7 @@ export interface Project {
   category: string
   title: string
   description: string
+  preview?: { summary: string; tools: [string, string, string] }
   image: string
   imageAlt: string
   galleryLayout?: 'portrait'
@@ -86,6 +88,7 @@ export const portfolio = {
     experiences: [
       {
         id: 'experience-1',
+        icon: 'robot' as ExperienceIconName,
         period: 'Jan 2025 – Present',
         title: 'Head of Programming — SAR Robot Division',
         company: 'Dewantara Research Team UM',
@@ -94,6 +97,7 @@ export const portfolio = {
       },
       {
         id: 'experience-3',
+        icon: 'teaching' as ExperienceIconName,
         period: 'Sep – Dec 2025',
         title: 'Computer Mathematics Practicum Assistant',
         company: 'Universitas Negeri Malang',
@@ -102,6 +106,7 @@ export const portfolio = {
       },
       {
         id: 'experience-2',
+        icon: 'code' as ExperienceIconName,
         period: 'Jul – Aug 2026',
         title: 'Web Developer Intern',
         company: 'Mandiri Tunas Finance',
@@ -123,6 +128,8 @@ export const portfolio = {
       { id: 'others', label: 'Others' },
     ],
     viewLabel: 'View Case Study',
+    roleLabel: 'Role',
+    mainStackLabel: 'Main stack',
     allLabel: 'Explore All Projects',
     pageTitle: 'Projects & Experiments',
     pageEyebrow: 'Work / Collection',
@@ -133,6 +140,7 @@ export const portfolio = {
     projects: [
   {
     "id": "waspadai",
+    "preview": { "summary": "An evidence-guided AI assistant for investigating suspicious messages.", "tools": ["Python", "FastAPI", "Next.js"] },
     "category": "ai-ml",
     "title": "WaspadAI",
     "description": "For people facing suspicious messages, I built an evidence-guided AI investigation pipeline and web demo, combining safety rules, retrieved sources, and explicit uncertainty when verification cannot be completed.",
@@ -263,6 +271,7 @@ export const portfolio = {
   },
   {
     "id": "numora-question-variants",
+    "preview": { "summary": "Reproducible mathematics question variants with a browser review workbench.", "tools": ["Python", "JavaScript", "PostgreSQL"] },
     "category": "software",
     "title": "Numora Assessment & Question Variants",
     "description": "For assessment authors reviewing mathematics questions, I extended deterministic generators and a review workbench, making seeded variants reproducible while keeping local content coverage separate from publication and psychometric calibration.",
@@ -472,6 +481,7 @@ export const portfolio = {
   },
   {
     "id": "sisdas-rag-assistant",
+    "preview": { "summary": "A source-linked AI assistant for university information.", "tools": ["Python", "FastAPI", "ChromaDB"] },
     "category": "ai-ml",
     "title": "UM RAG Assistant",
     "description": "For students navigating university documents, I built a source-linked campus assistant with structured facts and retrieval, then compared retrieval strategies and inspected failures rather than treating citations as proof.",
@@ -821,6 +831,8 @@ export const portfolio = {
     certificatesTitle: 'Professional Certificates',
     coursesTitle: 'Courses',
     openDocumentLabel: 'Open Document',
+    previewImageLabel: 'Preview image: {title}',
+    closePreviewLabel: 'Close image preview',
     documentLabel: 'Certificate of completion',
     awardedLabel: 'Awarded to',
     credentialLabel: 'Credential ID',

@@ -1,6 +1,19 @@
-import type { SocialIcon } from '../data/portfolio'
+import type { ExperienceIconName, SocialIcon } from '../data/portfolio'
 
 type IconProps = { className?: string }
+
+export function ExperienceIconGraphic({ name }: { name: ExperienceIconName }) {
+  const paths = name === 'robot'
+    ? <><rect x="5" y="7" width="14" height="12" rx="3" /><path d="M12 3v4M2 11v4m20-4v4M9 15h6" /><circle cx="9" cy="11" r=".6" /><circle cx="15" cy="11" r=".6" /></>
+    : name === 'teaching'
+      ? <><path d="m2 9 10-5 10 5-10 5L2 9Zm4 3v5c4 3 8 3 12 0v-5m4-3v7" /></>
+      : <><rect x="3" y="4" width="18" height="16" rx="3" /><path d="m9 9-3 3 3 3m6-6 3 3-3 3m-2-7-2 8" /></>
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths}</svg>
+}
+
+export function ExpandIcon() {
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6m16-10-7 7M4 20l7-7" /></svg>
+}
 
 export function ArrowIcon({ className }: IconProps) {
   return <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>

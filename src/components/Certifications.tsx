@@ -2,14 +2,15 @@ import { useState } from 'react'
 import { motion, useTransform, type MotionStyle } from 'motion/react'
 import { portfolio, type Certification } from '../data/portfolio'
 import { usePointerMotion } from '../lib/usePointerMotion'
-import { ArrowIcon } from './Icons'
+import { ArrowIcon, ExpandIcon } from './Icons'
 import { MagneticLink, Reveal } from './MotionUI'
+import CertificateLightbox from './CertificateLightbox'
 
 function CertificateSeal() {
   return <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="m24 3 5 5 7-1 2 7 7 3-3 7 3 7-7 3-2 7-7-1-5 5-5-5-7 1-2-7-7-3 3-7-3-7 7-3 2-7 7 1Z" stroke="currentColor" /><path d="m17 24 5 5 10-11" stroke="currentColor" strokeWidth="2" /></svg>
 }
 
-function CertificationCard({ certification }: { certification: Certification }) {
+function CertificationCard({ certification, onPreview }: { certification: Certification; onPreview: (certification: Certification) => void }) {
   const copy = portfolio.certifications
   const { x, y, reduced, move, reset } = usePointerMotion(1)
   const [hovered, setHovered] = useState(false)
@@ -27,7 +28,9 @@ function CertificationCard({ certification }: { certification: Certification }) 
     <motion.div className="certificate-preview" animate={{ scale: active ? 1.025 : 1 }}
       transition={{ type: 'spring', stiffness: 240, damping: 24 }}
       style={{ rotateX, rotateY, transformPerspective: 1000, '--shine-x': shineX, '--shine-y': shineY } as MotionStyle}>
-    {certification.image ? <img className="certificate-document" src={certification.image} alt={certification.title} width="800" height="560" loading="lazy" /> :
+    {certification.image ? <button className="certificate-preview-button" type="button" aria-haspopup="dialog" aria-label={copy.previewImageLabel.replace('{title}', certification.title)} onClick={() => { setHovered(false); reset(); onPreview(certification) }}>
+      <img className="certificate-document" src={certification.image} alt={certification.title} width="800" height="560" loading="lazy" /><span className="certificate-zoom-hint" aria-hidden="true"><ExpandIcon /></span>
+    </button> :
       <div className="certificate-document certificate-placeholder" aria-hidden="true">
         <span className="certificate-mark"><CertificateSeal /></span>
         <span className="certificate-kicker">{copy.documentLabel}</span>
@@ -50,7 +53,10 @@ function CertificationCard({ certification }: { certification: Certification }) 
 }
 
 function CertificationGrid({ items }: { items: Certification[] }) {
-  return <div className="certification-grid">{items.map((certification, index) => <Reveal key={certification.id} delay={(index % 3) * 0.08}><CertificationCard certification={certification} /></Reveal>)}</div>
+  const [selected, setSelected] = useState<Certification | null>(null)
+  return <><div className="certification-grid">{items.map((certification, index) => <Reveal key={certification.id} delay={(index % 3) * 0.08}><CertificationCard certification={certification} onPreview={setSelected} /></Reveal>)}</div>
+    {selected && <CertificateLightbox certification={selected} onClose={() => setSelected(null)} />}
+  </>
 }
 
 export function CertificationsSection() {

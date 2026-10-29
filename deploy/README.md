@@ -44,7 +44,7 @@ curl -I https://siparih.shafwan.digital/
 
 Compare shared-service responses with their pre-release status; do not restart their containers to update this static site. For a content rollback, use a temporary Compose override setting `services.web.image` to the saved image ID, then run this project's `docker compose -f compose.yaml -f <rollback-override> up -d --no-build --wait`. Verify `/health`, homepage, a direct case study and its report again. This restores the previous runtime image without editing source history or host Nginx. Keep any uncommitted VPS work intact.
 
-The October 22 content audit was built and smoke-tested locally; it has not been deployed. See `docs/superpowers/verification/2026-10-21-project-content-audit.md` for completed checks and open source-project findings.
+The project content audit is documented in `docs/superpowers/verification/2026-10-21-project-content-audit.md`. Use the release checks above for both content and interface updates.
 
 ## Host routing
 
