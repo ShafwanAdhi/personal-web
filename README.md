@@ -23,7 +23,7 @@ npm run preview
 
 Edit **`src/data/portfolio.ts`**. This is the single source for all website copy and personal data:
 
-- `meta`: page title, description, and language.
+- `meta`: page title, description, language, production `siteUrl`, `socialImage`, and `socialImageAlt`.
 - `identity`: name, brand, email, portrait path, and portrait description.
 - `navigation`, `socials`: menu labels and destinations.
 - `hero`, `skills`, `about`: introduction, skills, and work experience.
@@ -35,6 +35,8 @@ Edit **`src/data/portfolio.ts`**. This is the single source for all website copy
 - `ui`: navigation and accessible labels.
 
 Change both `identity.email` and `contact.emailLabel` to your email. Email and social links use the supplied Shafwan Adhi details. Projects describe WaspadAI, Numora, SIPARIH, UM RAG Assistant, Bonjermgu, and SiDiKa using the supplied project-context packages. Evaluation numbers retain their documented scope. Certification and course records use the supplied documents.
+
+Link previews use the 1200×630 JPEG hero capture at `public/assets/social-preview-hero-20261103.jpg`. Production builds embed Open Graph, large-image Twitter Card metadata, and canonical URLs directly in every generated HTML page, including project details and collections. Each route has its own title, description, and URL, with the shared hero image. Update the image file and `meta.socialImage` together when refreshing the preview; use a new filename to distinguish image versions. Sharing platforms can cache previews independently of the website.
 
 Social links contain Gmail, LinkedIn, and GitHub only. Update their destinations under `socials`, including Gmail's `mailto:` address. Gmail opens the visitor's email app; LinkedIn and GitHub open in a new tab.
 

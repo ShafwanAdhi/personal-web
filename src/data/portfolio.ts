@@ -48,6 +48,9 @@ export interface Certification {
 
 export const portfolio = {
   meta: {
+    siteUrl: 'https://shafwan.digital',
+    socialImage: '/assets/social-preview-hero-20261103.jpg',
+    socialImageAlt: 'Shafwan Adhi portfolio hero: Building Intelligent Systems with AI & Data, with a portrait and Python, PyTorch, and FastAPI icons.',
     titleSeparator: ' — ',
     title: 'Shafwan Adhi - AI, Machine Learning & Data Science',
     description: 'Shafwan Adhi is an undergraduate student exploring artificial intelligence, machine learning, data science, and AI agents. Discover his projects, experiments, and certifications.',
