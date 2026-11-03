@@ -4,10 +4,9 @@
 
 The project owner supplied the following updated results for the portfolio:
 
-- Improved Recall@5 from **78% to 93% across 250 labeled queries**, a gain of 15 percentage points.
-- Reduced response latency by **25% through caching**.
+- Achieved **93% Recall@5 across 250 labeled queries**, demonstrating the system's ability to retrieve relevant information within the top five results.
 
-These are owner-reported results, not a benchmark reproduced during this portfolio update. The corresponding dataset, relevance-label protocol, Recall@5 aggregation, baseline configuration, latency measurement conditions and raw run artifacts were not supplied. The implementation includes query-embedding and structured-generation caches; their individual contributions to the reported latency reduction have not been isolated here.
+This wording incorporates the project owner's correction on 3 November 2026. No baseline improvement or quantified latency reduction is claimed. These are owner-reported results, not a benchmark reproduced during this portfolio update. The corresponding dataset, relevance-label protocol, Recall@5 aggregation, evaluation configuration and raw run artifacts were not supplied. Query-embedding and structured-generation caches remain implementation capabilities without a measured performance claim here.
 
 ## Historical technical verification — 21 October 2026
 

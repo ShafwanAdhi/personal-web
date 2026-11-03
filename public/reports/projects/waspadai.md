@@ -5,9 +5,9 @@
 The project owner supplied the following updated results for the portfolio:
 
 - Achieved **0.91 macro-F1 across 500 labeled cases**.
-- Reduced false positives by **32% through safety guardrails and error analysis**.
+- Recorded a **6% false positive rate on legitimate messages**, evaluating the system's tendency to incorrectly flag safe content.
 
-These are owner-reported results, not a benchmark reproduced during this portfolio update. The corresponding case set, class definitions, labeling protocol, baseline false-positive counts and raw run artifacts were not supplied. Macro-F1 describes classification performance; it does not establish OCR accuracy, live claim-verification quality or Android end-to-end reliability.
+This wording incorporates the project owner's correction on 3 November 2026. The false positive rate measures legitimate messages incorrectly flagged, not a relative reduction from a baseline. These are owner-reported results, not a benchmark reproduced during this portfolio update. The corresponding case set, class definitions, labeling protocol, legitimate-message subset size and raw run artifacts were not supplied. The 500-case count applies to the macro-F1 evaluation; the legitimate-message denominator is unspecified. These classification metrics do not establish OCR accuracy, live claim-verification quality or Android end-to-end reliability.
 
 ## Historical technical verification — 21 October 2026
 

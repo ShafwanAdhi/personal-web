@@ -225,7 +225,7 @@ export const portfolio = {
       },
       {
         "title": "Refine safety guardrails through error analysis",
-        "description": "I analyzed classification errors and refined safety guardrails, achieving 0.91 macro-F1 across 500 labeled cases and reducing false positives by 32%. Offline evaluation and live provider behavior are assessed separately."
+        "description": "I analyzed classification errors and refined safety guardrails. Evaluation recorded 0.91 macro-F1 across 500 labeled cases and a 6% false positive rate on legitimate messages, assessing how often safe content is incorrectly flagged."
       },
       {
         "title": "Connect the product through explicit contracts",
@@ -241,9 +241,9 @@ export const portfolio = {
       },
       {
         "kind": "evaluation",
-        "value": "−32%",
-        "label": "False positives",
-        "description": "Reduced false positives by 32% through safety guardrails and targeted error analysis."
+        "value": "6%",
+        "label": "False positive rate",
+        "description": "Recorded a 6% false positive rate on legitimate messages, evaluating the system's tendency to incorrectly flag safe content."
       },
       {
         "kind": "scope",
@@ -255,9 +255,9 @@ export const portfolio = {
     "websiteUrl": "https://waspadai.shafwan.digital/",
     "websiteLabel": "Visit Demo",
     "evaluation": {
-      "methodology": "Updated 3 November 2026 with project-owner-reported results: 0.91 macro-F1 across 500 labeled cases and a 32% reduction in false positives through safety guardrails and error analysis. These results were supplied by the owner, not reproduced in this portfolio update. The linked report preserves the separate 21 October technical audit.",
+      "methodology": "Corrected 3 November 2026 with project-owner-reported results: 0.91 macro-F1 across 500 labeled cases and a 6% false positive rate on legitimate messages. The false positive rate measures legitimate messages incorrectly flagged, not a relative reduction from a baseline. These results were supplied by the owner, not reproduced in this portfolio update. The linked report preserves the separate 21 October technical audit.",
       "limitations": [
-        "The latest benchmark's class definitions, labeling protocol, baseline counts and evaluation artifacts were not supplied with the content update.",
+        "The latest benchmark's class definitions, labeling protocol, legitimate-message subset size and raw evaluation artifacts were not supplied with the content update.",
         "The historical audit uses different datasets and provider conditions; its results are not directly comparable to the owner-reported benchmark.",
         "Classification metrics do not establish OCR accuracy, live factual-verification quality or Android end-to-end reliability."
       ]
@@ -481,7 +481,7 @@ export const portfolio = {
   },
   {
     "id": "sisdas-rag-assistant",
-    "preview": { "summary": "A source-grounded campus assistant with faster, cached responses.", "tools": ["Python", "FastAPI", "ChromaDB"] },
+    "preview": { "summary": "A source-grounded campus assistant evaluated on 250 labeled queries.", "tools": ["Python", "FastAPI", "ChromaDB"] },
     "category": "ai-ml",
     "title": "UM RAG Assistant",
     "description": "For students navigating university documents, I built a source-linked campus assistant with structured facts and retrieval, then compared retrieval strategies and inspected failures rather than treating citations as proof.",
@@ -512,7 +512,7 @@ export const portfolio = {
     "year": "2026",
     "role": "AI application & full-stack developer",
     "duration": "September 2026",
-    "overview": "University answers are spread across policies, forms and dated documents. I built a campus assistant that routes questions to structured facts or document retrieval and presents source links alongside streamed responses. Retrieval evaluation and caching improvements focus on finding relevant context and reducing response latency.",
+    "overview": "University answers are spread across policies, forms and dated documents. I built a campus assistant that routes questions to structured facts or document retrieval and presents source links alongside streamed responses. Evaluation across 250 labeled queries achieved 93% Recall@5, assessing the retrieval of relevant information within the top five results.",
     "tools": [
       "Python",
       "FastAPI",
@@ -533,12 +533,12 @@ export const portfolio = {
         "description": "I added a fact-first route for institutional lookups and document retrieval for procedural questions. The local registry contains 38 campus PDFs plus one developer-profile PDF; the latter is not a university source."
       },
       {
-        "title": "Improve retrieval with labeled-query evaluation",
-        "description": "I evaluated retrieval across 250 labeled queries and improved Recall@5 from 78% to 93%, measuring how effectively the system retrieves relevant context within the top five results."
+        "title": "Evaluate retrieval with labeled queries",
+        "description": "Achieved 93% Recall@5 across 250 labeled queries, demonstrating the system's ability to retrieve relevant information within the top five results."
       },
       {
-        "title": "Reduce response latency through caching",
-        "description": "I used query-embedding and structured-generation caches to reuse prior computations, reducing response latency by 25%. Retrieval quality and response time are tracked as separate engineering outcomes."
+        "title": "Reuse computations through caching",
+        "description": "I implemented query-embedding and structured-generation caches to reuse prior computations across requests."
       },
       {
         "title": "Deliver a source-focused interface",
@@ -548,29 +548,29 @@ export const portfolio = {
     "achievements": [
       {
         "kind": "evaluation",
-        "value": "78% → 93%",
-        "label": "Recall@5 improvement",
-        "description": "Improved Recall@5 from 78% to 93% across 250 labeled queries, a gain of 15 percentage points."
+        "value": "93%",
+        "label": "Recall@5",
+        "description": "Achieved 93% Recall@5 across 250 labeled queries, demonstrating the system's ability to retrieve relevant information within the top five results."
       },
       {
-        "kind": "evaluation",
-        "value": "−25%",
-        "label": "Response latency",
-        "description": "Reduced response latency by 25% through caching, reusing prior computations across requests."
+        "kind": "capability",
+        "value": "Source-linked",
+        "label": "Traceable document context",
+        "description": "Connected answers to supporting documents and page references so users can inspect the retrieved context."
       },
       {
         "kind": "scope",
         "value": "250",
         "label": "Labeled evaluation queries",
-        "description": "Evaluated retrieval across 250 labeled queries to compare baseline and improved Recall@5."
+        "description": "Evaluated the system's ability to retrieve relevant information within the top five results across 250 labeled queries."
       }
     ],
     "websiteUrl": "https://ragcampus.shafwan.digital/",
     "evaluation": {
-      "methodology": "Updated 3 November 2026 with project-owner-reported results: Recall@5 improved from 78% to 93% across 250 labeled queries, with a 25% reduction in response latency through caching. These results were supplied by the owner, not reproduced in this portfolio update. The linked report preserves the separate 21 October technical audit.",
+      "methodology": "Corrected 3 November 2026 with project-owner-reported results: 93% Recall@5 across 250 labeled queries, assessing retrieval of relevant information within the top five results. No baseline improvement or quantified caching latency reduction is claimed. These results were supplied by the owner, not reproduced in this portfolio update. The linked report preserves the separate 21 October technical audit.",
       "limitations": [
-        "The latest benchmark's relevance labels, Recall@5 aggregation, baseline configuration and raw evaluation artifacts were not supplied with the content update.",
-        "The caching latency comparison's percentile, cache hit rate and hardware conditions were not supplied; the reduction does not establish production latency or time-to-first-token.",
+        "The latest benchmark's relevance labels, Recall@5 aggregation, evaluation configuration and raw run artifacts were not supplied with the content update.",
+        "Recall@5 measures retrieval quality; it does not establish answer accuracy, production latency or time-to-first-token.",
         "The historical audit measures source hit@K on a different sample; it should not be conflated with the owner-reported Recall@5 benchmark."
       ]
     },
