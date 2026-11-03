@@ -1,4 +1,17 @@
-# WaspadAI — technical verification
+# WaspadAI — evaluation summary
+
+## Updated project results — 3 November 2026
+
+The project owner supplied the following updated results for the portfolio:
+
+- Achieved **0.91 macro-F1 across 500 labeled cases**.
+- Reduced false positives by **32% through safety guardrails and error analysis**.
+
+These are owner-reported results, not a benchmark reproduced during this portfolio update. The corresponding case set, class definitions, labeling protocol, baseline false-positive counts and raw run artifacts were not supplied. Macro-F1 describes classification performance; it does not establish OCR accuracy, live claim-verification quality or Android end-to-end reliability.
+
+## Historical technical verification — 21 October 2026
+
+The following audit concerns an earlier source snapshot, different datasets and specific live provider conditions. Its signal-level precision and recall are distinct from the updated macro-F1 results above; no direct comparison between the evaluations is implied.
 
 Verified 21 October 2026.
 

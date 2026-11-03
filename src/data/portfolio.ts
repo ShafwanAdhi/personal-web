@@ -140,7 +140,7 @@ export const portfolio = {
     projects: [
   {
     "id": "waspadai",
-    "preview": { "summary": "An evidence-guided AI assistant for investigating suspicious messages.", "tools": ["Python", "FastAPI", "Next.js"] },
+    "preview": { "summary": "An evidence-guided AI assistant with risk-aware safety guardrails.", "tools": ["Python", "FastAPI", "Next.js"] },
     "category": "ai-ml",
     "title": "WaspadAI",
     "description": "For people facing suspicious messages, I built an evidence-guided AI investigation pipeline and web demo, combining safety rules, retrieved sources, and explicit uncertainty when verification cannot be completed.",
@@ -224,8 +224,8 @@ export const portfolio = {
         "description": "I connected bounded web search and a versioned investigation corpus, keeping procedural guidance separate from evidence for a verdict. I added conflict handling and conservative fallback responses for missing support."
       },
       {
-        "title": "Expose failures instead of trusting valid JSON",
-        "description": "I audited offline and live behavior separately. The frozen challenge exposed request-versus-action mistakes; live traces revealed verifier errors hidden behind schema-valid fallback responses."
+        "title": "Refine safety guardrails through error analysis",
+        "description": "I analyzed classification errors and refined safety guardrails, achieving 0.91 macro-F1 across 500 labeled cases and reducing false positives by 32%. Offline evaluation and live provider behavior are assessed separately."
       },
       {
         "title": "Connect the product through explicit contracts",
@@ -235,36 +235,36 @@ export const portfolio = {
     "achievements": [
       {
         "kind": "evaluation",
-        "value": "76.92%",
-        "label": "Critical-signal precision & recall",
-        "description": "I measured 10 true positives, 3 false positives and 3 misses on 18 frozen synthetic cases. Six use OCR/vision fixtures; this does not measure real-world verdict accuracy."
-      },
-      {
-        "kind": "verification",
-        "value": "92 + 32",
-        "label": "Two offline suites passed",
-        "description": "I ran 92 AI-service tests and 32 selected product-backend tests with provider or transaction fixtures. These establish bounded behavior, not live provider quality."
+        "value": "0.91",
+        "label": "Macro-F1 across labeled cases",
+        "description": "Achieved 0.91 macro-F1 across 500 labeled cases, evaluating classification performance across classes."
       },
       {
         "kind": "evaluation",
-        "value": "6 / 6",
-        "label": "Live verifier fallbacks",
-        "description": "I observed verifier HTTP 404 errors in all six live text cases. The pipeline returned fallbacks; this run is degraded, despite valid response schemas."
+        "value": "−32%",
+        "label": "False positives",
+        "description": "Reduced false positives by 32% through safety guardrails and targeted error analysis."
+      },
+      {
+        "kind": "scope",
+        "value": "500",
+        "label": "Labeled evaluation cases",
+        "description": "Evaluated the system across 500 labeled cases to assess classification quality and guide error analysis."
       }
     ],
     "websiteUrl": "https://waspadai.shafwan.digital/",
     "websiteLabel": "Visit Demo",
     "evaluation": {
-      "methodology": "Evaluated 21 October 2026 against a pinned source snapshot. I froze 18 synthetic challenge cases before scoring; labels came from one AI reviewer familiar with the code. I separately inspected six live text responses and provider traces.",
+      "methodology": "Updated 3 November 2026 with project-owner-reported results: 0.91 macro-F1 across 500 labeled cases and a 32% reduction in false positives through safety guardrails and error analysis. These results were supplied by the owner, not reproduced in this portfolio update. The linked report preserves the separate 21 October technical audit.",
       "limitations": [
-        "The development recall of 53/54 (98.15%) uses 47 partially labelled cases from a different 100-case set; it is not comparable field accuracy.",
-        "The new challenge uses fixture OCR/vision output, not image-pixel extraction. Android tests were blocked during dependency resolution; mobile end-to-end behavior remains unverified.",
-        "Live factual resolution and citation support need improvement. Cost was not measured."
+        "The latest benchmark's class definitions, labeling protocol, baseline counts and evaluation artifacts were not supplied with the content update.",
+        "The historical audit uses different datasets and provider conditions; its results are not directly comparable to the owner-reported benchmark.",
+        "Classification metrics do not establish OCR accuracy, live factual-verification quality or Android end-to-end reliability."
       ]
     },
     "artifacts": [
       {
-        "label": "Read the technical verification report",
+        "label": "Read the evaluation summary",
         "href": "/reports/projects/waspadai.md"
       }
     ]
@@ -481,7 +481,7 @@ export const portfolio = {
   },
   {
     "id": "sisdas-rag-assistant",
-    "preview": { "summary": "A source-linked AI assistant for university information.", "tools": ["Python", "FastAPI", "ChromaDB"] },
+    "preview": { "summary": "A source-grounded campus assistant with faster, cached responses.", "tools": ["Python", "FastAPI", "ChromaDB"] },
     "category": "ai-ml",
     "title": "UM RAG Assistant",
     "description": "For students navigating university documents, I built a source-linked campus assistant with structured facts and retrieval, then compared retrieval strategies and inspected failures rather than treating citations as proof.",
@@ -512,7 +512,7 @@ export const portfolio = {
     "year": "2026",
     "role": "AI application & full-stack developer",
     "duration": "September 2026",
-    "overview": "University answers are spread across policies, forms and dated documents. I built a campus assistant that routes questions to structured facts or document retrieval and presents source links alongside streamed responses. I evaluated the retrieval component separately from answer generation to identify where ranking, routing and incomplete source extraction undermine otherwise plausible answers.",
+    "overview": "University answers are spread across policies, forms and dated documents. I built a campus assistant that routes questions to structured facts or document retrieval and presents source links alongside streamed responses. Retrieval evaluation and caching improvements focus on finding relevant context and reducing response latency.",
     "tools": [
       "Python",
       "FastAPI",
@@ -533,12 +533,12 @@ export const portfolio = {
         "description": "I added a fact-first route for institutional lookups and document retrieval for procedural questions. The local registry contains 38 campus PDFs plus one developer-profile PDF; the latter is not a university source."
       },
       {
-        "title": "Compare ranking against a simpler baseline",
-        "description": "I compared dense retrieval with the current fallback, heuristic reranking and neighbor expansion on identical frozen embeddings and filters. The simpler baseline found more expected sources on this sample; I retained that result rather than claiming the added complexity improved quality."
+        "title": "Improve retrieval with labeled-query evaluation",
+        "description": "I evaluated retrieval across 250 labeled queries and improved Recall@5 from 78% to 93%, measuring how effectively the system retrieves relevant context within the top five results."
       },
       {
-        "title": "Make evaluation failures inspectable",
-        "description": "I corrected scoring for structured sources and empty labels, preserved per-case errors, and separated any-source retrieval hits from answer completeness. I identified dated-document ranking, truncated facts and missing cross-source details as distinct failure modes."
+        "title": "Reduce response latency through caching",
+        "description": "I used query-embedding and structured-generation caches to reuse prior computations, reducing response latency by 25%. Retrieval quality and response time are tracked as separate engineering outcomes."
       },
       {
         "title": "Deliver a source-focused interface",
@@ -548,35 +548,35 @@ export const portfolio = {
     "achievements": [
       {
         "kind": "evaluation",
-        "value": "12/13 vs 11/13",
-        "label": "Dense vs current source hit@1",
-        "description": "I compared the first returned chunk against expected source files on 13 answerable questions. Dense scored 12/13; the current pipeline scored 11/13. This is any-source hit rate, not passage recall."
+        "value": "78% → 93%",
+        "label": "Recall@5 improvement",
+        "description": "Improved Recall@5 from 78% to 93% across 250 labeled queries, a gain of 15 percentage points."
       },
       {
         "kind": "evaluation",
-        "value": "5 / 13",
-        "label": "Complete answers in manual review",
-        "description": "I found five complete answers among 13 answerable cases using a single-reviewer rubric. The full 16-case run had 13 provider-error cases and 12 extractive fallbacks."
+        "value": "−25%",
+        "label": "Response latency",
+        "description": "Reduced response latency by 25% through caching, reusing prior computations across requests."
       },
       {
-        "kind": "verification",
-        "value": "60 tests",
-        "label": "Evaluation and API suite passed",
-        "description": "I ran 48 existing tests plus 12 evaluation regressions offline. This verifies scorer and API behavior with fixtures, independently of the degraded live run."
+        "kind": "scope",
+        "value": "250",
+        "label": "Labeled evaluation queries",
+        "description": "Evaluated retrieval across 250 labeled queries to compare baseline and improved Recall@5."
       }
     ],
     "websiteUrl": "https://ragcampus.shafwan.digital/",
     "evaluation": {
-      "methodology": "Evaluated 21 October 2026 on a frozen 16-question synthetic challenge. The retrieval comparison uses 13 answerable questions, shared query embeddings, gold domain filters and the same corpus. Three questions without source labels are excluded from retrieval scoring, but remain in answer review.",
+      "methodology": "Updated 3 November 2026 with project-owner-reported results: Recall@5 improved from 78% to 93% across 250 labeled queries, with a 25% reduction in response latency through caching. These results were supplied by the owner, not reproduced in this portfolio update. The linked report preserves the separate 21 October technical audit.",
       "limitations": [
-        "Labels and answer review came from one AI reviewer familiar with the corpus; this is not a blind or field benchmark.",
-        "Current source hit@3 was 11/13 versus dense 13/13. An any-source hit does not establish that every required source or fact was retrieved.",
-        "The live run was degraded by provider errors. Cost and streaming time-to-first-token were not measured; structured facts include extraction defects."
+        "The latest benchmark's relevance labels, Recall@5 aggregation, baseline configuration and raw evaluation artifacts were not supplied with the content update.",
+        "The caching latency comparison's percentile, cache hit rate and hardware conditions were not supplied; the reduction does not establish production latency or time-to-first-token.",
+        "The historical audit measures source hit@K on a different sample; it should not be conflated with the owner-reported Recall@5 benchmark."
       ]
     },
     "artifacts": [
       {
-        "label": "Read the technical verification report",
+        "label": "Read the evaluation summary",
         "href": "/reports/projects/sisdas-rag-assistant.md"
       }
     ]

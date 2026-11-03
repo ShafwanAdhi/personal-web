@@ -1,4 +1,17 @@
-# UM RAG Assistant — technical verification
+# UM RAG Assistant — evaluation summary
+
+## Updated project results — 3 November 2026
+
+The project owner supplied the following updated results for the portfolio:
+
+- Improved Recall@5 from **78% to 93% across 250 labeled queries**, a gain of 15 percentage points.
+- Reduced response latency by **25% through caching**.
+
+These are owner-reported results, not a benchmark reproduced during this portfolio update. The corresponding dataset, relevance-label protocol, Recall@5 aggregation, baseline configuration, latency measurement conditions and raw run artifacts were not supplied. The implementation includes query-embedding and structured-generation caches; their individual contributions to the reported latency reduction have not been isolated here.
+
+## Historical technical verification — 21 October 2026
+
+The following audit concerns an earlier source snapshot and a different evaluation sample. Its source hit@K metrics are distinct from the updated Recall@5 results above; no direct comparison between the two evaluations is implied.
 
 Verified 21 October 2026.
 
