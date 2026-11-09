@@ -39,11 +39,13 @@ export default function ProjectDetailPage({ project }: { project: Project }) {
     {project.websiteUrl && validResource(project.websiteUrl) && <a className="button detail-website" href={project.websiteUrl} target="_blank" rel="noopener noreferrer">{project.websiteLabel ?? copy.websiteLabel}<ArrowIcon /></a>}
     {project.applications && project.applications.length > 0 && <Reveal><section className="project-applications" aria-labelledby="applications-title">
       <h2 id="applications-title">{copy.applicationsTitle}</h2>
-      <ul>{project.applications.map(application => <li key={application.id}>
-        <h3>{application.title}</h3><p>{application.description}</p>
+      <ul>{project.applications.map((application, index) => <li key={application.id}>
+        <span className="application-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <div className="application-content"><h3>{application.title}</h3><p>{application.description}</p>
         <div className="application-actions">
-          {validResource(application.demoUrl) && <a href={application.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.applicationDemoAccessibleLabel.replace('{title}', application.title)}>{copy.applicationDemoLabel}<ArrowIcon /></a>}
-          {validResource(application.repositoryUrl) && <a href={application.repositoryUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.applicationSourceAccessibleLabel.replace('{title}', application.title)}>{copy.applicationSourceLabel}<ArrowIcon /></a>}
+          {validResource(application.demoUrl) && <a className="application-demo" href={application.demoUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.applicationDemoAccessibleLabel.replace('{title}', application.title)}>{copy.applicationDemoLabel}<ArrowIcon /></a>}
+          {validResource(application.repositoryUrl) && <a className="application-source" href={application.repositoryUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.applicationSourceAccessibleLabel.replace('{title}', application.title)}>{copy.applicationSourceLabel}<ArrowIcon /></a>}
+        </div>
         </div>
       </li>)}</ul>
     </section></Reveal>}
