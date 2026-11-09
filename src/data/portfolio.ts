@@ -14,6 +14,7 @@ export interface Project {
   id: string
   websiteUrl?: string
   websiteLabel?: string
+  applications?: { id: string; title: string; description: string; demoUrl: string; repositoryUrl: string }[]
   category: string
   title: string
   description: string
@@ -585,6 +586,157 @@ export const portfolio = {
     ]
   },
   {
+    "id": "netflix-catalog-ml",
+    "category": "ai-ml",
+    "title": "Netflix Catalog ML & Analytics",
+    "description": "I explored a historical Netflix catalog through classification, clustering, forecasting, and regression, then built four reproducible web applications with explicit baselines, evaluation limits, and independent deployments.",
+    "preview": {
+      "summary": "Four analytical questions, frozen evaluations, and independently deployed metadata applications.",
+      "tools": [
+        "Python",
+        "scikit-learn",
+        "FastAPI"
+      ]
+    },
+    "image": "/assets/projects/netflix-catalog-ml/segmentation-explorer.webp",
+    "imageAlt": "Catalog Explorer: PCA projection and cluster filters from the live segmentation application.",
+    "gallery": [
+      {
+        "src": "/assets/projects/netflix-catalog-ml/segmentation-explorer.webp",
+        "alt": "Catalog Explorer: PCA projection and cluster filters from the live segmentation application.",
+        "caption": "A sampled PCA projection supports exploration of metadata groups; distances and layout do not establish audience personas."
+      },
+      {
+        "src": "/assets/projects/netflix-catalog-ml/ratings-prediction.webp",
+        "alt": "Audience Ratings: Movie example metadata and the frozen classifier output.",
+        "caption": "Illustrative Movie input and model probabilities, not official certification or evidence of generalization."
+      },
+      {
+        "src": "/assets/projects/netflix-catalog-ml/ratings-confusion.webp",
+        "alt": "Audience Ratings: normalized confusion matrix for the held-out test.",
+        "caption": "The 14-label confusion matrix exposes class imbalance and weak rare-label support beyond the aggregate macro-F1."
+      },
+      {
+        "src": "/assets/projects/netflix-catalog-ml/forecast-comparison.webp",
+        "alt": "Trend Forecasting: held-out comparisons for all six target and content-scope combinations.",
+        "caption": "All six frozen comparisons remain visible, including failed annual generalization and stronger seasonal-naive baselines."
+      },
+      {
+        "src": "/assets/projects/netflix-catalog-ml/forecast-monthly.webp",
+        "alt": "Trend Forecasting: two monthly Movie projections and an empirical error band.",
+        "caption": "Saved monthly Movie projections from a historical origin; the empirical band is not calibrated certainty or a current forecast."
+      },
+      {
+        "src": "/assets/projects/netflix-catalog-ml/analytics-estimator.webp",
+        "alt": "Historical Catalog Entry Analytics: Movie example and estimated calendar-year difference.",
+        "caption": "A metadata-based estimate of the release-to-catalog calendar-year difference, not popularity, commercial success or an acquisition date."
+      }
+    ],
+    "year": "2026",
+    "role": "Machine Learning & Full-Stack Developer",
+    "duration": "November 2026",
+    "overview": "One historical catalog can support several analytical questions, but each needs a different definition of success. I studied content advisory classification, similarities between titles, historical release and catalog-addition trends, and release-to-catalog calendar-year differences. I built separate pipelines and web applications around a shared source audit, keeping evaluation results, baseline comparisons and interpretation limits visible. The catalog contains metadata, not viewer behavior or business outcomes.",
+    "tools": [
+      "Python",
+      "pandas",
+      "NumPy",
+      "scikit-learn",
+      "FastAPI",
+      "React",
+      "TypeScript",
+      "Docker",
+      "Nginx"
+    ],
+    "contributions": [
+      {
+        "title": "Trace one dataset through four preparation contracts",
+        "description": "I checked the supplied CSV hash, reviewed missing metadata, duplicate entities and date anomalies, and documented why preparation counts differ between pipelines. I retained the unknown upstream source and redistribution permission as explicit limitations."
+      },
+      {
+        "title": "Match validation to the analytical question",
+        "description": "I used fold-fitted classification pipelines with training-only CV, shared representations and seed diagnostics for clustering, expanding-window evaluation for forecasting, and chronological regression splits. I excluded target-defining date fields from the entry estimator."
+      },
+      {
+        "title": "Keep counter-evidence in model selection",
+        "description": "I compared saved models with simple baselines and preserved the selection made before test evaluation. I reported rare-label failures, failed annual forecasts, stronger seasonal-naive results, and the regression tradeoff between mean and median error."
+      },
+      {
+        "title": "Deliver inspectable applications around frozen artifacts",
+        "description": "I served validated bundles through FastAPI and built React interfaces for examples, searchable inputs, cluster exploration, model comparisons and CSV export. I deployed each application independently with Docker and checked responsive layouts, run consistency and unavailable states."
+      }
+    ],
+    "achievements": [
+      {
+        "kind": "evaluation",
+        "value": "0.334 vs 0.038",
+        "label": "Ratings test macro-F1 vs Dummy",
+        "description": "I evaluated 14 advisory labels on 1,758 held-out titles. Random Forest was selected by training-only CV macro-F1; rare-class support remains limited. These labels are not viewer popularity scores."
+      },
+      {
+        "kind": "evaluation",
+        "value": "10 clusters",
+        "label": "Metadata structure with internal diagnostics",
+        "description": "I grouped 8,783 entities with KMeans: mean silhouette 0.241 and same-catalog seed ARI 0.662. These are internal structure and initialization diagnostics, not held-out audience validation."
+      },
+      {
+        "kind": "evaluation",
+        "value": "48.11 MAE",
+        "label": "Monthly/all forecasts depend on the baseline",
+        "description": "I measured monthly/all test MAE of 48.11 titles versus 70.00 for last value and 45.33 for seasonal naive. Annual/all generalization failed: 2,395.37 versus 137.75 for last value. Lower MAE is better."
+      },
+      {
+        "kind": "evaluation",
+        "value": "4.36 vs 4.97 yr",
+        "label": "Catalog-entry MAE vs median baseline",
+        "description": "I measured mean absolute error on 3,374 chronological test titles. Median absolute error worsened to 1.66 years versus 1.00; the greater-than-five-year target band remained difficult. This does not measure commercial success."
+      }
+    ],
+    "evaluation": {
+      "methodology": "Frozen artifact snapshots verified on 9 November 2026, with different validation contracts for classification, clustering, forecasting and regression. See the linked report for source commits, run identities and baseline comparisons. No models were retrained for this portfolio integration.",
+      "limitations": [
+        "One historical metadata snapshot; no viewer behavior or commercial outcomes.",
+        "Upstream source and raw-data redistribution permission remain unverified.",
+        "Clustering diagnostics are in-sample; forecasting and regression results depend on baseline and cohort."
+      ]
+    },
+    "applications": [
+      {
+        "id": "ratings",
+        "title": "Audience Ratings",
+        "description": "Classify 14 content advisory labels from title metadata.",
+        "demoUrl": "https://netflix-audience-ratings.shafwan.digital/predict",
+        "repositoryUrl": "https://github.com/ShafwanAdhi/netflix-audience-ratings"
+      },
+      {
+        "id": "segments",
+        "title": "Content Segmentation",
+        "description": "Inspect ten groups of titles with similar catalog metadata.",
+        "demoUrl": "https://netflix-content-segmentation.shafwan.digital/explore",
+        "repositoryUrl": "https://github.com/ShafwanAdhi/netflix-content-segmentation"
+      },
+      {
+        "id": "trends",
+        "title": "Trend Forecasting",
+        "description": "Compare historical projections with simple baselines.",
+        "demoUrl": "https://netflix-trend-forecasting.shafwan.digital/forecast",
+        "repositoryUrl": "https://github.com/ShafwanAdhi/netflix-trend-forecasting"
+      },
+      {
+        "id": "entry",
+        "title": "Historical Catalog Entry Analytics",
+        "description": "Explore release-to-catalog year differences and try an estimate.",
+        "demoUrl": "https://netflix-catalog-analytics.shafwan.digital/insights#estimate",
+        "repositoryUrl": "https://github.com/ShafwanAdhi/netflix-catalog-analytics"
+      }
+    ],
+    "artifacts": [
+      {
+        "label": "Read the methods, results and source evidence",
+        "href": "/reports/projects/netflix-catalog-ml.md"
+      }
+    ]
+  },
+  {
     "id": "bonjermgu",
     "category": "software",
     "title": "Bonjermgu Financing Portal",
@@ -808,6 +960,11 @@ export const portfolio = {
     contributionsTitle: 'Key Decisions & Contributions',
     achievementsTitle: 'Results & Evaluation',
     resourcesTitle: 'Technical Resources',
+    applicationsTitle: 'Explore the Applications',
+    applicationDemoLabel: 'Open demo',
+    applicationSourceLabel: 'Source code',
+    applicationDemoAccessibleLabel: 'Open {title} demo',
+    applicationSourceAccessibleLabel: 'View {title} source code',
     resultKinds: { evaluation: 'Quality Evaluation', verification: 'Engineering Verification', scope: 'Project Scope', capability: 'Delivered Capability' },
     stackTitle: 'Tech Stack',
     roleLabel: 'Role',

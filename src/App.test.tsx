@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { StrictMode } from 'react'
 import App from './App'
-import { portfolio } from './data/portfolio'
+import { portfolio, type Project } from './data/portfolio'
 import ProjectDetailPage from './components/ProjectDetailPage'
 
 beforeEach(() => window.history.replaceState(null, '', '/'))
@@ -307,12 +307,12 @@ describe('portfolio visitor journeys', () => {
     expect(screen.getAllByRole('link', { name: 'View Case Study' })[0]).toHaveAttribute('href', '/projects/numora-question-variants?from=projects&category=software')
     await user.click(screen.getByRole('tab', { name: 'AI / ML' }))
     expect(new URLSearchParams(location.search).get('category')).toBe('ai-ml')
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(2)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(3)
   })
   it('falls back to all projects for an unknown collection category', () => {
     window.history.replaceState(null, '', '/projects?category=unknown')
     render(<App />)
-    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(6)
+    expect(screen.getAllByRole('link', { name: 'View Case Study' })).toHaveLength(7)
     expect(screen.getByRole('tab', { name: 'All' })).toHaveAttribute('aria-selected', 'true')
   })
   it('returns a case study to the filtered collection it came from', () => {
@@ -329,7 +329,7 @@ describe('portfolio visitor journeys', () => {
   })
   it('offers another category without carrying an incompatible filter when only one case exists', () => {
     const original = portfolio.work.projects
-    portfolio.work.projects = original.filter(item => item.id !== 'sisdas-rag-assistant')
+    portfolio.work.projects = original.filter(item => item.category !== 'ai-ml' || item.id === 'waspadai')
     try {
       window.history.replaceState(null, '', '/projects/waspadai?from=projects&category=ai-ml')
       render(<App />)
@@ -337,5 +337,53 @@ describe('portfolio visitor journeys', () => {
     } finally {
       portfolio.work.projects = original
     }
+  })
+})
+
+describe('Netflix catalog integration', () => {
+  const netflix = portfolio.work.projects.find(item => item.id === 'netflix-catalog-ml')! as Project
+  it('adds one AI/ML case while preserving the featured projects', () => {
+    expect(portfolio.work.projects).toHaveLength(7)
+    expect(portfolio.work.projects.filter(item => item.category === 'ai-ml')).toHaveLength(3)
+    expect(portfolio.work.projects.filter(item => item.category === 'software')).toHaveLength(4)
+    expect(portfolio.work.featuredProjectIds).toEqual(['waspadai', 'sisdas-rag-assistant', 'numora-question-variants'])
+    expect(netflix.gallery).toHaveLength(6)
+    expect(netflix.achievements.every(item => item.kind === 'evaluation')).toBe(true)
+  })
+  it('exposes four independent demos and repositories after the gallery', () => {
+    render(<ProjectDetailPage project={netflix} />)
+    const section = screen.getByRole('region', { name: 'Explore the Applications' })
+    expect(within(section).getAllByRole('listitem')).toHaveLength(4)
+    expect(within(section).getAllByRole('link')).toHaveLength(8)
+    expect(Boolean(document.querySelector('.project-gallery')!.compareDocumentPosition(section) & Node.DOCUMENT_POSITION_FOLLOWING)).toBe(true)
+    for (const application of netflix.applications!) {
+      const demo = within(section).getByRole('link', { name: `Open ${application.title} demo` })
+      expect(demo).toHaveAttribute('href', application.demoUrl)
+      expect(demo).toHaveAttribute('target', '_blank')
+      expect(demo).toHaveAttribute('rel', 'noopener noreferrer')
+      expect(within(section).getByRole('link', { name: `View ${application.title} source code` })).toHaveAttribute('href', application.repositoryUrl)
+    }
+    expect(screen.getByRole('link', { name: 'Read the methods, results and source evidence' })).toHaveAttribute('href', '/reports/projects/netflix-catalog-ml.md')
+    expect(netflix.websiteUrl).toBeUndefined()
+  })
+  it('retains negative findings and the regression tradeoff', () => {
+    render(<ProjectDetailPage project={netflix} />)
+    expect(screen.getByText(/Annual\/all generalization failed: 2,395.37 versus 137.75/)).toBeInTheDocument()
+    expect(screen.getByText(/Median absolute error worsened to 1.66 years versus 1.00/)).toBeInTheDocument()
+  })
+  it('rejects unsafe application links using the existing resource policy', () => {
+    render(<ProjectDetailPage project={{ ...netflix, applications: [{ ...netflix.applications![0], demoUrl: 'javascript:alert(1)', repositoryUrl: 'https://user:password@example.com' }] }} />)
+    expect(within(screen.getByRole('region', { name: 'Explore the Applications' })).queryAllByRole('link')).toHaveLength(0)
+  })
+  it.each(portfolio.work.projects.filter(item => item.id !== netflix.id))('keeps the previous $id case free of the optional directory', project => {
+    render(<ProjectDetailPage project={project} />)
+    expect(screen.queryByRole('region', { name: 'Explore the Applications' })).not.toBeInTheDocument()
+    if (project.websiteUrl) expect(screen.getByRole('link', { name: project.websiteLabel ?? portfolio.projectDetail.websiteLabel })).toHaveAttribute('href', project.websiteUrl)
+  })
+  it('returns to the AI/ML collection and wraps to WaspadAI', () => {
+    window.history.replaceState(null, '', '/projects/netflix-catalog-ml?from=projects&category=ai-ml')
+    render(<App />)
+    for (const link of screen.getAllByRole('link', { name: 'Back to projects' })) expect(link).toHaveAttribute('href', '/projects?category=ai-ml')
+    expect(screen.getByRole('link', { name: 'WaspadAI' })).toHaveAttribute('href', '/projects/waspadai?from=projects&category=ai-ml')
   })
 })

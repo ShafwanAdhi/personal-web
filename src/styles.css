@@ -492,3 +492,18 @@ img.certificate-document { height: auto; }
   .certificate-lightbox-image { max-width: calc(100vw - 16px); max-height: calc(100dvh - 16px); }
 }
 @media (prefers-reduced-motion: reduce) { .certificate-lightbox { animation: none; } }
+
+/* Optional application directory for a project with multiple independent demos. */
+.project-applications { margin-top: 38px; }
+.project-applications h2 { font-size: 24px; margin-bottom: 18px; }
+.project-applications ul { list-style: none; padding: 0; margin: 0; }
+.project-applications li { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr) auto; align-items: start; gap: 24px; padding: 23px 0; border-top: 1px solid #ffffff26; }
+.project-applications li:last-child { border-bottom: 1px solid #ffffff26; }
+.project-applications h3 { font-size: 15px; line-height: 1.6; font-weight: 500; }
+.project-applications li p { font-size: 14px; color: var(--muted); line-height: 1.75; }
+.application-actions { display: flex; flex-direction: column; align-items: flex-start; }
+.application-actions a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--lime); font-size: 13px; }
+.application-actions svg { width: 16px; height: 16px; transition: transform .18s ease; }
+@media (hover: hover) and (pointer: fine) { .application-actions a:hover svg { transform: translateX(3px); } }
+@media (max-width: 767px) { .project-applications li { grid-template-columns: 1fr; gap: 8px; } .application-actions { flex-direction: row; flex-wrap: wrap; gap: 8px 24px; } }
+@media (prefers-reduced-motion: reduce) { .application-actions svg { transition: none; } .application-actions a:hover svg { transform: none; } }

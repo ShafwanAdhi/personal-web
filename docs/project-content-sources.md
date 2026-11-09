@@ -44,3 +44,9 @@ The older import notes above describe asset history, not the current source of n
 Image bytes, image URLs, latest thumbnails and gallery order were retained. WaspadAI captions identify the team-built Android product and selected personal integration scope. Numora captions identify team product UI, synthetic data and request interception; they do not imply connected backend/IRT execution. Other demo/privacy provenance remains as recorded above.
 
 Hero/about/SEO identity and experience ordering were preserved. Skill labels now emphasize LLM applications, retrieval-augmented generation, AI automation and software engineering; multi-agent remains a research interest, not a delivered headline capability inferred from a staged LLM pipeline. SiDiKa website URL stays empty; Numora has no invented demo link. Existing external buttons and WaspadAI Visit Demo remain below galleries.
+
+## Netflix catalog integration, 9 November 2026
+
+One collection entry, Netflix Catalog ML & Analytics, connects four independently deployed repositories and applications. The collection now contains seven projects (three AI / ML and four Software Engineering); homepage selections and previous project claims remain unchanged. Narrative separates advisory classification, metadata segmentation, historical forecasting and calendar-year-difference regression.
+
+The [source register](netflix-catalog-sources.json) records the repository commits and frozen artifact checksums checked before import. The [served report](../public/reports/projects/netflix-catalog-ml.md) contains full comparisons and run IDs. Six actual HTTPS screenshots retain semantic chart colors; example predictions do not establish generalization. Raw CSV and model bundles were not copied. Source provenance and redistribution permission remain explicitly unverified.

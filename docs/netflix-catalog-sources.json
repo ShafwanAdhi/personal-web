@@ -1,0 +1,134 @@
+{
+  "recorded_date": "2026-11-09",
+  "portfolio_baseline_commit": "f5da5c09c9fb585160325e03b781c8d0339ddb33",
+  "sources": [
+    {
+      "id": "netflix-audience-ratings",
+      "title": "Audience Ratings",
+      "commit": "3bbc725630ea1c92df8904544bc19d3c9586602b",
+      "run_id": "20261106T111736917654Z",
+      "dataset_sha256": "90b02beeb554921f81d3b9a774d0f7766f6a65240162565f6b4082165dc2a1d3",
+      "bundle_checksums_sha256": "620e4fc58304ea7c73c79b09dccf1d53d26f3d09d107e86633b8711ba3c8509a",
+      "verified_files": {
+        "classification_report.csv": "d54b9bb21f300fa0b7a2e1993b09fe82d56520b7cb378a16a7d7681704aff082",
+        "cv_comparison.csv": "842c57e14cdd41de933aaa3f4ad3236124f713a50811cb6a764ac2bffda1a43b",
+        "decision_tree.joblib": "5b6155458085b1e1ba2c2d218832deca282c4ceb8792f29ddf6814538aa205a1",
+        "decision_tree_search.csv": "efb535d7a303222117ba14915b0935fdfde9fc6da254a1e9e9a1665941e1ff24",
+        "dummy.joblib": "df09d9ce0a8125af39268f8019d71bf519bab7fb7e56759aba030427ce9c69c7",
+        "evaluation.json": "f55ae802de78457c544be7d378702ebbe32f25082477d7103d9f67d8cb72a0d5",
+        "feature_summary.csv": "ccd8488eb9f1a21ecb9a12630e5679f9cee841f6213b023313e72c6acce6db07",
+        "logistic_regression.joblib": "fc94ac8d6690ddea141ff9200740ae7b5879d30fba34f436c4f40c429de49380",
+        "logistic_regression_search.csv": "a8a5dcfe8596fe53eb263bbc8e691be90dc36603bbc57d5b5c494d86f946fa0e",
+        "metadata.json": "abfef065b303c7e1bec4384adbd0bcd9f29c720c17171e8691224f3bbb599d6a",
+        "model_comparison.csv": "f710c637133121b3c3334a55cbb20175ba3c07706f82119542eee3692bc9fb9b",
+        "pipeline.joblib": "900ef2f34be2b8194551d3bac9f3455d3c22f563b417e4bd78b109cb7846952d",
+        "progress.json": "652890919b150471885933e33b6a592604cddd56c173ce36471b1ca8e08c8bc9",
+        "random_forest.joblib": "900ef2f34be2b8194551d3bac9f3455d3c22f563b417e4bd78b109cb7846952d",
+        "random_forest_search.csv": "81a0619ad46eea0b4a9f8ffe5ee574b98427b72469bab8f8e0d9715e58504648",
+        "selection.json": "182770fd0975e9fc4b3e90b3ac82e61129a6f74ca8a4eb609345130c0568975a",
+        "test_predictions.csv": "682757f28d555628e5e7475a7f9e3bc5def3bd451ee071f9d42a6a239db423c3"
+      }
+    },
+    {
+      "id": "netflix-content-segmentation",
+      "title": "Content Segmentation",
+      "commit": "3f729a46bea722737ed0b87c3cc1a64b453d0a37",
+      "run_id": "20261106T115043590368Z",
+      "dataset_sha256": "90b02beeb554921f81d3b9a774d0f7766f6a65240162565f6b4082165dc2a1d3",
+      "bundle_checksums_sha256": "88a9149318eab53aeb26bc1a8b911c6da58136823ba8955364b7d8c6e2b07944",
+      "verified_files": {
+        "assignments.csv": "743a8d7c7799ed4914688980fe7d2e31abdaf51029326c0afc06a80fb818dede",
+        "comparison.csv": "5151d4900edce53405b28145f420700a37c1d4d1e1851dbb8745758eca15efee",
+        "metadata.json": "16fba3dc280f0dca1f49f930538356729f8422ef3d11f3b48a2baf240465b58c",
+        "pipeline.joblib": "04a159b22e87ec6b2c848ca7fca9185eb8a5f9c1c086af385cfa8f1ec639dfd0",
+        "progress.json": "f0433043bcf33f423a42a801c4fb337a2c2400dea3e6b296efba59f3048be552",
+        "projection.joblib": "6dd3eb9893238b6f3675c23f2eee3ac93fc78d9fd52fd619d4b8ecd65d6b7cbd",
+        "results.json": "eebc5a3d46a61d7bb9394ad552e6f61eb9e342139e869fde58fbf75d4e7894a3",
+        "selection.json": "568b02eadd5affe6264b9362495193ecb118335221bac71d92864cddce9c2aca"
+      }
+    },
+    {
+      "id": "netflix-trend-forecasting",
+      "title": "Trend Forecasting",
+      "commit": "805a34fc76f38b5f9953f7c02df591c5d07dab99",
+      "run_id": "20261106T122211417836Z",
+      "dataset_sha256": "90b02beeb554921f81d3b9a774d0f7766f6a65240162565f6b4082165dc2a1d3",
+      "bundle_checksums_sha256": "2af5d9b0db3ce9f1cef4426026ba26056d37260fc8ce46846e4a0af946b11f8f",
+      "verified_files": {
+        "metadata.json": "023c14cbb81f231229b1ea3ec04b800629314066a20f9871cd8dfb5936b541a5",
+        "models.joblib": "97f2e9c94d0cf14cbb835e22672f68526294f52723afa434e17d0cf5a338d371",
+        "results.json": "7f9bfbdb2821923b7e70199f4d9625f1f6f2cf4ab55dccd146d78f5dce43b359",
+        "selection.json": "bbdce864b1c7beb5a6a650c3646b596974c8b8f4cc98c5b6005e289727e3e7a1",
+        "series.csv": "7b4a8c492201cc20bb3053bf2e5969d14778156fe71029d0f8830bc5c0ec6f8f",
+        "temporal_manifest.csv": "52a50804ca7e8972fbdbbf72a31fea7c682d23d716f1d6f23e37a12cf00baeae"
+      }
+    },
+    {
+      "id": "netflix-catalog-analytics",
+      "title": "Historical Catalog Entry Analytics",
+      "commit": "cb90632cbabbc80cf9a31d4a9933fb5762efc540",
+      "run_id": "20261106T131312231321Z",
+      "dataset_sha256": "90b02beeb554921f81d3b9a774d0f7766f6a65240162565f6b4082165dc2a1d3",
+      "bundle_checksums_sha256": "c91aee8557905cb77101c301ff808150a92e9b661ecc0ebcdec772a130228fdc",
+      "verified_files": {
+        "audit.json": "bde411c8fddb0d9b78f6c7b4ca71504c06207a5e69f2f2610c48c663c375e489",
+        "config.json": "4962c319be5b234eb633a94d1d229f28df33d4e14c5135d43c8c6d52a6af3a8b",
+        "cv_manifest.csv": "0ee858c421c53e58eeea64e1598b39ac2c49e0d2c006a95811e1ec83cb21476a",
+        "insights.json": "cc7481258bf0ab8cd90c38262d6ce967828e50850dce6f72c01cbd2c57052973",
+        "manifest.csv": "bd2827c608deae5472ae780367be7c59f86b8b17c867929d3da16dcddbb92cfe",
+        "metadata.json": "5e7f51b9c3b3844310e97b65e5311bd3a9ede7935e2e5bc422337b283e67d493",
+        "pipeline.joblib": "5f02a6d93dc0fcf1e13223cdf4f1a8afdcef6cb3c0386f8a6e463da7b675ab7d",
+        "results.json": "90568b4df5ddba54fb13f97ecddb0bff621fd7c38a59f7c8bf2142f9c0157679",
+        "selection.json": "7976953195f8ef6a29484e4870bbb105585f837d26f90b8a9ba17e6151f734ff",
+        "test_predictions.csv": "9984c41df315e849b8526eb13912b35e36c22a78db4bc1b5ecbb7bff481172f9"
+      }
+    }
+  ],
+  "screenshots": {
+    "capturedAt": "2026-11-09T06:19:15.200Z",
+    "viewport": {
+      "width": 1600,
+      "height": 1000
+    },
+    "records": [
+      {
+        "slug": "netflix-content-segmentation",
+        "route": "explore",
+        "run_id": "20261106T115043590368Z"
+      },
+      {
+        "slug": "netflix-audience-ratings",
+        "route": "predict",
+        "run_id": "20261106T111736917654Z"
+      },
+      {
+        "slug": "netflix-audience-ratings",
+        "route": "evaluation",
+        "run_id": "20261106T111736917654Z"
+      },
+      {
+        "slug": "netflix-trend-forecasting",
+        "route": "overview",
+        "run_id": "20261106T122211417836Z"
+      },
+      {
+        "slug": "netflix-trend-forecasting",
+        "route": "forecast?target=additions&group=movies&horizon=2",
+        "run_id": "20261106T122211417836Z"
+      },
+      {
+        "slug": "netflix-catalog-analytics",
+        "route": "insights#estimate",
+        "run_id": "20261106T131312231321Z"
+      }
+    ]
+  },
+  "asset_sha256": {
+    "analytics-estimator.webp": "b4b325004f434def1c08b0d3ba3818097a9ed6d72c5335e66d7d277f2d059573",
+    "forecast-comparison.webp": "048ba940347b170bd6313977509395d493278898285154ba0565a3fa33f79956",
+    "forecast-monthly.webp": "0aa6cf9a1a70496e1af2ee01963600486f0991c973faed1d0799c8f96edecd06",
+    "ratings-confusion.webp": "f0d35f356bd4b99d64268bd08c167a0dc2d5454c6a84add5e3bd9e57b2eaa968",
+    "ratings-prediction.webp": "4a23a484e69460ff8de59ff3ebbbc0742bc3c74e33880362d420760b3f169a59",
+    "segmentation-explorer.webp": "a7c874e1480c967d99702b4951767d1553593fe022db46a86646de0facb4d4ab"
+  }
+}
