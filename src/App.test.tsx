@@ -91,7 +91,7 @@ describe('portfolio visitor journeys', () => {
     ['sisdas-rag-assistant', 'https://ragcampus.shafwan.digital/'],
     ['bonjermgu', 'https://bonjermgu.com/'],
     ['sidika', 'https://www.dinoyokamera.com/'],
-    ['numora-question-variants', null],
+    ['numora-question-variants', 'https://hellonumora.com'],
     ['siparih', 'https://siparih.shafwan.digital'],
   ])('offers the configured website only on eligible case studies: %s', (id, url) => {
     window.history.replaceState(null, '', `/projects/${id}`)

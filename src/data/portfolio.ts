@@ -275,6 +275,7 @@ export const portfolio = {
   },
   {
     "id": "numora-question-variants",
+    "websiteUrl": "https://hellonumora.com",
     "preview": { "summary": "Reproducible mathematics question variants with a browser review workbench.", "tools": ["Python", "JavaScript", "PostgreSQL"] },
     "category": "software",
     "title": "Numora Assessment & Question Variants",
